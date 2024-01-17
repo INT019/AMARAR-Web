@@ -109,6 +109,7 @@ function UserDashObituaryHome ()
                                         {/* <div style={ statusStyle( post.status ) }>
                                         { post.status }
                                     </div> */}
+                                        { post.status }
                                     </td>
 
                                     <td>{ timeAgo( post.time ) }</td>

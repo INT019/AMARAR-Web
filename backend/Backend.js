@@ -67,7 +67,15 @@ app.post( '/obituary', upload.fields( [ { name: 'images', maxCount: 1 }, { name:
 } );
 
 // for display data on obituary detail page
-app.get( '/read/:id', ( req, res ) =>
+app.get(
+    [
+        '/read/:id',
+        '/readDescription/:id',
+        '/readPhotos/:id',
+        '/readShare/:id',
+        '/readTribute/:id',
+        '/readDonation/:id'
+    ], ( req, res ) =>
 {
     const sql = "SELECT * FROM obituary WHERE ID = ?";
 

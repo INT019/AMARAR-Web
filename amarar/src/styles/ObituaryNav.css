@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+}
+
+.postNav{
+    background: #060606;
+    display: flex;
+    justify-content: center;
+    color: #FFF;
+    text-align: center;
+    align-items: stretch;
+    font-size: 28px;
+    font-weight: 600;
+    gap: 2rem;
+    box-sizing: border-box;
+    padding: 0rem;
+}
+
+.postNav ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.postNav a {
+    color: inherit;
+    text-decoration: none !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
+}
+
+.postNav li.active{
+    background: #F5F6F9;
+    color: #326346;
+}
+
+.postNav li:hover{
+    background: #F5F6F9;
+    color: #326346;
+}
