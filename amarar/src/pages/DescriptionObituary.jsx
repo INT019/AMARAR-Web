@@ -2,8 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 
-import ObituaryNav from '../components/ObituaryNav';
-
 function DescriptionObituary ()
 {
   const { id } = useParams();
@@ -12,7 +10,7 @@ function DescriptionObituary ()
 
   useEffect( () =>
   {
-    axios.get( 'http://localhost:8081/readDescription/' + id )
+    axios.get( 'http://localhost:8081/read/' + id )
       .then( res =>
       {
         console.log( res )
@@ -23,8 +21,6 @@ function DescriptionObituary ()
 
   return (
     <div>
-      <ObituaryNav />
-
       <div className='d-flex justify-content-center align-items-center' style={ { background: '#F2F2F8' } }>
         <div className='w-50 rounded p-3'>
           { obituary.length > 0 && (
@@ -36,7 +32,7 @@ function DescriptionObituary ()
                 <h3>{ obituary[ 0 ].religion }</h3>
               </div>
 
-              <button className='btn ms-2' style={ { background: '#326346', color: '#ffff' } }>Edit</button>
+              {/* <button className='btn ms-2' style={ { background: '#326346', color: '#ffff' } }>Edit</button> */ }
             </> ) }
         </div>
       </div>

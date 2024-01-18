@@ -35,10 +35,19 @@ function UserDashObituaryHome ()
     // };
 
     // for time
-    const timeAgo = ( timestamp ) =>
+    const timeAgo = ( createdTime, editedTime ) =>
     {
-        const distance = formatDistanceToNow( new Date( timestamp ), { addSuffix: true, includeSeconds: true } );
-        return distance.replace( 'about ', '' );
+        const now = new Date();
+
+        if ( editedTime && editedTime !== createdTime )
+        {
+            const distanceToNow = formatDistanceToNow( new Date( editedTime ), { addSuffix: true, includeSeconds: true } );
+            return `Edited ${ distanceToNow }`;
+        } else
+        {
+            const distanceToNow = formatDistanceToNow( new Date( createdTime ), { addSuffix: true, includeSeconds: true } );
+            return `${ distanceToNow }`;
+        }
     };
 
     const handleDelete = ( id ) =>
@@ -112,7 +121,7 @@ function UserDashObituaryHome ()
                                         { post.status }
                                     </td>
 
-                                    <td>{ timeAgo( post.time ) }</td>
+                                    <td>{ timeAgo( post.createdTime, post.editedTime ) }</td>
 
                                     <td>
                                         {/* Edit Button */ }

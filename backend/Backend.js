@@ -30,10 +30,10 @@ app.get( '/', ( req, res ) =>
     } );
 } );
 
-// for post user input data by obituary form
+// for obituary form
 app.post( '/obituary', upload.fields( [ { name: 'images', maxCount: 1 }, { name: 'certificates', maxCount: 1 } ] ), ( req, res ) =>
 {
-    const sql = "INSERT INTO obituary (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `images`, `certificate`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `time`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+    const sql = "INSERT INTO obituary (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `images`, `certificate`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
     const values = [
         req.body.fname,
@@ -66,15 +66,16 @@ app.post( '/obituary', upload.fields( [ { name: 'images', maxCount: 1 }, { name:
     } );
 } );
 
-// for display data on obituary detail page
+// for display data on obituary view post page
+
+// Description
 app.get(
     [
         '/read/:id',
-        '/readDescription/:id',
+        // '/readDescription/:id',
         '/readPhotos/:id',
         '/readShare/:id',
         '/readTribute/:id',
-        '/readDonation/:id'
     ], ( req, res ) =>
 {
     const sql = "SELECT * FROM obituary WHERE ID = ?";
@@ -87,10 +88,25 @@ app.get(
     } );
 } );
 
-// for edit form data
+// donation (Kavishka)
+app.get( "/readDonation/:id", ( req, res ) =>
+{
+    const q = "SELECT * FROM donations";
+    db.query( q, ( err, data ) =>
+    {
+        if ( err )
+        {
+            console.error( err );
+            return res.status( 500 ).json( { error: 'Internal Server Error' } );
+        }
+        return res.status( 200 ).json( data );
+    } );
+} );
+
+// for edit form
 app.put( '/edit/:id', ( req, res ) =>
 {
-    const sql = 'UPDATE obituary SET `fName` =?, `lName` =?, `dob` =?, `dod` =?, `country` =?, `city` =?, `religion` =?, `title` =?, `donation` =?, `description` =?, `userName` =?, `userEmail` =?, `contactNo` =?, `nic` =?, `time` =NOW() WHERE ID = ?';
+    const sql = 'UPDATE obituary SET `fName` =?, `lName` =?, `dob` =?, `dod` =?, `country` =?, `city` =?, `religion` =?, `title` =?, `donation` =?, `description` =?, `editedTime` =NOW() WHERE ID = ?';
 
     const id = req.params.id;
     db.query( sql, [
@@ -104,18 +120,18 @@ app.put( '/edit/:id', ( req, res ) =>
         req.body.title,
         req.body.donation,
         req.body.description,
-        req.body.name,
-        req.body.email,
-        req.body.contactNo,
-        req.body.nic,
+        // req.body.name,
+        // req.body.email,
+        // req.body.contactNo,
+        // req.body.nic,
         id ], ( err, result ) =>
     {
         if ( err ) return res.json( { Message: "Error inside server" } );
         return res.json( result );
     } )
-} )
+} );
 
-// for delete function
+// for delete post
 app.delete( '/delete/:id', ( req, res ) =>
 {
     const sql = "DELETE FROM obituary WHERE ID = ?";
@@ -126,7 +142,7 @@ app.delete( '/delete/:id', ( req, res ) =>
         if ( err ) return res.json( { Message: "Error inside server" } );
         return res.json( result );
     } )
-} )
+} );
 
 app.listen( 8081, () =>
 {

@@ -21,8 +21,13 @@ function App ()
       <Routes>
         <Route path='/' element={ <UserDashObituary /> } />
         <Route path='/create' element={ <CreateObituary /> } />
-        <Route path='/read/:id' element={ <ObituaryNav /> } />
-        <Route path='/readDescription/:id' element={ <DescriptionObituary /> } />
+        <Route path='/read/:id' element={
+          <>
+            <ObituaryNav />
+            <DescriptionObituary />
+          </>
+        } />
+        {/* <Route path='/readDescription/:id' element={ <DescriptionObituary /> } /> */ }
         <Route path='/readTribute/:id' element={ <TributeObituary /> } />
         <Route path='/readDonation/:id' element={ <DonationObituary /> } />
         <Route path='/readPhotos/:id' element={ <PhotoObituary /> } />

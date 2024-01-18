@@ -247,7 +247,7 @@ function EditObituary ()
 
                         {/* for user information */ }
 
-                        <h2>Your Contact Details</h2>
+                        {/* <h2>Your Contact Details</h2>
 
                         <div className='row'>
                             <div className='form-group col-md-6'>
@@ -304,7 +304,7 @@ function EditObituary ()
                         <div className='form-check'>
                             <input type='checkbox' className='form-check-input' required />
                             <label className='form-check-label'>I agree Terms and Conditions</label>
-                        </div>
+                        </div> */}
 
                         <button className='btn justify-content-center p-2' style={ { background: '#326346', color: '#ffff' } }>Save</button>
                     </form>
