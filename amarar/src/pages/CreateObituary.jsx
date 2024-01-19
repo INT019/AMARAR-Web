@@ -153,6 +153,7 @@ function ObituaryForm ()
                                     type='file'
                                     className='form-control'
                                     onChange={ e => setValues( { ...values, images: e.target.value } ) }
+                                    multiple
                                 />
                             </div>
 

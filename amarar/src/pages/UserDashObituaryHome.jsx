@@ -42,11 +42,11 @@ function UserDashObituaryHome ()
         if ( editedTime && editedTime !== createdTime )
         {
             const distanceToNow = formatDistanceToNow( new Date( editedTime ), { addSuffix: true, includeSeconds: true } );
-            return `Edited ${ distanceToNow }`;
+            return `Edited ${ distanceToNow.replace( 'about', '' ) }`;
         } else
         {
             const distanceToNow = formatDistanceToNow( new Date( createdTime ), { addSuffix: true, includeSeconds: true } );
-            return `${ distanceToNow }`;
+            return `${ distanceToNow.replace( 'about', '' ) }`;
         }
     };
 

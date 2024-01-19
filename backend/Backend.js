@@ -31,7 +31,7 @@ app.get( '/', ( req, res ) =>
 } );
 
 // for obituary form
-app.post( '/obituary', upload.fields( [ { name: 'images', maxCount: 1 }, { name: 'certificates', maxCount: 1 } ] ), ( req, res ) =>
+app.post( '/obituary', upload.fields( [ { name: 'images', maxCount: 5 }, { name: 'certificates', maxCount: 1 } ] ), ( req, res ) =>
 {
     const sql = "INSERT INTO obituary (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `images`, `certificate`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
