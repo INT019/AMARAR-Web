@@ -28,16 +28,12 @@ function ObituaryNav ()
 
         if ( editedTime && editedTime !== createdTime )
         {
-            return `Edited ${ formatDistanceToNow( new Date( editedTime ), {
-                addSuffix: true,
-                includeSeconds: true,
-            } ) }`;
+            const distanceToNow = formatDistanceToNow( new Date( editedTime ), { addSuffix: true, includeSeconds: true } );
+            return `Edited ${ distanceToNow.replace( 'about', '' ) }`;
         } else
         {
-            return `Created ${ formatDistanceToNow( new Date( createdTime ), {
-                addSuffix: true,
-                includeSeconds: true,
-            } ) }`;
+            const distanceToNow = formatDistanceToNow( new Date( createdTime ), { addSuffix: true, includeSeconds: true } );
+            return `${ distanceToNow.replace( 'about', '' ) }`;
         }
     };
 
