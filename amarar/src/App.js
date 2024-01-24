@@ -31,7 +31,7 @@ function App ()
         <Route path='/readTribute/:id' element={ <TributeObituary /> } />
         <Route path='/readDonation/:id' element={ <DonationObituary /> } />
         <Route path='/readPhotos/:id' element={ <PhotoObituary /> } />
-        <Route path='/readShare/:id' element={ <ShareObituary /> } />
+        {/* <Route path='/readShare/:id' element={ <ShareObituary /> } /> */ }
         <Route path='/edit/:id' element={ <EditObituary /> } />
       </Routes>
     </BrowserRouter>

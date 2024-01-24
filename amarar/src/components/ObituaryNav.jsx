@@ -3,12 +3,16 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { formatDistanceToNow } from 'date-fns';
 
-import '../styles/ObituaryNav.css';
+import '../styles/Obituary.css'
+import ShareObituary from '../pages/ShareObituary';
 
 function ObituaryNav ()
 {
     const { id } = useParams();
     const [ obituary, setObituary ] = useState( [] );
+
+    // share popup
+    const [ shareButton, setShareButton ] = useState( false );
 
     useEffect( () =>
     {
@@ -74,8 +78,21 @@ function ObituaryNav ()
                                         <Link to={ `/readPhotos/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Photos</Link>
                                     </li>
                                     <li>
-                                        <Link to={ `/readShare/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Share</Link>
+                                        <Link
+                                            onClick={ () => setShareButton( true ) }
+                                        >Share</Link>
+
+                                        <ShareObituary
+                                            trigger={ shareButton }
+                                            setTrigger={ setShareButton }
+                                        >
+                                            <h3>Share popup</h3>
+                                            <p>This is my button popup.</p>
+                                        </ShareObituary>
                                     </li>
+                                    {/* <li>
+                                        <Link to={ `/readShare/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Share</Link>
+                                    </li> */}
                                 </ul>
                             </nav>
                         </div>

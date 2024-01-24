@@ -74,7 +74,7 @@ app.get(
         '/read/:id',
         // '/readDescription/:id',
         '/readPhotos/:id',
-        '/readShare/:id',
+        //'/readShare/:id',
         '/readTribute/:id',
     ], ( req, res ) =>
 {
