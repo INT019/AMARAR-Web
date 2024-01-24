@@ -8,8 +8,21 @@ const app = express();
 app.use( cors() );
 app.use( express.json() );
 
-const storage = multer.memoryStorage();
-const upload = multer( { storage: storage } );
+// image and file uploads
+const storage = multer.diskStorage( {
+    destination: function ( req, file, cb )
+    {
+        cb( null, '/amarar/src/images/ObituaryImages' )
+    },
+    filename: function ( req, file, cb )
+    {
+        cb( null, Date.now() + file.originalname )
+    }
+} )
+
+const upload = multer( { storage: storage } )
+// const storage = multer.memoryStorage();
+// const upload = multer( { storage: storage } );
 
 // database connection
 const db = mysql.createConnection( {
@@ -31,8 +44,14 @@ app.get( '/', ( req, res ) =>
 } );
 
 // for obituary form
-app.post( '/obituary', upload.fields( [ { name: 'images', maxCount: 5 }, { name: 'certificates', maxCount: 1 } ] ), ( req, res ) =>
+app.post( '/obituary',
+    upload.fields( [
+        { name: 'images', maxCount: 5 },
+        { name: 'certificates', maxCount: 1 }
+    ] ), ( req, res ) =>
 {
+    console.log( req.files );
+
     const sql = "INSERT INTO obituary (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `images`, `certificate`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
     const values = [

@@ -86,8 +86,7 @@ function ObituaryNav ()
                                             trigger={ shareButton }
                                             setTrigger={ setShareButton }
                                         >
-                                            <h3>Share popup</h3>
-                                            <p>This is my button popup.</p>
+                                            <h4>Share This Post ...</h4>
                                         </ShareObituary>
                                     </li>
                                     {/* <li>

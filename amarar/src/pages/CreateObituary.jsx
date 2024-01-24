@@ -38,7 +38,11 @@ function ObituaryForm ()
         formData.append( 'images', values.images );
         formData.append( 'certificates', values.certificates );
 
-        axios.post( 'http://localhost:8081/obituary', formData )
+        axios.post( 'http://localhost:8081/obituary', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        } )
             .then( res =>
             {
                 console.log( res );
@@ -54,7 +58,10 @@ function ObituaryForm ()
                 <h1>CREATE YOUR OBITUARY ....</h1>
 
                 <div className='w-50 rounded p-4' style={ { background: '#D9D9D9' } }>
-                    <form onSubmit={ handleSubmit }>
+                    <form
+                        onSubmit={ handleSubmit }
+                        encType='multipart/form-data'
+                    >
                         {/* for personal information */ }
 
                         <h2>Person's Information</h2>
