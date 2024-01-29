@@ -68,17 +68,27 @@ function UserDashObituaryHome ()
 
                 {/* for filters */ }
                 <div className='d-flex justify-content-end p-3'>
-                    <Dropdown>
-                        <Dropdown.Toggle variant="light" id="packageDropdown">Package</Dropdown.Toggle>
+
+                    {/* Dropdown for Packages */ }
+                    {/* <Dropdown>
+                        <Dropdown.Toggle data-bs-toggle="dropdown" aria-expanded="false" variant="light" id="packageDropdown">Package</Dropdown.Toggle>
 
                         <Dropdown.Menu>
                             <Dropdown.Item href="#pack1">Basic</Dropdown.Item>
                             <Dropdown.Item href="#pack2">Standard</Dropdown.Item>
                             <Dropdown.Item href="#pack3">Premium</Dropdown.Item>
                         </Dropdown.Menu>
-                    </Dropdown>
+                    </Dropdown> */}
 
-                    <Dropdown>
+                    <select id='packageDropdown'>
+                        <option>Package</option>
+                        <option>Basic</option>
+                        <option>Standard</option>
+                        <option>Premium</option>
+                    </select>
+
+                    {/* Dropdown for Status */ }
+                    {/* <Dropdown>
                         <Dropdown.Toggle variant="light" id="statusDropdown">Status</Dropdown.Toggle>
 
                         <Dropdown.Menu>
@@ -86,7 +96,14 @@ function UserDashObituaryHome ()
                             <Dropdown.Item href="#status2">Processing</Dropdown.Item>
                             <Dropdown.Item href="#status3">Pending</Dropdown.Item>
                         </Dropdown.Menu>
-                    </Dropdown>
+                    </Dropdown> */}
+
+                    <select id='statusDropdown'>
+                        <option>Status</option>
+                        <option>Completed</option>
+                        <option>Processing</option>
+                        <option>Pending</option>
+                    </select>
                 </div>
 
                 <table className='table  rounded'>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 function ObituaryForm ()
 {
@@ -24,6 +26,12 @@ function ObituaryForm ()
     } );
 
     const navigate = useNavigate();
+
+    // for description
+    const handleDescriptionChange = ( content ) =>
+    {
+        setValues( { ...values, description: content } );
+    };
 
     const handleSubmit = ( e ) =>
     {
@@ -211,13 +219,23 @@ function ObituaryForm ()
                         <div className='form-group row p-2'>
                             <label htmlFor='description' className='col-sm-2'>Description:</label>
 
-                            <div className='col-sm-10'>
-                                <textarea
+                            <div
+                                className='col-sm-10'
+                            >
+                                <ReactQuill
+                                    theme='snow'
+                                    style={ { height: '300px', background: '#fff', borderRadius: '10px' } }
+                                    value={ values.description }
+                                    onChange={ handleDescriptionChange }
+                                    required
+                                />
+
+                                {/* <textarea
                                     className='form-control'
                                     rows={ 2 }
                                     onChange={ e => setValues( { ...values, description: e.target.value } ) }
                                     required
-                                ></textarea>
+                                ></textarea> */}
                             </div>
                         </div>
 
