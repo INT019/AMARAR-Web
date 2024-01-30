@@ -26,7 +26,10 @@ function DescriptionObituary ()
           { obituary.length > 0 && (
             <>
               <div className='p-2'>
-                <h3>{ obituary[ 0 ].description }</h3>
+                {/* <h3>{ obituary[ 0 ].description }</h3> */ }
+                <div
+                  dangerouslySetInnerHTML={ { __html: obituary[ 0 ].description } }
+                />
                 <h3>{ obituary[ 0 ].country }</h3>
                 <h3>{ obituary[ 0 ].city }</h3>
                 <h3>{ obituary[ 0 ].religion }</h3>
