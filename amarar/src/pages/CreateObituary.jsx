@@ -27,6 +27,24 @@ function ObituaryForm ()
 
     const navigate = useNavigate();
 
+    // for handle image uploading
+    const handleImages = ( e ) =>
+    {
+        setValues( {
+            ...values,
+            images: e.target.files[ 0 ]
+        } );
+    }
+
+    // handle certificate upload
+    const handleCertification = ( e ) =>
+    {
+        setValues( {
+            ...values,
+            certificates: e.target.files[ 0 ]
+        } );
+    }
+
     // for description
     const handleDescriptionChange = ( content ) =>
     {
@@ -167,19 +185,35 @@ function ObituaryForm ()
                                 <input
                                     type='file'
                                     className='form-control'
+                                    onChange={ handleImages }
+                                />
+                            </div>
+                            {/* <div className='form-group col-md-6'>
+                                <label htmlFor='images'>Images:</label>
+                                <input
+                                    type='file'
+                                    className='form-control'
                                     onChange={ e => setValues( { ...values, images: e.target.value } ) }
                                     multiple
                                 />
-                            </div>
+                            </div> */}
 
                             <div className='form-group col-md-6'>
                                 <label htmlFor='certificates'>Certificate of Death:</label>
                                 <input
                                     type='file'
                                     className='form-control'
-                                    onChange={ e => setValues( { ...values, certificates: e.target.value } ) }
+                                    onChange={ handleCertification }
                                 />
                             </div>
+                            {/* <div className='form-group col-md-6'>
+                                <label htmlFor='certificates'>Certificate of Death:</label>
+                                <input
+                                    type='file'
+                                    className='form-control'
+                                    onChange={ e => setValues( { ...values, certificates: e.target.value } ) }
+                                />
+                            </div> */}
                         </div>
 
                         {/* for more information */ }
@@ -296,7 +330,13 @@ function ObituaryForm ()
                             <label className='form-check-label'>I agree Terms and Conditions</label>
                         </div>
 
-                        <button className='btn justify-content-center p-2' style={ { background: '#326346', color: '#ffff' } }>Create</button>
+                        <button
+                            className='btn justify-content-center p-2'
+                            style={ {
+                                background: '#326346',
+                                color: '#ffff'
+                            } }
+                        >Create</button>
                     </form>
                 </div>
             </div>

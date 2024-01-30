@@ -2,27 +2,45 @@ import express from 'express';
 import mysql from 'mysql';
 import cors from 'cors';
 import multer from 'multer';
+import path from 'path';
 
 const app = express();
 
 app.use( cors() );
 app.use( express.json() );
 
-// image and file uploads
+// for image and file upload
 const storage = multer.diskStorage( {
     destination: function ( req, file, cb )
     {
-        cb( null, '/amarar/src/images/ObituaryImages' )
+        if ( file.fieldname === 'images' )
+        {
+            cb( null, 'uploads/images/Obituary' );
+        } else if ( file.fieldname === 'certificates' )
+        {
+            cb( null, 'uploads/docs/Obituary' );
+        }
     },
     filename: function ( req, file, cb )
     {
-        cb( null, Date.now() + file.originalname )
+        cb( null, file.fieldname + "_" + Date.now() + path.extname( file.originalname ) );
     }
-} )
+} );
 
-const upload = multer( { storage: storage } )
-// const storage = multer.memoryStorage();
-// const upload = multer( { storage: storage } );
+// const storage = multer.diskStorage( {
+//     destination: function ( req, file, cb )
+//     {
+//         cb( null, 'uploads/images/Obituary' )
+//     },
+//     filename: function ( req, file, cb )
+//     {
+//         cb( null, file.fieldname + "_" + Date.now() + path.extname( file.originalname ) )
+//     }
+// } )
+
+const upload = multer( {
+    storage: storage
+} );
 
 // database connection
 const db = mysql.createConnection( {
@@ -46,44 +64,51 @@ app.get( '/', ( req, res ) =>
 // for obituary form
 app.post( '/obituary',
     upload.fields( [
-        { name: 'images', maxCount: 5 },
-        { name: 'certificates', maxCount: 1 }
-    ] ), ( req, res ) =>
-{
-    console.log( req.files );
-
-    const sql = "INSERT INTO obituary (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `images`, `certificate`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
-
-    const values = [
-        req.body.fname,
-        req.body.lname,
-        req.body.dob,
-        req.body.dod,
-        req.body.country,
-        req.body.city,
-        req.body.religion,
-        req.files[ 'images' ] ? req.files[ 'images' ][ 0 ].buffer : '',
-        req.files[ 'certificates' ] ? req.files[ 'certificates' ][ 0 ].buffer : '',
-        req.body.title,
-        req.body.donation,
-        req.body.description,
-        req.body.name,
-        req.body.email,
-        req.body.contactNo,
-        req.body.nic
-    ];
-
-    db.query( sql, values, ( err, result ) =>
+        { name: 'images', maxCount: 1 },
+        { name: 'certificates', maxCount: 1 } ] )
+    , ( req, res ) =>
     {
-        if ( err )
-        {
-            console.error( 'Error executing query:', err );
-            return res.json( err );
-        }
+        console.log( req.files );
+        // const images = req.file.filename;
+        // const certificates = req.file.filename;
 
-        return res.json( result );
+        // const images = req.files[ 'images' ] ? req.files[ 'images' ][ 0 ].filename : '';
+        // const certificates = req.files[ 'certificates' ] ? req.files[ 'certificates' ][ 0 ].filename : '';
+
+        const sql = "INSERT INTO obituary (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `images`, `certificate`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+
+        const values = [
+            req.body.fname,
+            req.body.lname,
+            req.body.dob,
+            req.body.dod,
+            req.body.country,
+            req.body.city,
+            req.body.religion,
+            // req.files[ 'images' ] ? req.files[ 'images' ][ 0 ].buffer : '',
+            req.files[ 'images' ] ? req.files[ 'images' ][ 0 ].filename : '',
+            // req.files[ 'certificates' ] ? req.files[ 'certificates' ][ 0 ].buffer : '',
+            req.files[ 'certificates' ] ? req.files[ 'certificates' ][ 0 ].filename : '',
+            req.body.title,
+            req.body.donation,
+            req.body.description,
+            req.body.name,
+            req.body.email,
+            req.body.contactNo,
+            req.body.nic
+        ];
+
+        db.query( sql, values, ( err, result ) =>
+        {
+            if ( err )
+            {
+                console.error( 'Error executing query:', err );
+                return res.json( err );
+            }
+
+            return res.json( result );
+        } );
     } );
-} );
 
 // for display data on obituary view post page
 
