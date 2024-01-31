@@ -53,6 +53,7 @@ function ObituaryNav ()
                 { obituary.length > 0 && (
                     <div>
                         <div className='p-2'>
+                            <img src={ `http://localhost:8081/backend/uploads/images/Obituary/${ obituary[ 0 ].images }` } alt="Thumbnail" style={ { maxWidth: '100px', maxHeight: '100px' } } />
                             <h3>{ obituary[ 0 ].title }</h3>
                             <h3>{ obituary[ 0 ].dob }</h3>
                             <h3>{ obituary[ 0 ].dod }</h3>

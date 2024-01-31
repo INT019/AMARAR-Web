@@ -15,7 +15,7 @@ function ObituaryForm ()
         city: '',
         religion: '',
         images: '',
-        certificates: '',
+        certificate: '',
         title: '',
         donation: '',
         description: '',
@@ -32,20 +32,39 @@ function ObituaryForm ()
     {
         setValues( {
             ...values,
-            images: e.target.files[ 0 ]
+            images: e.target.files[ 0 ],
         } );
-    }
+    };
 
     // handle certificate upload
     const handleCertification = ( e ) =>
     {
         setValues( {
             ...values,
-            certificates: e.target.files[ 0 ]
+            certificate: e.target.files[ 0 ],
         } );
-    }
+    };
 
     // for description
+    const modules = {
+        toolbar: {
+            container: [
+                [ { 'header': [ 1, 2, 3, 4, 5, false ] } ],
+                [ 'bold', 'italic', 'underline' ],
+                [ { 'align': [] } ],
+                [ { 'list': 'ordered' }, { 'list': 'bullet' } ],
+                [ { 'color': [] }, { 'background': [] } ],
+            ],
+        },
+    };
+
+    // const formats = [
+    //     'header', 'font', 'size',
+    //     'bold', 'italic', 'underline', 'strike', 'blockquote',
+    //     'list', 'bullet', 'indent',
+    //     'color', 'align', 'background',
+    // ];
+
     const handleDescriptionChange = ( content ) =>
     {
         setValues( { ...values, description: content } );
@@ -61,8 +80,8 @@ function ObituaryForm ()
             formData.append( key, value );
         } );
 
-        formData.append( 'images', values.images );
-        formData.append( 'certificates', values.certificates );
+        // formData.append( 'images', values.images );
+        // formData.append( 'certificate', values.certificate );
 
         axios.post( 'http://localhost:8081/obituary', formData, {
             headers: {
@@ -181,7 +200,7 @@ function ObituaryForm ()
 
                         <div className='row'>
                             <div className='form-group col-md-6'>
-                                <label htmlFor='images'>Images:</label>
+                                <label htmlFor='images'>images:</label>
                                 <input
                                     type='file'
                                     className='form-control'
@@ -189,7 +208,7 @@ function ObituaryForm ()
                                 />
                             </div>
                             {/* <div className='form-group col-md-6'>
-                                <label htmlFor='images'>Images:</label>
+                                <label htmlFor='images'>images:</label>
                                 <input
                                     type='file'
                                     className='form-control'
@@ -199,7 +218,7 @@ function ObituaryForm ()
                             </div> */}
 
                             <div className='form-group col-md-6'>
-                                <label htmlFor='certificates'>Certificate of Death:</label>
+                                <label htmlFor='certificate'>Certificate of Death:</label>
                                 <input
                                     type='file'
                                     className='form-control'
@@ -207,11 +226,11 @@ function ObituaryForm ()
                                 />
                             </div>
                             {/* <div className='form-group col-md-6'>
-                                <label htmlFor='certificates'>Certificate of Death:</label>
+                                <label htmlFor='certificate'>Certificate of Death:</label>
                                 <input
                                     type='file'
                                     className='form-control'
-                                    onChange={ e => setValues( { ...values, certificates: e.target.value } ) }
+                                    onChange={ e => setValues( { ...values, certificate: e.target.value } ) }
                                 />
                             </div> */}
                         </div>
@@ -261,6 +280,8 @@ function ObituaryForm ()
                                     style={ { height: '300px', background: '#fff', borderRadius: '10px' } }
                                     value={ values.description }
                                     onChange={ handleDescriptionChange }
+                                    modules={ modules }
+                                    //formats={ formats }
                                     required
                                 />
 
@@ -327,7 +348,11 @@ function ObituaryForm ()
 
                         <div className='form-check'>
                             <input type='checkbox' className='form-check-input' required />
-                            <label className='form-check-label'>I agree Terms and Conditions</label>
+                            <label className='form-check-label'>I agree <a
+                                href='/'
+                                style={ { color: '#326346' } }
+                            >Terms and Conditions</a>
+                            </label>
                         </div>
 
                         <button

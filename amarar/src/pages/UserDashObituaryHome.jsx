@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { formatDistanceToNow } from 'date-fns';
 import { Dropdown } from 'react-bootstrap';
+import { Buffer } from 'buffer';
 
 function UserDashObituaryHome ()
 {
@@ -11,7 +12,10 @@ function UserDashObituaryHome ()
     useEffect( () =>
     {
         axios.get( 'http://localhost:8081/' )
-            .then( res => setData( res.data ) )
+            .then( res =>
+            {
+                setData( res.data );
+            } )
             .catch( err => console.log( err ) );
     }, [] );
 
@@ -123,8 +127,14 @@ function UserDashObituaryHome ()
                             data.map( post => (
                                 <tr key={ post.ID }>
                                     <td>
-                                        <img src={ post.images } alt="Thumbnail" />
+                                        { post.images && (
+                                            <img src={ `http://localhost:8081/backend/uploads/images/Obituary/${ post.images }` } alt="Thumbnail" style={ { maxWidth: '100px', maxHeight: '100px' } } />
+                                        ) }
                                     </td>
+
+                                    {/* <td>
+                                        <img src={ post.images } alt="Thumbnail" />
+                                    </td> */}
 
                                     <td>
                                         <Link to={ `/read/${ post.ID }` }>{ post.title }</Link></td>

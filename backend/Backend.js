@@ -9,6 +9,9 @@ const app = express();
 app.use( cors() );
 app.use( express.json() );
 
+// for access images to display
+app.use( '/backend/uploads', express.static( 'uploads' ) );
+
 // for image and file upload
 const storage = multer.diskStorage( {
     destination: function ( req, file, cb )
@@ -16,7 +19,7 @@ const storage = multer.diskStorage( {
         if ( file.fieldname === 'images' )
         {
             cb( null, 'uploads/images/Obituary' );
-        } else if ( file.fieldname === 'certificates' )
+        } else if ( file.fieldname === 'certificate' )
         {
             cb( null, 'uploads/docs/Obituary' );
         }
@@ -61,19 +64,29 @@ app.get( '/', ( req, res ) =>
     } );
 } );
 
+// app.get( '/', ( req, res ) =>
+// {
+//     const sql = "SELECT ID, title, package, status, createdTime, editedTime, CONCAT('http://localhost:8081/uploads/images/obituary/', images) as imageUrl FROM obituary";
+//     db.query( sql, ( err, result ) =>
+//     {
+//         if ( err ) return res.json( { Message: "Error inside server" } );
+//         return res.json( result );
+//     } );
+// } );
+
 // for obituary form
 app.post( '/obituary',
     upload.fields( [
         { name: 'images', maxCount: 1 },
-        { name: 'certificates', maxCount: 1 } ] )
+        { name: 'certificate', maxCount: 1 } ] )
     , ( req, res ) =>
     {
         console.log( req.files );
         // const images = req.file.filename;
-        // const certificates = req.file.filename;
+        // const certificate = req.file.filename;
 
         // const images = req.files[ 'images' ] ? req.files[ 'images' ][ 0 ].filename : '';
-        // const certificates = req.files[ 'certificates' ] ? req.files[ 'certificates' ][ 0 ].filename : '';
+        // const certificate = req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '';
 
         const sql = "INSERT INTO obituary (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `images`, `certificate`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
@@ -87,8 +100,8 @@ app.post( '/obituary',
             req.body.religion,
             // req.files[ 'images' ] ? req.files[ 'images' ][ 0 ].buffer : '',
             req.files[ 'images' ] ? req.files[ 'images' ][ 0 ].filename : '',
-            // req.files[ 'certificates' ] ? req.files[ 'certificates' ][ 0 ].buffer : '',
-            req.files[ 'certificates' ] ? req.files[ 'certificates' ][ 0 ].filename : '',
+            // req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].buffer : '',
+            req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '',
             req.body.title,
             req.body.donation,
             req.body.description,
