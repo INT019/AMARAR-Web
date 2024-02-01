@@ -16,9 +16,12 @@ app.use( '/backend/uploads', express.static( 'uploads' ) );
 const storage = multer.diskStorage( {
     destination: function ( req, file, cb )
     {
-        if ( file.fieldname === 'images' )
+        if ( file.fieldname === 'mainImage' )
         {
-            cb( null, 'uploads/images/Obituary' );
+            cb( null, 'uploads/images/Obituary/mainImage' );
+        } else if ( file.fieldname === 'otherImages' )
+        {
+            cb( null, 'uploads/images/Obituary/otherImages' );
         } else if ( file.fieldname === 'certificate' )
         {
             cb( null, 'uploads/docs/Obituary' );
@@ -29,17 +32,6 @@ const storage = multer.diskStorage( {
         cb( null, file.fieldname + "_" + Date.now() + path.extname( file.originalname ) );
     }
 } );
-
-// const storage = multer.diskStorage( {
-//     destination: function ( req, file, cb )
-//     {
-//         cb( null, 'uploads/images/Obituary' )
-//     },
-//     filename: function ( req, file, cb )
-//     {
-//         cb( null, file.fieldname + "_" + Date.now() + path.extname( file.originalname ) )
-//     }
-// } )
 
 const upload = multer( {
     storage: storage
@@ -64,31 +56,22 @@ app.get( '/', ( req, res ) =>
     } );
 } );
 
-// app.get( '/', ( req, res ) =>
-// {
-//     const sql = "SELECT ID, title, package, status, createdTime, editedTime, CONCAT('http://localhost:8081/uploads/images/obituary/', images) as imageUrl FROM obituary";
-//     db.query( sql, ( err, result ) =>
-//     {
-//         if ( err ) return res.json( { Message: "Error inside server" } );
-//         return res.json( result );
-//     } );
-// } );
-
 // for obituary form
 app.post( '/obituary',
     upload.fields( [
-        { name: 'images', maxCount: 1 },
+        { name: 'mainImage', maxCount: 1 },
+        { name: 'otherImages', maxCount: 5 },
         { name: 'certificate', maxCount: 1 } ] )
     , ( req, res ) =>
     {
         console.log( req.files );
-        // const images = req.file.filename;
+        // const mainImage = req.file.filename;
         // const certificate = req.file.filename;
 
-        // const images = req.files[ 'images' ] ? req.files[ 'images' ][ 0 ].filename : '';
+        // const mainImage = req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '';
         // const certificate = req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '';
 
-        const sql = "INSERT INTO obituary (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `images`, `certificate`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+        const sql = "INSERT INTO obituary (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `mainImage`, `otherImages`, `certificate`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
         const values = [
             req.body.fname,
@@ -98,10 +81,11 @@ app.post( '/obituary',
             req.body.country,
             req.body.city,
             req.body.religion,
-            // req.files[ 'images' ] ? req.files[ 'images' ][ 0 ].buffer : '',
-            req.files[ 'images' ] ? req.files[ 'images' ][ 0 ].filename : '',
-            // req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].buffer : '',
+            req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '',
+            // req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].buffer : '',
+            JSON.stringify( req.files[ 'otherImages' ] ? req.files[ 'otherImages' ].map( file => file.filename ) : [] ),
             req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '',
+            // req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].buffer : '',
             req.body.title,
             req.body.donation,
             req.body.description,
@@ -125,11 +109,10 @@ app.post( '/obituary',
 
 // for display data on obituary view post page
 
-// Description
+// --- Description
 app.get(
     [
         '/read/:id',
-        // '/readDescription/:id',
         '/readPhotos/:id',
         //'/readShare/:id',
         '/readTribute/:id',
@@ -145,7 +128,7 @@ app.get(
     } );
 } );
 
-// donation (Kavishka)
+// --- Donation (Kavishka)
 app.get( "/readDonation/:id", ( req, res ) =>
 {
     const q = "SELECT * FROM donations";

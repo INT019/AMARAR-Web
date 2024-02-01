@@ -127,13 +127,20 @@ function UserDashObituaryHome ()
                             data.map( post => (
                                 <tr key={ post.ID }>
                                     <td>
-                                        { post.images && (
-                                            <img src={ `http://localhost:8081/backend/uploads/images/Obituary/${ post.images }` } alt="Thumbnail" style={ { maxWidth: '100px', maxHeight: '100px' } } />
+                                        { post.mainImage && (
+                                            <img
+                                                src={ `http://localhost:8081/backend/uploads/images/Obituary/mainImage/${ post.mainImage }` }
+                                                alt="Thumbnail"
+                                                style={ {
+                                                    maxWidth: '100px',
+                                                    maxHeight: '100px'
+                                                } }
+                                            />
                                         ) }
                                     </td>
 
                                     {/* <td>
-                                        <img src={ post.images } alt="Thumbnail" />
+                                        <img src={ post.mainImage } alt="Thumbnail" />
                                     </td> */}
 
                                     <td>

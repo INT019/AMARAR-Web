@@ -14,7 +14,8 @@ function ObituaryForm ()
         country: '',
         city: '',
         religion: '',
-        images: '',
+        mainImage: '',
+        otherImages: [],
         certificate: '',
         title: '',
         donation: '',
@@ -27,14 +28,23 @@ function ObituaryForm ()
 
     const navigate = useNavigate();
 
-    // for handle image uploading
+    // for handle main image uploading
     const handleImages = ( e ) =>
     {
         setValues( {
             ...values,
-            images: e.target.files[ 0 ],
+            mainImage: e.target.files[ 0 ],
         } );
     };
+
+    // for handle other images
+    const handleOtherImages = ( e ) =>
+    {
+        setValues( {
+            ...values,
+            otherImages: e.target.files,
+        } );
+    }
 
     // handle certificate upload
     const handleCertification = ( e ) =>
@@ -70,6 +80,33 @@ function ObituaryForm ()
         setValues( { ...values, description: content } );
     };
 
+    // const handleSubmit = ( e ) =>
+    // {
+    //     e.preventDefault();
+
+    //     const formData = new FormData();
+    //     Object.entries( values ).forEach( ( [ key, value ] ) =>
+    //     {
+    //         formData.append( key, value );
+    //     } );
+
+    //     // formData.append( 'mainImage', values.mainImage );
+    //     // formData.append( 'certificate', values.certificate );
+
+    //     axios.post( 'http://localhost:8081/obituary', formData, {
+    //         headers: {
+    //             'Content-Type': 'multipart/form-data',
+    //         },
+    //     } )
+    //         .then( res =>
+    //         {
+    //             console.log( res );
+    //             navigate( '/' )
+    //         } )
+    //         .catch( err => console.log( err ) );
+
+    // }
+
     const handleSubmit = ( e ) =>
     {
         e.preventDefault();
@@ -77,11 +114,17 @@ function ObituaryForm ()
         const formData = new FormData();
         Object.entries( values ).forEach( ( [ key, value ] ) =>
         {
-            formData.append( key, value );
+            if ( key === 'otherImages' )
+            {
+                for ( let i = 0; i < value.length; i++ )
+                {
+                    formData.append( 'otherImages', value[ i ] );
+                }
+            } else
+            {
+                formData.append( key, value );
+            }
         } );
-
-        // formData.append( 'images', values.images );
-        // formData.append( 'certificate', values.certificate );
 
         axios.post( 'http://localhost:8081/obituary', formData, {
             headers: {
@@ -91,11 +134,10 @@ function ObituaryForm ()
             .then( res =>
             {
                 console.log( res );
-                navigate( '/' )
+                navigate( '/' );
             } )
             .catch( err => console.log( err ) );
-
-    }
+    };
 
     return (
         <div>
@@ -199,12 +241,24 @@ function ObituaryForm ()
                         </div>
 
                         <div className='row'>
+                            {/* for post image */ }
                             <div className='form-group col-md-6'>
-                                <label htmlFor='images'>images:</label>
+                                <label htmlFor='mainImage'>Main Image For Post:</label>
                                 <input
                                     type='file'
                                     className='form-control'
                                     onChange={ handleImages }
+                                />
+                            </div>
+
+                            {/* for other images */ }
+                            <div className='form-group col-md-6'>
+                                <label htmlFor='mainImage'>Other Images:</label>
+                                <input
+                                    type='file'
+                                    className='form-control'
+                                    onChange={ handleOtherImages }
+                                    multiple
                                 />
                             </div>
                             {/* <div className='form-group col-md-6'>
