@@ -80,33 +80,6 @@ function ObituaryForm ()
         setValues( { ...values, description: content } );
     };
 
-    // const handleSubmit = ( e ) =>
-    // {
-    //     e.preventDefault();
-
-    //     const formData = new FormData();
-    //     Object.entries( values ).forEach( ( [ key, value ] ) =>
-    //     {
-    //         formData.append( key, value );
-    //     } );
-
-    //     // formData.append( 'mainImage', values.mainImage );
-    //     // formData.append( 'certificate', values.certificate );
-
-    //     axios.post( 'http://localhost:8081/obituary', formData, {
-    //         headers: {
-    //             'Content-Type': 'multipart/form-data',
-    //         },
-    //     } )
-    //         .then( res =>
-    //         {
-    //             console.log( res );
-    //             navigate( '/' )
-    //         } )
-    //         .catch( err => console.log( err ) );
-
-    // }
-
     const handleSubmit = ( e ) =>
     {
         e.preventDefault();
@@ -261,15 +234,6 @@ function ObituaryForm ()
                                     multiple
                                 />
                             </div>
-                            {/* <div className='form-group col-md-6'>
-                                <label htmlFor='images'>images:</label>
-                                <input
-                                    type='file'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, images: e.target.value } ) }
-                                    multiple
-                                />
-                            </div> */}
 
                             <div className='form-group col-md-6'>
                                 <label htmlFor='certificate'>Certificate of Death:</label>

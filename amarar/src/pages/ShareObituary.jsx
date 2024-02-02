@@ -36,7 +36,7 @@ function ShareObituary ( props )
         <div className='popup'>
             <div className='popup_inner'>
                 <button
-                    className='close_btn'
+                    className='close_btn btn-sm'
                     onClick={ () => props.setTrigger( false ) }
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#326346" class="bi bi-x-square-fill" viewBox="0 0 16 16">
@@ -47,21 +47,21 @@ function ShareObituary ( props )
                 {/* Social media buttons*/ }
 
                 <FacebookShareButton
-                    title="Check out this Obitiary"
+                    title="Check out this Obituary"
                     url={ currentPath }
                 >
                     <FacebookIcon size={ 60 } round={ true } />
                 </FacebookShareButton>
 
                 <TwitterShareButton
-                    title="Check out this Obitiary"
+                    title="Check out this Obituary"
                     url={ currentPath }
                 >
                     <TwitterIcon size={ 60 } round={ true } />
                 </TwitterShareButton>
 
                 <EmailShareButton
-                    title="Check out this Obitiary"
+                    title="Check out this Obituary"
                     url={ currentPath }
                 >
                     <EmailIcon size={ 60 } round={ true } />

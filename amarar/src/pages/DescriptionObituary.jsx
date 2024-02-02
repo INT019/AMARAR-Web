@@ -30,9 +30,9 @@ function DescriptionObituary ()
                 <div
                   dangerouslySetInnerHTML={ { __html: obituary[ 0 ].description } }
                 />
-                <h3>{ obituary[ 0 ].country }</h3>
-                <h3>{ obituary[ 0 ].city }</h3>
-                <h3>{ obituary[ 0 ].religion }</h3>
+                <h5>{ obituary[ 0 ].country }</h5>
+                <h5>{ obituary[ 0 ].city }</h5>
+                <h5>{ obituary[ 0 ].religion }</h5>
               </div>
 
               {/* <button className='btn ms-2' style={ { background: '#326346', color: '#ffff' } }>Edit</button> */ }

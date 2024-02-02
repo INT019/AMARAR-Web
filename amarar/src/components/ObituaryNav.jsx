@@ -48,7 +48,7 @@ function ObituaryNav ()
                     <Link to='/'>Back</Link>
                 </button>
 
-                <h2>Obituary Details</h2>
+                <h3>Obituary Details</h3>
 
                 { obituary.length > 0 && (
                     <div>
@@ -60,15 +60,15 @@ function ObituaryNav ()
                                     maxHeight: '100px'
                                 } }
                             />
-                            <h3>{ obituary[ 0 ].title }</h3>
-                            <h3>{ obituary[ 0 ].dob }</h3>
-                            <h3>{ obituary[ 0 ].dod }</h3>
-                            <h3>
+                            <h4>{ obituary[ 0 ].title }</h4>
+                            <h5>{ obituary[ 0 ].dob }</h5>
+                            <h5>{ obituary[ 0 ].dod }</h5>
+                            <h6>
                                 { getTimeAgo(
                                     obituary[ 0 ].createdTime,
                                     obituary[ 0 ].editedTime
                                 ) }
-                            </h3>
+                            </h6>
 
                             <nav className='postNav'>
                                 <ul>

@@ -1,11 +1,41 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 function EditObituary ()
 {
     const { id } = useParams();
     const navigate = useNavigate();
+
+    const [ isEdited, setIsEdited ] = useState( false );
+
+    // for description
+    const modules = {
+        toolbar: {
+            container: [
+                [ { 'header': [ 1, 2, 3, 4, 5, false ] } ],
+                [ 'bold', 'italic', 'underline' ],
+                [ { 'align': [] } ],
+                [ { 'list': 'ordered' }, { 'list': 'bullet' } ],
+                [ { 'color': [] }, { 'background': [] } ],
+            ],
+        },
+    };
+
+    // const formats = [
+    //     'header', 'font', 'size',
+    //     'bold', 'italic', 'underline', 'strike', 'blockquote',
+    //     'list', 'bullet', 'indent',
+    //     'color', 'align', 'background', 
+    // ];
+
+    const handleDescriptionChange = ( content ) =>
+    {
+        setValues( { ...values, description: content } );
+        setIsEdited( true );
+    };
 
     useEffect( () =>
     {
@@ -29,7 +59,9 @@ function EditObituary ()
                     email: res.data[ 0 ].userEmail,
                     contactNo: res.data[ 0 ].contactNo,
                     nic: res.data[ 0 ].nic
-                } )
+                } );
+
+                setIsEdited( false );
             } )
 
             .catch( err => console.log( err ) );
@@ -235,13 +267,26 @@ function EditObituary ()
                             <label htmlFor='description' className='col-sm-2'>Description:</label>
 
                             <div className='col-sm-10'>
-                                <textarea
+                                <ReactQuill
+                                    theme='snow'
+                                    style={ {
+                                        height: '300px',
+                                        background: '#fff',
+                                        borderRadius: '10px'
+                                    } }
+                                    value={ values.description }
+                                    onChange={ handleDescriptionChange }
+                                    modules={ modules }
+                                    //formats={ formats }
+                                    required
+                                />
+                                {/* <textarea
                                     className='form-control'
                                     rows={ 2 }
                                     onChange={ e => setValues( { ...values, description: e.target.value } ) }
                                     value={ values.description }
                                     required
-                                ></textarea>
+                                ></textarea> */}
                             </div>
                         </div>
 
@@ -306,7 +351,12 @@ function EditObituary ()
                             <label className='form-check-label'>I agree Terms and Conditions</label>
                         </div> */}
 
-                        <button className='btn justify-content-center p-2' style={ { background: '#326346', color: '#ffff' } }>Save</button>
+                        <button
+                            className='btn justify-content-center p-2'
+                            style={ {
+                                background: '#326346',
+                                color: '#ffff'
+                            } }>Save</button>
                     </form>
                 </div>
             </div>

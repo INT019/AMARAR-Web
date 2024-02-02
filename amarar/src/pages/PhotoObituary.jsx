@@ -28,9 +28,14 @@ function PhotoObituary ()
     return (
         <div>
             <ObituaryNav />
+
             <div>
-                <div className='d-flex justify-content-center align-items-center' style={ { background: '#F2F2F8' } }>
-                    <div className='w-75 rounded p-3'>
+                <div
+                    className='d-flex justify-content-center align-items-center'
+                    style={ {
+                        background: '#F2F2F8'
+                    } }>
+                    <div className='w-50 rounded p-4'>
                         { images.length > 0 ? (
                             images.map( ( image, index ) => (
                                 <img
