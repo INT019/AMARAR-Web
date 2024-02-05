@@ -42,7 +42,7 @@ function ObituaryForm ()
     {
         setValues( {
             ...values,
-            otherImages: e.target.files,
+            otherImages: Array.from( e.target.files ),
         } );
     }
 
@@ -89,7 +89,7 @@ function ObituaryForm ()
         {
             if ( key === 'otherImages' )
             {
-                for ( let i = 0; i < value.length; i++ )
+                for ( let i = 0; i <= value.length; i++ )
                 {
                     formData.append( 'otherImages', value[ i ] );
                 }

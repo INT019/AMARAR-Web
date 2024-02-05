@@ -68,6 +68,15 @@ app.post( '/obituary',
         // const mainImage = req.file.filename;
         // const certificate = req.file.filename;
 
+        const otherImagesArray = req.files[ 'otherImages' ];
+
+        const otherImages = otherImagesArray
+            ? ( Array.isArray( otherImagesArray )
+                ? otherImagesArray.map( file => file.filename )
+                : [ otherImagesArray.filename ]
+            )
+            : [];
+
         // const mainImage = req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '';
         // const certificate = req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '';
 
@@ -83,7 +92,8 @@ app.post( '/obituary',
             req.body.religion,
             req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '',
             // req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].buffer : '',
-            JSON.stringify( req.files[ 'otherImages' ] ? req.files[ 'otherImages' ].map( file => file.filename ) : [] ),
+            JSON.stringify( otherImages ),
+            //JSON.stringify( req.files[ 'otherImages' ] ? req.files[ 'otherImages' ].map( file => file.filename ) : [] ),
             req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '',
             // req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].buffer : '',
             req.body.title,
