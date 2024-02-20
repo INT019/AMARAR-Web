@@ -111,7 +111,8 @@ function UserDashObituaryHome ()
                                     </div> */}
                                     </td>
 
-                                    <td>{ timeAgo( post.time ) }</td>
+                                    <td>time</td>
+                                    {/* <td>{ timeAgo( post.time ) }</td> */ }
 
                                     <td>
                                         {/* Edit Button */ }
