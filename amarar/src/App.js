@@ -20,9 +20,6 @@ function App ()
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* <Route path='/' element={ <ObituaryPriceLists /> } />
-        <Route path='/remembrance-price-list' element={ <RemembrancePriceLists /> } /> */}
         <Route path='/obituary-dashboard' element={ <UserDashObituary /> } />
         <Route path='/create' element={ <CreateObituary /> } />
         <Route path='/read/:id' element={

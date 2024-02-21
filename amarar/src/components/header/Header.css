@@ -1,7 +1,7 @@
 .header {
   height: 211px;
   position: relative;
-  width: 1440px;
+  width: max-content;
 }
 
 .header .overlap {
@@ -72,7 +72,6 @@
   margin-top: -1px;
   position: relative;
   white-space: nowrap;
-  width: fit-content;
 }
 
 
