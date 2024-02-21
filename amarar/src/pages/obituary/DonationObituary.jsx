@@ -49,7 +49,7 @@ function DonationObituary ()
                                             <p>{ data.Comment }</p>
                                             <div className='h6'>
                                                 <h6>{ data.Username }</h6>
-                                                <h6>{ data.Date }</h6>
+                                                {/* <h6>{ data.Date }</h6> */ }
                                             </div>
                                         </div>
                                     ) )
