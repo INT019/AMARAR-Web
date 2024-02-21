@@ -13,10 +13,7 @@ import PhotoObituary from './pages/PhotoObituary';
 import ShareObituary from './pages/ShareObituary';
 import TributeObituary from './pages/TributeObituary';
 import DonationObituary from './pages/DonationObituary';
-// import ObituaryPriceLists from './pages/payment/obituary/ObituaryPriceLists';
-// import RemembrancePriceLists from './pages/payment/remembrance/RemembrancePriceLists.jsx'
-import ObituaryPriceLists from './pages/ObituaryPriceLists';
-import RemembrancePriceLists from './pages/RemembrancePriceLists';
+
 
 function App ()
 {
@@ -24,7 +21,6 @@ function App ()
     <BrowserRouter>
       <Routes>
 
-        {/* Obituary Function */ }
         {/* <Route path='/' element={ <ObituaryPriceLists /> } />
         <Route path='/remembrance-price-list' element={ <RemembrancePriceLists /> } /> */}
         <Route path='/obituary-dashboard' element={ <UserDashObituary /> } />
@@ -41,10 +37,6 @@ function App ()
         <Route path='/readPhotos/:id' element={ <PhotoObituary /> } />
         {/* <Route path='/readShare/:id' element={ <ShareObituary /> } /> */ }
         <Route path='/edit/:id' element={ <EditObituary /> } />
-
-        {/* Payment Function */ }
-        <Route path='/' element={ <ObituaryPriceLists /> } />
-        <Route path='/remembrance-price-list' element={ <RemembrancePriceLists /> } />
       </Routes>
     </BrowserRouter>
   );
