@@ -4,23 +4,29 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import pages
-import UserDashObituary from './pages/UserDashObituaryHome';
-import CreateObituary from './pages/CreateObituary';
-import DescriptionObituary from './pages/DescriptionObituary';
-import EditObituary from './pages/EditObituary';
+import CreateObituary from './pages/obituary/CreateObituary';
+import DescriptionObituary from './pages/obituary/DescriptionObituary';
+import EditObituary from './pages/obituary/EditObituary';
 import ObituaryNav from './components/ObituaryNav';
-import PhotoObituary from './pages/PhotoObituary';
-import ShareObituary from './pages/ShareObituary';
-import TributeObituary from './pages/TributeObituary';
-import DonationObituary from './pages/DonationObituary';
-
+import PhotoObituary from './pages/obituary/PhotoObituary';
+import TributeObituary from './pages/obituary/TributeObituary';
+import DonationObituary from './pages/obituary/DonationObituary';
+import UserDashObituaryHome from './pages/obituary/UserDashObituaryHome';
+import ObituaryPriceLists from './pages/payment/ObituaryPriceLists';
+import RemembrancePriceLists from './pages/payment/RemembrancePriceLists';
 
 function App ()
 {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/obituary-dashboard' element={ <UserDashObituary /> } />
+
+        {/* Payment Function */ }
+        <Route path='/' element={ <ObituaryPriceLists /> } />
+        <Route path='/remembrance-price-list' element={ <RemembrancePriceLists /> } />
+
+        {/* Obituary Function */ }
+        <Route path='/obituary-dashboard' element={ <UserDashObituaryHome /> } />
         <Route path='/create' element={ <CreateObituary /> } />
         <Route path='/read/:id' element={
           <>

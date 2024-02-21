@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ObituaryNav from '../components/ObituaryNav'
+import ObituaryNav from '../../components/ObituaryNav'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
@@ -49,7 +49,7 @@ function DonationObituary ()
                                             <p>{ data.Comment }</p>
                                             <div className='h6'>
                                                 <h6>{ data.Username }</h6>
-                                                <h6>{ data.Date }</h6>
+                                                {/* <h6>{ data.Date }</h6> */ }
                                             </div>
                                         </div>
                                     ) )

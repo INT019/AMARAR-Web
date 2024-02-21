@@ -6,8 +6,8 @@ import { Dropdown } from 'react-bootstrap';
 import { Buffer } from 'buffer';
 
 // pages
-import Header from '../components/header/Header';
-import '../styles/UserDashObituaryHome.css';
+import Header from '../../components/header/Header';
+import '../../styles/UserDashObituaryHome.css';
 
 function UserDashObituaryHome ()
 {
