@@ -3,6 +3,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { Upload, Button, Modal } from 'antd';
+import { PlusOutlined, UploadOutlined } from '@ant-design/icons';
+//import CountryCityField from '../components/CountryCityField';
 
 function ObituaryForm ()
 {
@@ -28,31 +31,137 @@ function ObituaryForm ()
 
     const navigate = useNavigate();
 
-    // for handle main image uploading
-    const handleImages = ( e ) =>
-    {
-        setValues( {
-            ...values,
-            mainImage: e.target.files[ 0 ],
+    // for country
+    // const handleCountry = ( country ) =>
+    // {
+    //     setValues( {
+    //         ...values,
+    //         country
+    //     } );
+    // };
+
+    // for city
+    // const handleCity = ( city ) =>
+    // {
+    //     setValues( {
+    //         ...values,
+    //         city
+    //     } );
+    // };
+
+    // for image uploading
+    //type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[ 0 ];
+
+    const getBase64 = ( file ) =>
+        new Promise( ( resolve, reject ) =>
+        {
+            const reader = new FileReader();
+            reader.readAsDataURL( file );
+            reader.onload = () => resolve( reader.result );
+            reader.onerror = ( error ) => reject( error );
         } );
+
+
+    const [ previewOpen, setPreviewOpen ] = useState( false );
+    const [ previewImage, setPreviewImage ] = useState( '' );
+
+    // Function to handle closing of preview modal
+    const handleCancel = () => setPreviewOpen( false );
+
+    // Function to handle viewing of preview modal
+    const handlePreview = ( file ) =>
+    {
+        const previewFile = async () =>
+        {
+            if ( !file.url && !file.preview )
+            {
+                file.preview = await getBase64( file.originFileObj );
+            }
+
+            setPreviewImage( file.url || file.preview );
+            setPreviewOpen( true );
+        };
+
+        previewFile();
+    };
+
+    // Upload button
+    const uploadButton = (
+        <button
+            style={ {
+                border: 0,
+                background: 'none',
+            } }
+            type='button'
+        >
+            <PlusOutlined />
+            <div
+                className='ant-upload-text'
+                style={ { margin: 8 } }>Upload</div>
+        </button>
+    );
+
+    // for handle main image uploading
+    // const handleImages = ( e ) =>
+    // {
+    //     setValues( {
+    //         ...values,
+    //         mainImage: e.target.files[ 0 ],
+    //     } );
+    // };
+
+    const handleImages = ( info ) =>
+    {
+        if ( info.fileList && info.fileList.length > 0 )
+        {
+            const file = info.fileList[ 0 ].originFileObj;
+            setValues( {
+                ...values,
+                mainImage: file,
+            } );
+        }
     };
 
     // for handle other images
-    const handleOtherImages = ( e ) =>
+    // const handleOtherImages = ( e ) =>
+    // {
+    //     setValues( {
+    //         ...values,
+    //         otherImages: Array.from( e.target.files ),
+    //     } );
+    // }
+
+    const handleOtherImages = ( info ) =>
     {
-        setValues( {
-            ...values,
-            otherImages: Array.from( e.target.files ),
-        } );
-    }
+        if ( info.fileList && info.fileList.length > 0 )
+        {
+            const files = info.fileList.map( file => file.originFileObj );
+            setValues( {
+                ...values,
+                otherImages: files,
+            } );
+        }
+    };
 
     // handle certificate upload
-    const handleCertification = ( e ) =>
+    // const handleCertification = ( e ) =>
+    // {
+    //     setValues( {
+    //         ...values,
+    //         certificate: e.target.files[ 0 ],
+    //     } );
+    // };
+
+    const handleCertification = ( info ) =>
     {
-        setValues( {
-            ...values,
-            certificate: e.target.files[ 0 ],
-        } );
+        if ( info.fileList && info.fileList.length > 0 )
+        {
+            const file = info.fileList[ 0 ].originFileObj;
+            setValues( {
+                ...values,
+                certificate: file,
+            } );
+        }
     };
 
     // for description
@@ -107,7 +216,7 @@ function ObituaryForm ()
             .then( res =>
             {
                 console.log( res );
-                navigate( '/' );
+                navigate( '/obituary-dashboard' );
             } )
             .catch( err => console.log( err ) );
     };
@@ -182,6 +291,11 @@ function ObituaryForm ()
                                     onChange={ e => setValues( { ...values, country: e.target.value } ) }
                                     required
                                 />
+
+                                {/* <CountryCityField
+                                    onCountryChange={ handleCountry }
+                                    onCityChange={ handleCity }
+                                /> */}
                             </div>
 
                             <div className='form-group col-md-6'>
@@ -216,32 +330,109 @@ function ObituaryForm ()
                         <div className='row'>
                             {/* for post image */ }
                             <div className='form-group col-md-6'>
-                                <label htmlFor='mainImage'>Main Image For Post:</label>
-                                <input
+                                <label htmlFor='mainImage'>
+                                    Main Image For Post:
+                                </label>
+                                {/* <input
                                     type='file'
                                     className='form-control'
                                     onChange={ handleImages }
-                                />
+                                /> */}
+
+                                <Upload
+                                    action={ "http://localhost:8081/backend/uploads/images/Obituary/mainImage" }
+                                    onChange={ handleImages }
+                                    onPreview={ handlePreview }
+                                    listType="picture-card"
+                                    showUploadList={ { showRemoveIcon: true } }
+                                    accept='.png, .jpeg, .jpg'
+                                    beforeUpload={ ( file ) =>
+                                    {
+                                        console.log( { file } )
+                                        return false
+                                    } }
+                                >
+                                    { values.mainImage ? null : uploadButton }
+                                </Upload>
+
+                                <Modal
+                                    open={ previewOpen }
+                                    footer={ null }
+                                    onCancel={ handleCancel }
+                                >
+                                    <img
+                                        alt='Preview'
+                                        style={ { width: '100%' } }
+                                        src={ previewImage }
+                                    />
+                                </Modal>
                             </div>
 
                             {/* for other images */ }
                             <div className='form-group col-md-6'>
-                                <label htmlFor='mainImage'>Other Images:</label>
-                                <input
+                                <label htmlFor='otherImage'>Other Images:</label>
+                                {/* <input
                                     type='file'
                                     className='form-control'
                                     onChange={ handleOtherImages }
                                     multiple
-                                />
+                                /> */}
+
+                                <Upload
+                                    action={ "http://localhost:8081/backend/uploads/images/Obituary/otherImages" }
+                                    onChange={ handleOtherImages }
+                                    onPreview={ handlePreview }
+                                    listType="picture-card"
+                                    showUploadList={ { showRemoveIcon: true } }
+                                    accept='.png, .jpeg, .jpg'
+                                    beforeUpload={ ( file ) =>
+                                    {
+                                        console.log( { file } )
+                                        return false
+                                    } }
+                                    multiple
+                                >
+                                    { values.otherImages >= 5 ? null : uploadButton }
+                                </Upload>
+
+                                <Modal
+                                    open={ previewOpen }
+                                    footer={ null }
+                                    onCancel={ handleCancel }
+                                >
+                                    <img
+                                        alt='Preview'
+                                        style={ { width: '100%' } }
+                                        src={ previewImage }
+                                    />
+                                </Modal>
                             </div>
 
                             <div className='form-group col-md-6'>
                                 <label htmlFor='certificate'>Certificate of Death:</label>
-                                <input
+                                {/* <input
                                     type='file'
                                     className='form-control'
                                     onChange={ handleCertification }
-                                />
+                                /> */}
+
+                                <Upload
+                                    action={ "http://localhost:8081/backend/uploads/docs/Obituary" }
+                                    onChange={ handleCertification }
+                                    listType="text"
+                                    showUploadList={ { showRemoveIcon: true } }
+                                    accept='.pdf, .docx'
+                                    beforeUpload={ ( file ) =>
+                                    {
+                                        console.log( { file } )
+                                        return false
+                                    } }
+
+                                >
+                                    Drag image here OR
+                                    <br />
+                                    <Button className='form-control' icon={ <UploadOutlined /> }>Upload</Button>
+                                </Upload>
                             </div>
                             {/* <div className='form-group col-md-6'>
                                 <label htmlFor='certificate'>Certificate of Death:</label>
@@ -295,7 +486,11 @@ function ObituaryForm ()
                             >
                                 <ReactQuill
                                     theme='snow'
-                                    style={ { height: '300px', background: '#fff', borderRadius: '10px' } }
+                                    style={ {
+                                        height: '300px',
+                                        background: '#fff',
+                                        borderRadius: '10px'
+                                    } }
                                     value={ values.description }
                                     onChange={ handleDescriptionChange }
                                     modules={ modules }

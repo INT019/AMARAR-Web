@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { Upload, Button, Modal } from 'antd';
+import { PlusOutlined, UploadOutlined } from '@ant-design/icons';
 
 function EditObituary ()
 {
@@ -10,6 +12,192 @@ function EditObituary ()
     const navigate = useNavigate();
 
     const [ isEdited, setIsEdited ] = useState( false );
+
+    useEffect( () =>
+    {
+        axios.get( 'http://localhost:8081/read/' + id )
+            .then( res =>
+            {
+                console.log( res );
+                console.log( res.data );
+
+                setValues( {
+                    ...values,
+                    fname: res.data[ 0 ].fName,
+                    lname: res.data[ 0 ].lName,
+                    dob: new Date( res.data[ 0 ].dob ).toISOString().split( 'T' )[ 0 ],
+                    dod: new Date( res.data[ 0 ].dod ).toISOString().split( 'T' )[ 0 ],
+                    country: res.data[ 0 ].country,
+                    city: res.data[ 0 ].city,
+                    religion: res.data[ 0 ].religion,
+                    mainImage: res.data[ 0 ].mainImage,
+                    otherImages: JSON.parse( res.data[ 0 ].otherImages ),
+                    certificates: res.data[ 0 ].certificates,
+                    title: res.data[ 0 ].title,
+                    donation: res.data[ 0 ].donation,
+                    description: res.data[ 0 ].description,
+                    name: res.data[ 0 ].userName,
+                    email: res.data[ 0 ].userEmail,
+                    contactNo: res.data[ 0 ].contactNo,
+                    nic: res.data[ 0 ].nic
+                } );
+
+                setIsEdited( false );
+            } )
+
+            .catch( err => console.log( err ) );
+    }, [] );
+
+    const [ values, setValues ] = useState( {
+        fname: '',
+        lname: '',
+        dob: '',
+        dod: '',
+        country: '',
+        city: '',
+        religion: '',
+        mainImage: '',
+        otherImages: [],
+        certificates: null,
+        title: '',
+        donation: '',
+        description: '',
+        name: '',
+        email: '',
+        contactNo: '',
+        nic: ''
+    } );
+
+    // to handle image uploading
+    const getBase64 = ( file ) =>
+        new Promise( ( resolve, reject ) =>
+        {
+            const reader = new FileReader();
+            reader.readAsDataURL( file );
+            reader.onload = () => resolve( reader.result );
+            reader.onerror = ( error ) => reject( error );
+        } );
+
+
+    const [ previewOpen, setPreviewOpen ] = useState( false );
+    const [ previewImage, setPreviewImage ] = useState( '' );
+
+    // Function to handle closing of preview modal
+    const handleCancel = () => setPreviewOpen( false );
+
+    // Function to handle viewing of preview modal
+    const handlePreview = ( file ) =>
+    {
+        const previewFile = async () =>
+        {
+            if ( !file.url && !file.preview )
+            {
+                file.preview = await getBase64( file.originFileObj );
+            }
+
+            setPreviewImage( file.url || file.preview );
+            setPreviewOpen( true );
+        };
+
+        previewFile();
+    };
+
+    // Upload button
+    const uploadButton = (
+        <button
+            style={ {
+                border: 0,
+                background: 'none',
+            } }
+            type='button'
+        >
+            <PlusOutlined />
+            <div
+                className='ant-upload-text'
+                style={ { margin: 8 } }>Upload</div>
+        </button>
+    );
+
+    // for handle main image uploading
+    // Replace your existing handleImages function with the provided one
+    const handleImages = ( info ) =>
+    {
+        if ( info.fileList && info.fileList.length > 0 )
+        {
+            const file = info.fileList[ 0 ].originFileObj;
+            setValues( {
+                ...values,
+                mainImage: file,
+            } );
+        } else
+        {
+            setValues( {
+                ...values,
+                mainImage: '',
+            } )
+        }
+        setIsEdited( true );
+    };
+
+    // Update handleImages function to display already uploaded main image
+    // const handleImages = ( info ) =>
+    // {
+    //     if ( info.fileList && info.fileList.length > 0 )
+    //     {
+    //         const file = info.fileList[ 0 ].originFileObj;
+
+    //         const imageUrl = URL.createObjectURL( file );
+    //         console.log( "Image URL:", imageUrl );
+
+    //         setValues( {
+    //             ...values,
+    //             mainImage: URL.createObjectURL( file ),
+    //         } );
+    //     } else
+    //     {
+    //         setValues( {
+    //             ...values,
+    //             mainImage: values.mainImage,
+    //         } );
+    //     }
+
+    //     setIsEdited( true );
+    // };
+
+
+    // for handle other images
+    const handleOtherImages = ( info ) =>
+    {
+        if ( info.fileList && info.fileList.length > 0 )
+        {
+            const files = info.fileList.map( file => file.originFileObj );
+            setValues( {
+                ...values,
+                otherImages: files,
+            } );
+        }
+
+        //const files = info.fileList.map( file => file.originFileObj );
+        //setUploadedOtherImages( files );
+
+        setIsEdited( true );
+    };
+
+    // handle certificate upload
+    const handleCertification = ( info ) =>
+    {
+        if ( info.fileList && info.fileList.length > 0 )
+        {
+            const file = info.fileList[ 0 ].originFileObj;
+            setValues( {
+                ...values,
+                certificate: file,
+            } );
+        }
+
+        //setUploadedCertificate( info.fileList[ 0 ].originFileObj );
+        setIsEdited( true );
+    };
 
     // for description
     const modules = {
@@ -37,64 +225,36 @@ function EditObituary ()
         setIsEdited( true );
     };
 
-    useEffect( () =>
-    {
-        axios.get( 'http://localhost:8081/read/' + id )
-            .then( res =>
-            {
-                console.log( res )
-                setValues( {
-                    ...values,
-                    fname: res.data[ 0 ].fName,
-                    lname: res.data[ 0 ].lName,
-                    dob: new Date( res.data[ 0 ].dob ).toISOString().split( 'T' )[ 0 ],
-                    dod: new Date( res.data[ 0 ].dod ).toISOString().split( 'T' )[ 0 ],
-                    country: res.data[ 0 ].country,
-                    city: res.data[ 0 ].city,
-                    religion: res.data[ 0 ].religion,
-                    title: res.data[ 0 ].title,
-                    donation: res.data[ 0 ].donation,
-                    description: res.data[ 0 ].description,
-                    name: res.data[ 0 ].userName,
-                    email: res.data[ 0 ].userEmail,
-                    contactNo: res.data[ 0 ].contactNo,
-                    nic: res.data[ 0 ].nic
-                } );
-
-                setIsEdited( false );
-            } )
-
-            .catch( err => console.log( err ) );
-    }, [] );
-
-    const [ values, setValues ] = useState( {
-        fname: '',
-        lname: '',
-        dob: '',
-        dod: '',
-        country: '',
-        city: '',
-        religion: '',
-        images: '',
-        certificates: '',
-        title: '',
-        donation: '',
-        description: '',
-        name: '',
-        email: '',
-        contactNo: '',
-        nic: ''
-    } );
-
     const handleEdit = ( event ) =>
     {
         event.preventDefault();
+
+        const formData = new FormData();
+        Object.entries( values ).forEach( ( [ key, value ] ) =>
+        {
+            if ( key === 'otherImages' )
+            {
+                for ( let i = 0; i <= value.length; i++ )
+                {
+                    formData.append( 'otherImages', value[ i ] );
+                }
+            } else
+            {
+                formData.append( key, value );
+            }
+        } );
+
+        // check if a new main image has been uploaded
+        if ( values.mainImage instanceof File )
+        {
+            formData.append( 'mainImage', values.mainImage );
+        }
 
         axios.put( 'http://localhost:8081/edit/' + id, values )
             .then( res =>
             {
                 console.log( res )
-                navigate( '/' )
+                navigate( '/obituary-dashboard' )
             } )
 
             .catch( err => console.log( err ) );
@@ -207,23 +367,133 @@ function EditObituary ()
 
                         <div className='row'>
                             <div className='form-group col-md-6'>
-                                <label htmlFor='images'>Images:</label>
-                                <input
+                                <label htmlFor='mainImage'>Images:</label>
+                                {/* <input
                                     type='file'
                                     className='form-control'
                                     onChange={ e => setValues( { ...values, images: e.target.value } ) }
                                     value={ values.images }
-                                />
+                                /> */}
+
+                                <Upload
+                                    action={ "http://localhost:8081/backend/uploads/images/Obituary/mainImage" }
+                                    onChange={ handleImages }
+                                    onPreview={ handlePreview }
+                                    listType="picture-card"
+                                    showUploadList={ { showRemoveIcon: true } }
+                                    accept='.png, .jpeg, .jpg'
+                                    beforeUpload={ ( file ) =>
+                                    {
+                                        console.log( { file } )
+                                        return false
+                                    } }
+                                >
+                                    { values.mainImage ? (
+                                        <img
+                                            //src={ `http://localhost:8081/backend/uploads/images/Obituary/mainImage/${ values.mainImage }` }
+                                            src={ values.mainImage }
+                                            //src={ URL.createObjectURL( uploadedMainImage ) }
+                                            alt="Main"
+                                            style={ { width: "100%" } }
+                                        // condition and table
+                                        />
+                                    ) : (
+                                        uploadButton
+                                    ) }
+                                </Upload>
+
+                                <Modal
+                                    open={ previewOpen }
+                                    footer={ null }
+                                    onCancel={ handleCancel }
+                                >
+                                    <img
+                                        alt='Preview'
+                                        style={ { width: '100%' } }
+                                        src={ previewImage }
+                                    />
+                                </Modal>
+                            </div>
+
+                            <div className='form-group col-md-6'>
+                                <label htmlFor='otherImages'>Other Images:</label>
+                                {/* <input
+                                    type='file'
+                                    className='form-control'
+                                    onChange={ handleOtherImages }
+                                    multiple
+                                /> */}
+
+                                <Upload
+                                    action={ "http://localhost:8081/backend/uploads/images/Obituary/otherImages" }
+                                    onChange={ handleOtherImages }
+                                    onPreview={ handlePreview }
+                                    listType="picture-card"
+                                    showUploadList={ { showRemoveIcon: true } }
+                                    accept='.png, .jpeg, .jpg'
+                                    beforeUpload={ ( file ) =>
+                                    {
+                                        console.log( { file } );
+                                        return false;
+                                    } }
+                                    multiple
+                                >
+                                    { values.otherImages.map( ( image, index ) => (
+                                        <img
+                                            key={ index }
+                                            //src={ `http://localhost:8081/backend/uploads/images/Obituary/otherImages/${ image }` }
+                                            src={ image }
+                                            //src={ URL.createObjectURL( image ) }
+                                            alt={ `Other ${ index }` }
+                                            style={ {
+                                                width: '100%'
+                                            } }
+                                        />
+                                    ) ) }
+                                    { uploadButton }
+                                </Upload>
+
+                                <Modal
+                                    open={ previewOpen }
+                                    footer={ null }
+                                    onCancel={ handleCancel }
+                                >
+                                    <img
+                                        alt='Preview'
+                                        style={ { width: '100%' } }
+                                        src={ previewImage }
+                                    />
+                                </Modal>
                             </div>
 
                             <div className='form-group col-md-6'>
                                 <label htmlFor='certificates'>Certificate of Death:</label>
-                                <input
+                                {/* <input
                                     type='file'
                                     className='form-control'
                                     onChange={ e => setValues( { ...values, certificates: e.target.value } ) }
                                     value={ values.certificates }
-                                />
+                                /> */}
+                                <Upload
+                                    action={ "http://localhost:8081/backend/uploads/docs/Obituary" }
+                                    onChange={ handleCertification }
+                                    listType="text"
+                                    showUploadList={ { showRemoveIcon: true } }
+                                    accept='.pdf, .docx'
+                                    beforeUpload={ ( file ) =>
+                                    {
+                                        console.log( { file } )
+                                        return false
+                                    } }
+
+                                >
+                                    { values.certificates ? <p>{ values.certificates }</p> : (
+                                        <div>
+                                            <p>Drag File here OR</p>
+                                            <Button icon={ <UploadOutlined /> }></Button>
+                                        </div>
+                                    ) }
+                                </Upload>
                             </div>
                         </div>
 

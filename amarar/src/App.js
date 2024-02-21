@@ -13,13 +13,17 @@ import PhotoObituary from './pages/PhotoObituary';
 import ShareObituary from './pages/ShareObituary';
 import TributeObituary from './pages/TributeObituary';
 import DonationObituary from './pages/DonationObituary';
+import ObituaryPriceLists from './pages/payment/obituary/ObituaryPriceLists';
+import RemembrancePriceLists from './pages/payment/remembrance/RemembrancePriceLists.jsx'
 
 function App ()
 {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={ <UserDashObituary /> } />
+        {/* <Route path='/' element={ <ObituaryPriceLists /> } />
+        <Route path='/remembrance-price-list' element={ <RemembrancePriceLists /> } /> */}
+        <Route path='/obituary-dashboard' element={ <UserDashObituary /> } />
         <Route path='/create' element={ <CreateObituary /> } />
         <Route path='/read/:id' element={
           <>

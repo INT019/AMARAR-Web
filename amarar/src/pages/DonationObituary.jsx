@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 // css file
-import '../styles/Obituary.css';
+//import '../styles/Obituary.css';
 
 function DonationObituary ()
 {

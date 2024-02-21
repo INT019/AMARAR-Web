@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { WhatsappShareButton, FacebookShareButton, EmailShareButton, WhatsappIcon, FacebookIcon, EmailIcon, TwitterShareButton, TwitterIcon } from 'react-share';
 import Clipboard from 'clipboard';
 
-import '../styles/Obituary.css';
+//import '../styles/Obituary.css';
 
 function ShareObituary ( props )
 {

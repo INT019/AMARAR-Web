@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { formatDistanceToNow } from 'date-fns';
 
-import '../styles/Obituary.css'
+//import '../styles/Obituary.css'
 import ShareObituary from '../pages/ShareObituary';
 
 function ObituaryNav ()
@@ -45,7 +45,7 @@ function ObituaryNav ()
         <div className='d-flex justify-content-center align-items-center' style={ { background: '#F2F2F8' } }>
             <div className='w-50 rounded p-3'>
                 <button className='btn justify-content-center p-2' style={ { background: '#326346', color: '#ffff' } }>
-                    <Link to='/'>Back</Link>
+                    <Link to='/obituary-dashboard'>Back</Link>
                 </button>
 
                 <h3>Obituary Details</h3>
@@ -61,8 +61,8 @@ function ObituaryNav ()
                                 } }
                             />
                             <h4>{ obituary[ 0 ].title }</h4>
-                            <h5>{ obituary[ 0 ].dob }</h5>
-                            <h5>{ obituary[ 0 ].dod }</h5>
+                            <h5>{ new Date( obituary[ 0 ].dob ).toLocaleDateString() }</h5>
+                            <h5>{ new Date( obituary[ 0 ].dod ).toLocaleDateString() }</h5>
                             <h6>
                                 { getTimeAgo(
                                     obituary[ 0 ].createdTime,

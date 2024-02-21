@@ -69,13 +69,7 @@ app.post( '/obituary',
         // const certificate = req.file.filename;
 
         const otherImagesArray = req.files[ 'otherImages' ];
-
-        const otherImages = otherImagesArray
-            ? ( Array.isArray( otherImagesArray )
-                ? otherImagesArray.map( file => file.filename )
-                : [ otherImagesArray.filename ]
-            )
-            : [];
+        const otherImages = otherImagesArray ? ( Array.isArray( otherImagesArray ) ? otherImagesArray.map( file => file.filename ) : [ otherImagesArray.filename ] ) : [];
 
         // const mainImage = req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '';
         // const certificate = req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '';
@@ -154,32 +148,45 @@ app.get( "/readDonation/:id", ( req, res ) =>
 } );
 
 // for edit form
-app.put( '/edit/:id', ( req, res ) =>
-{
-    const sql = 'UPDATE obituary SET `fName` =?, `lName` =?, `dob` =?, `dod` =?, `country` =?, `city` =?, `religion` =?, `title` =?, `donation` =?, `description` =?, `editedTime` =NOW() WHERE ID = ?';
-
-    const id = req.params.id;
-    db.query( sql, [
-        req.body.fname,
-        req.body.lname,
-        req.body.dob,
-        req.body.dod,
-        req.body.country,
-        req.body.city,
-        req.body.religion,
-        req.body.title,
-        req.body.donation,
-        req.body.description,
-        // req.body.name,
-        // req.body.email,
-        // req.body.contactNo,
-        // req.body.nic,
-        id ], ( err, result ) =>
+app.put( '/edit/:id',
+    upload.fields( [
+        { name: 'mainImage', maxCount: 1 },
+        { name: 'otherImages', maxCount: 5 },
+        { name: 'certificate', maxCount: 1 } ] ),
+    ( req, res ) =>
     {
-        if ( err ) return res.json( { Message: "Error inside server" } );
-        return res.json( result );
-    } )
-} );
+        console.log( req.files );
+
+        const otherImagesArray = req.files[ 'otherImages' ];
+        const otherImages = otherImagesArray ? ( Array.isArray( otherImagesArray ) ? otherImagesArray.map( file => file.filename ) : [ otherImagesArray.filename ] ) : [];
+
+        const sql = 'UPDATE obituary SET `fName` =?, `lName` =?, `dob` =?, `dod` =?, `country` =?, `city` =?, `religion` =?, `mainImage` =?, `otherImages` =?, `certificate` =?, `title` =?, `donation` =?, `description` =?, `editedTime` =NOW() WHERE ID = ?';
+
+        const id = req.params.id;
+        db.query( sql, [
+            req.body.fname,
+            req.body.lname,
+            req.body.dob,
+            req.body.dod,
+            req.body.country,
+            req.body.city,
+            req.body.religion,
+            req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '',
+            JSON.stringify( otherImages ),
+            req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '',
+            req.body.title,
+            req.body.donation,
+            req.body.description,
+            // req.body.name,
+            // req.body.email,
+            // req.body.contactNo,
+            // req.body.nic,
+            id ], ( err, result ) =>
+        {
+            if ( err ) return res.json( { Message: "Error inside server" } );
+            return res.json( result );
+        } )
+    } );
 
 // for delete post
 app.delete( '/delete/:id', ( req, res ) =>
