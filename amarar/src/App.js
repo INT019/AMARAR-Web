@@ -20,7 +20,6 @@ function App ()
   return (
     <BrowserRouter>
       <Routes>
-
         {/* Payment Function */ }
         <Route path='/' element={ <ObituaryPriceLists /> } />
         <Route path='/remembrance-price-list' element={ <RemembrancePriceLists /> } />
