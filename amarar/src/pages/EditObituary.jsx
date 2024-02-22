@@ -250,7 +250,11 @@ function EditObituary ()
             formData.append( 'mainImage', values.mainImage );
         }
 
-        axios.put( 'http://localhost:8081/edit/' + id, values )
+        axios.put( 'http://localhost:8081/edit/' + id, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        } )
             .then( res =>
             {
                 console.log( res )
@@ -258,7 +262,7 @@ function EditObituary ()
             } )
 
             .catch( err => console.log( err ) );
-    }
+    };
 
     return (
         <div>
@@ -266,7 +270,10 @@ function EditObituary ()
                 <h1>EDIT YOUR OBITUARY ....</h1>
 
                 <div className='w-50 rounded p-4' style={ { background: '#D9D9D9' } }>
-                    <form onSubmit={ handleEdit }>
+                    <form
+                        onSubmit={ handleEdit }
+                        encType='multipart/form-data'
+                    >
                         {/* for personal information */ }
 
                         <h2>Person's Information</h2>
