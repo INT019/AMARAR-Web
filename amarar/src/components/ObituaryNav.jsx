@@ -4,7 +4,7 @@ import axios from 'axios';
 import { formatDistanceToNow } from 'date-fns';
 
 //import '../styles/Obituary.css'
-import ShareObituary from '../pages/ShareObituary';
+import ShareObituary from '../pages/obituary/ShareObituary';
 
 function ObituaryNav ()
 {
