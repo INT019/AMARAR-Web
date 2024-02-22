@@ -4,6 +4,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import pages
+import CreateObituary from './pages/CreateObituary';
+import DescriptionObituary from './pages/DescriptionObituary';
+import EditObituary from './pages/EditObituary';
+import ObituaryNav from './components/ObituaryNav';
+import PhotoObituary from './pages/PhotoObituary';
+import TributeObituary from './pages/TributeObituary';
+import DonationObituary from './pages/DonationObituary';
+import UserDashObituaryHome from './pages/UserDashObituaryHome';
 import UserRemembranceHome from './pages/UserRemembranceHome';
 
 function App ()
