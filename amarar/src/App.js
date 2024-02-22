@@ -22,8 +22,8 @@ function App ()
         {/* Payment Function */ }
         <Route path='/' element={ <ObituaryPriceLists /> } />
         <Route path='/remembrance-price-list' element={ <RemembrancePriceLists /> } />
-          
-                  {/* Remembrance Function*/ }
+
+        {/* Remembrance Function*/ }
         <Route path='/remembrance-dashboard' element={ <UserRemembranceHome /> } />
 
         {/* Obituary Function */ }
