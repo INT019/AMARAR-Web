@@ -80,6 +80,11 @@ function RemembrancePriceLists ()
                     <button
                         className='plan-description'
                         onClick={ handleBuy }
+                        style={ {
+                            backgroundColor: "#326346",
+                            color: 'white',
+                            border: 'none'
+                        } }
                     >Buy</button>
                 </div>
             ) ) }
