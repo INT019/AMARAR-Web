@@ -287,7 +287,7 @@ function UserDashObituaryHome ()
                                 <th>Package</th>
                                 <th>Status</th>
                                 <th>Time</th>
-                                <th>Action</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
 
