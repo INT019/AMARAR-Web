@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import pages
+
+// obituary pages
 import CreateObituary from './pages/obituary/CreateObituary';
 import DescriptionObituary from './pages/obituary/DescriptionObituary';
 import EditObituary from './pages/obituary/EditObituary';
@@ -12,7 +14,11 @@ import PhotoObituary from './pages/obituary/PhotoObituary';
 import TributeObituary from './pages/obituary/TributeObituary';
 import DonationObituary from './pages/obituary/DonationObituary';
 import UserDashObituaryHome from './pages/obituary/UserDashObituaryHome';
+
+// remembrance pages
 import UserRemembranceHome from './pages/remembrance/UserRemembranceHome';
+
+// payment pages
 
 function App ()
 {

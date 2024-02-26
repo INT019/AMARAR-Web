@@ -7,7 +7,7 @@ import { Buffer } from 'buffer';
 
 // pages
 import Header from '../../components/header/Header';
-import '../styles/UserDashObituaryHome.css';
+import '../../styles/obituary/UserDashObituaryHome.css';
 
 function UserDashObituaryHome ()
 {
