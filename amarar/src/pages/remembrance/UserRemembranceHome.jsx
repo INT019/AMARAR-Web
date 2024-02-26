@@ -113,11 +113,11 @@ function UserRemembranceHome ()
                         <tbody>
                             { Array.isArray( data ) && data.length > 0 ? (
                                 data.map( post => (
-                                    <tr key={ post.ID }>
+                                    <tr key={ post.r_ID }>
                                         <td>
                                             { post.mainImage && (
                                                 <img
-                                                    //src={ `http://localhost:8081/backend/uploads/images/Obituary/mainImage/${ post.mainImage }` }
+                                                    src={ `http://localhost:8081/backend/uploads/images/remembrance/mainImage/${ post.mainImage }` }
                                                     alt="Thumbnail"
                                                     style={ {
                                                         maxWidth: '100px',
@@ -127,13 +127,9 @@ function UserRemembranceHome ()
                                             ) }
                                         </td>
 
-                                        {/* <td>
-                                                     <img src={ post.mainImage } alt="Thumbnail" />
-                                                 </td> */}
-
                                         <td>
                                             <Link
-                                                to={ `/read/${ post.ID }` }
+                                                to={ `/` }
                                                 style={ {
                                                     textDecoration: 'none',
                                                     color: 'black'
@@ -154,7 +150,7 @@ function UserRemembranceHome ()
                                         <td>
                                             {/* Edit Button */ }
                                             <Link
-                                                to={ `/edit/${ post.ID }` }
+                                                to={ `/` }
                                                 className='btn btn-sm'
                                             >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#326346" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -166,7 +162,7 @@ function UserRemembranceHome ()
 
                                             {/* Delete Button */ }
                                             <button
-                                                onClick={ () => handleDelete( post.ID ) }
+                                                onClick={ () => handleDelete( post.r_ID ) }
                                                 className='btn btn-sm'
                                             >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#326346" class="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -186,7 +182,7 @@ function UserRemembranceHome ()
                 {/* for navigate to create post page */ }
                 <div className='d-flex justify-content-end'>
                     <Link
-                        to="/create"
+                        to="/create-remembrance"
                         className='btn btn-success'
                     >Create New Post</Link>
                 </div>
