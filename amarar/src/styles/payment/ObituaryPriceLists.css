@@ -1,0 +1,93 @@
+.obituary-plans {
+  font-family: 'Manuale';
+  padding: 20px;
+}
+
+.plans-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.plans-types {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.plan-type {
+  width: 150px;
+  padding: 12px 24px;
+  background-color: #f2f2f2;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #326346;
+  text-align: center;
+  justify-content: center;
+}
+
+
+.plan-type.active {
+  background-color: #326346;
+  color: white;
+  border: none !important;
+}
+
+.heading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 450;
+  color: #326346;
+  margin-top: 30px;
+  padding: 15px;
+  border-bottom: 1.5px solid #696969;
+}
+
+.packages {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.condition-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+.plan {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.plan.selected {
+  border-color: #326346;
+}
+
+.plan-name {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.plan-price {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #326346;
+}
+
+.plan-feature {
+  text-align: center;
+}
+
+.plan-description {
+  padding: 10px 20px;
+  background-color: #326346;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
