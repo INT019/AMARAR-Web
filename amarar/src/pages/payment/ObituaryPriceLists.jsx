@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 //css
-import '../styles/ObituaryPriceLists.css';
+import '../../styles/payment/ObituaryPriceLists.css';
 
 function ObituaryPriceLists ()
 {
