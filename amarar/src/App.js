@@ -4,6 +4,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import pages
+import CreateRemembrance from './pages/CreateRemembrance';
+=======
+
+// obituary pages
 import CreateObituary from './pages/obituary/CreateObituary';
 import DescriptionObituary from './pages/obituary/DescriptionObituary';
 import EditObituary from './pages/obituary/EditObituary';
@@ -12,8 +16,11 @@ import PhotoObituary from './pages/obituary/PhotoObituary';
 import TributeObituary from './pages/obituary/TributeObituary';
 import DonationObituary from './pages/obituary/DonationObituary';
 import UserDashObituaryHome from './pages/obituary/UserDashObituaryHome';
-import ObituaryPriceLists from './pages/payment/ObituaryPriceLists';
-import RemembrancePriceLists from './pages/payment/RemembrancePriceLists';
+
+// remembrance pages
+import UserRemembranceHome from './pages/remembrance/UserRemembranceHome';
+
+// payment pages
 
 function App ()
 {
@@ -24,21 +31,11 @@ function App ()
         <Route path='/' element={ <ObituaryPriceLists /> } />
         <Route path='/remembrance-price-list' element={ <RemembrancePriceLists /> } />
 
-        {/* Obituary Function */ }
-        <Route path='/obituary-dashboard' element={ <UserDashObituaryHome /> } />
-        <Route path='/create' element={ <CreateObituary /> } />
-        <Route path='/read/:id' element={
-          <>
-            <ObituaryNav />
-            <DescriptionObituary />
-          </>
-        } />
-        {/* <Route path='/readDescription/:id' element={ <DescriptionObituary /> } /> */ }
-        <Route path='/readTribute/:id' element={ <TributeObituary /> } />
-        <Route path='/readDonation/:id' element={ <DonationObituary /> } />
-        <Route path='/readPhotos/:id' element={ <PhotoObituary /> } />
-        {/* <Route path='/readShare/:id' element={ <ShareObituary /> } /> */ }
-        <Route path='/edit/:id' element={ <EditObituary /> } />
+        {/* Remembrance Function*/ }
+
+        {/* Remembrance Function*/ }
+        <Route path='/remembrance-dashboard' element={ <UserRemembranceHome /> } />
+        <Route path='/create-remembrance' element={ <CreateRemembrance /> } />
       </Routes>
     </BrowserRouter>
   );

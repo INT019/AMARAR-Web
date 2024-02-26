@@ -221,16 +221,24 @@ function UserDashObituaryHome ()
 
         <div style={ { background: '#F2F2F8' } }>
 
-            <Header />
+            {/* <Header /> */ }
 
             <div className="grid-container">
                 <div className="grid-item grid-item-1">
-                    <h2>My Obituary Posts</h2>
+                    <Header />
                 </div>
 
                 <div className="grid-item grid-item-2">
+                    <h2>side nav</h2>
+                </div>
+
+                <div className="grid-item grid-item-3">
+                    <h2>My Obituary Posts</h2>
+                </div>
+
+                <div className="grid-item grid-item-4">
                     <div className="filter-container">
-                        <Dropdown>
+                        {/* <Dropdown>
                             <Dropdown.Toggle variant="light" id="packageDropdown">
                                 Package
                             </Dropdown.Toggle>
@@ -240,16 +248,16 @@ function UserDashObituaryHome ()
                                 <Dropdown.Item href="#pack2">Standard</Dropdown.Item>
                                 <Dropdown.Item href="#pack3">Premium</Dropdown.Item>
                             </Dropdown.Menu>
-                        </Dropdown>
+                        </Dropdown> */}
 
-                        {/* <select id="packageDropdown">
+                        <select id="packageDropdown">
                             <option>Package</option>
                             <option>Basic</option>
                             <option>Standard</option>
                             <option>Premium</option>
-                        </select> */}
+                        </select>
 
-                        <Dropdown>
+                        {/* <Dropdown>
                             <Dropdown.Toggle variant="light" id="statusDropdown">
                                 Status
                             </Dropdown.Toggle>
@@ -259,16 +267,18 @@ function UserDashObituaryHome ()
                                 <Dropdown.Item href="#status2">Processing</Dropdown.Item>
                                 <Dropdown.Item href="#status3">Pending</Dropdown.Item>
                             </Dropdown.Menu>
-                        </Dropdown>
+                        </Dropdown> */}
 
-                        {/* <select id="statusDropdown">
+                        <select id="statusDropdown">
                             <option>Status</option>
                             <option>Completed</option>
                             <option>Processing</option>
                             <option>Pending</option>
-                        </select> */}
+                        </select>
                     </div>
+                </div>
 
+                <div className='grid-item grid-item-5'>
                     <table className="table table-bordered rounded">
                         <thead>
                             <tr>
@@ -355,11 +365,16 @@ function UserDashObituaryHome ()
                 </div>
 
                 {/* for navigate to create post page */ }
-                <div className='d-flex justify-content-end'>
-                    <Link
-                        to="/create"
-                        className='btn btn-success'
-                    >Create New Post</Link>
+                <div className='grid-item grid-item-6'>
+                    <button className='create-btn'>
+                        <Link
+                            to="/create"
+                            style={ {
+                                textDecoration: 'none',
+                                color: 'white'
+                            } }
+                        >Create New Post</Link>
+                    </button>
                 </div>
             </div>
         </div>
