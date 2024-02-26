@@ -18,13 +18,10 @@ const storage = multer.diskStorage( {
     {
         if ( file.fieldname === 'mainImage' )
         {
-            cb( null, 'uploads/images/Obituary/mainImage' );
+            cb( null, 'uploads/images/remembrance/mainImage' );
         } else if ( file.fieldname === 'otherImages' )
         {
-            cb( null, 'uploads/images/Obituary/otherImages' );
-        } else if ( file.fieldname === 'certificate' )
-        {
-            cb( null, 'uploads/docs/Obituary' );
+            cb( null, 'uploads/images/remembrance/otherImages' );
         }
     },
     filename: function ( req, file, cb )
@@ -56,12 +53,11 @@ app.get( '/', ( req, res ) =>
     } );
 } );
 
-// for obituary form
-app.post( '/obituary',
+// for remembrance form
+app.post( '/remembrance',
     upload.fields( [
         { name: 'mainImage', maxCount: 1 },
-        { name: 'otherImages', maxCount: 5 },
-        { name: 'certificate', maxCount: 1 } ] )
+        { name: 'otherImages', maxCount: 5 } ] )
     , ( req, res ) =>
     {
         console.log( req.files );
@@ -74,7 +70,7 @@ app.post( '/obituary',
         // const mainImage = req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '';
         // const certificate = req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '';
 
-        const sql = "INSERT INTO obituary (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `mainImage`, `otherImages`, `certificate`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+        const sql = "INSERT INTO remembrance (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `mainImage`, `otherImages`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
         const values = [
             req.body.fname,
@@ -88,8 +84,6 @@ app.post( '/obituary',
             // req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].buffer : '',
             JSON.stringify( otherImages ),
             //JSON.stringify( req.files[ 'otherImages' ] ? req.files[ 'otherImages' ].map( file => file.filename ) : [] ),
-            req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '',
-            // req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].buffer : '',
             req.body.title,
             req.body.donation,
             req.body.description,
@@ -114,84 +108,18 @@ app.post( '/obituary',
 // for display data on obituary view post page
 
 // --- Description
-app.get(
-    [
-        '/read/:id',
-        '/readPhotos/:id',
-        //'/readShare/:id',
-        '/readTribute/:id',
-    ], ( req, res ) =>
-{
-    const sql = "SELECT * FROM obituary WHERE ID = ?";
 
-    const id = req.params.id;
-    db.query( sql, [ id ], ( err, result ) =>
-    {
-        if ( err ) return res.json( { Message: "Error inside server" } );
-        return res.json( result );
-    } );
-} );
 
 // --- Donation (Kavishka)
-app.get( "/readDonation/:id", ( req, res ) =>
-{
-    const q = "SELECT * FROM donations";
-    db.query( q, ( err, data ) =>
-    {
-        if ( err )
-        {
-            console.error( err );
-            return res.status( 500 ).json( { error: 'Internal Server Error' } );
-        }
-        return res.status( 200 ).json( data );
-    } );
-} );
+
 
 // for edit form
-app.put( '/edit/:id',
-    upload.fields( [
-        { name: 'mainImage', maxCount: 1 },
-        { name: 'otherImages', maxCount: 5 },
-        { name: 'certificate', maxCount: 1 } ] ),
-    ( req, res ) =>
-    {
-        console.log( req.files );
 
-        const otherImagesArray = req.files[ 'otherImages' ];
-        const otherImages = otherImagesArray ? ( Array.isArray( otherImagesArray ) ? otherImagesArray.map( file => file.filename ) : [ otherImagesArray.filename ] ) : [];
-
-        const sql = 'UPDATE obituary SET `fName` =?, `lName` =?, `dob` =?, `dod` =?, `country` =?, `city` =?, `religion` =?, `mainImage` =?, `otherImages` =?, `certificate` =?, `title` =?, `donation` =?, `description` =?, `editedTime` =NOW() WHERE ID = ?';
-
-        const id = req.params.id;
-        db.query( sql, [
-            req.body.fname,
-            req.body.lname,
-            req.body.dob,
-            req.body.dod,
-            req.body.country,
-            req.body.city,
-            req.body.religion,
-            req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '',
-            JSON.stringify( otherImages ),
-            req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '',
-            req.body.title,
-            req.body.donation,
-            req.body.description,
-            // req.body.name,
-            // req.body.email,
-            // req.body.contactNo,
-            // req.body.nic,
-            id ], ( err, result ) =>
-        {
-            if ( err ) return res.json( { Message: "Error inside server" } );
-            return res.json( result );
-        } )
-    } );
 
 // for delete post
 app.delete( '/delete/:id', ( req, res ) =>
 {
-    const sql = "DELETE FROM obituary WHERE ID = ?";
+    const sql = "DELETE FROM remembrance WHERE r_ID = ?";
 
     const id = req.params.id;
     db.query( sql, [ id ], ( err, result ) =>

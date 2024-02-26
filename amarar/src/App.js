@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import pages
 import UserRemembranceHome from './pages/UserRemembranceHome';
+import CreateRemembrance from './pages/CreateRemembrance';
 
 function App ()
 {
@@ -14,25 +15,9 @@ function App ()
         {/* Payment Function */ }
         <Route path='/' element={ <ObituaryPriceLists /> } />
         <Route path='/remembrance-price-list' element={ <RemembrancePriceLists /> } />
-          
-                  {/* Remembrance Function*/ }
-        <Route path='/remembrance-dashboard' element={ <UserRemembranceHome /> } />
 
-        {/* Obituary Function */ }
-        <Route path='/obituary-dashboard' element={ <UserDashObituaryHome /> } />
-        <Route path='/create' element={ <CreateObituary /> } />
-        <Route path='/read/:id' element={
-          <>
-            <ObituaryNav />
-            <DescriptionObituary />
-          </>
-        } />
-        {/* <Route path='/readDescription/:id' element={ <DescriptionObituary /> } /> */ }
-        <Route path='/readTribute/:id' element={ <TributeObituary /> } />
-        <Route path='/readDonation/:id' element={ <DonationObituary /> } />
-        <Route path='/readPhotos/:id' element={ <PhotoObituary /> } />
-        {/* <Route path='/readShare/:id' element={ <ShareObituary /> } /> */ }
-        <Route path='/edit/:id' element={ <EditObituary /> } />
+        {/* Remembrance Function*/ }
+        <Route path='/remembrance-dashboard' element={ <UserRemembranceHome /> } />
       </Routes>
     </BrowserRouter>
   );
