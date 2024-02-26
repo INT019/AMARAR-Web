@@ -6,7 +6,7 @@ import { Dropdown } from 'react-bootstrap';
 import { Buffer } from 'buffer';
 
 // css
-import '../styles/UserRemembranceHome.css';
+import '../../styles/remembrance/UserRemembranceHome.css';
 
 function UserRemembranceHome ()
 {
