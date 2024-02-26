@@ -44,7 +44,7 @@ function RemembrancePriceLists ()
     }
 
     const handleBuy = () => [
-        navigate( '/create' )
+        navigate( '/create-remembrance' )
     ]
     return (
         <div className='obituary-plans'>
@@ -61,33 +61,35 @@ function RemembrancePriceLists ()
             </div>
             <h2 className='heading'>CHOOSE THE REMEMBRANCE PLAN THAT'S BEST FOR YOU !</h2>
 
-            { plans.map( ( plan ) => (
-                <div
-                    key={ plan.name }
-                    className={ `plan ${ selectedPlan === plan.name ? 'selected' : '' }` }
-                    onClick={ () => setSelectedPlan( plan.name ) }
-                >
-                    <h3 className='plan-name'>{ plan.name }</h3>
-                    <h3 className='plan-price'>{ plan.price }</h3>
+            <div className='packages'>
+                { plans.map( ( plan ) => (
+                    <div
+                        key={ plan.name }
+                        className={ `plan ${ selectedPlan === plan.name ? 'selected' : '' }` }
+                        onClick={ () => setSelectedPlan( plan.name ) }
+                    >
+                        <h3 className='plan-name'>{ plan.name }</h3>
+                        <h3 className='plan-price'>{ plan.price }</h3>
 
-                    <div className='plan-features'>
-                        <p>{ plan.wordLimit === -1 ? 'Unlimited' : `${ plan.wordLimit } words` }</p>
-                        <p>{ plan.donation ? 'Yes' : 'No' }</p>
-                        <p>{ plan.photos ? 'Yes' : 'No' }</p>
-                        <p>{ plan.videos ? 'Yes' : 'No' }</p>
+                        <div className='plan-features'>
+                            <p>{ plan.wordLimit === -1 ? 'Unlimited' : `${ plan.wordLimit } words` }</p>
+                            <p>{ plan.donation ? 'Yes' : 'No' }</p>
+                            <p>{ plan.photos ? 'Yes' : 'No' }</p>
+                            <p>{ plan.videos ? 'Yes' : 'No' }</p>
+                        </div>
+
+                        <button
+                            className='plan-description'
+                            onClick={ handleBuy }
+                            style={ {
+                                backgroundColor: "#326346",
+                                color: 'white',
+                                border: 'none'
+                            } }
+                        >Buy</button>
                     </div>
-
-                    <button
-                        className='plan-description'
-                        onClick={ handleBuy }
-                        style={ {
-                            backgroundColor: "#326346",
-                            color: 'white',
-                            border: 'none'
-                        } }
-                    >Buy</button>
-                </div>
-            ) ) }
+                ) ) }
+            </div>
         </div>
     )
 }
