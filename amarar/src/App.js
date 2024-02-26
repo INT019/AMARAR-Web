@@ -12,12 +12,20 @@ import PhotoObituary from './pages/PhotoObituary';
 import TributeObituary from './pages/TributeObituary';
 import DonationObituary from './pages/DonationObituary';
 import UserDashObituaryHome from './pages/UserDashObituaryHome';
+import UserRemembranceHome from './pages/UserRemembranceHome';
 
 function App ()
 {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Payment Function */ }
+        <Route path='/' element={ <ObituaryPriceLists /> } />
+        <Route path='/remembrance-price-list' element={ <RemembrancePriceLists /> } />
+          
+                  {/* Remembrance Function*/ }
+        <Route path='/remembrance-dashboard' element={ <UserRemembranceHome /> } />
+
         {/* Obituary Function */ }
         <Route path='/obituary-dashboard' element={ <UserDashObituaryHome /> } />
         <Route path='/create' element={ <CreateObituary /> } />
