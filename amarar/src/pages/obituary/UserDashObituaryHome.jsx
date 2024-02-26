@@ -6,8 +6,9 @@ import { Dropdown } from 'react-bootstrap';
 import { Buffer } from 'buffer';
 
 // pages
-import Header from '../../components/header/Header';
-import '../../styles/obituary/UserDashObituaryHome.css';
+import Header from '../components/header/Header';
+import '../styles/UserDashObituaryHome.css';
+import Footer from '../components/footer/Footer';
 
 function UserDashObituaryHome ()
 {
@@ -224,9 +225,9 @@ function UserDashObituaryHome ()
             {/* <Header /> */ }
 
             <div className="grid-container">
-                <div className="grid-item grid-item-1">
+                {/* <div className="grid-item grid-item-1">
                     <Header />
-                </div>
+                </div> */}
 
                 <div className="grid-item grid-item-2">
                     <h2>side nav</h2>
@@ -287,7 +288,7 @@ function UserDashObituaryHome ()
                                 <th>Package</th>
                                 <th>Status</th>
                                 <th>Time</th>
-                                <th>Action</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
 
@@ -376,6 +377,10 @@ function UserDashObituaryHome ()
                         >Create New Post</Link>
                     </button>
                 </div>
+
+                {/* <div className="grid-item grid-item-7">
+                    <Footer />
+                </div> */}
             </div>
         </div>
     )
