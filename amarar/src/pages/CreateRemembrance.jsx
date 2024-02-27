@@ -5,7 +5,6 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Upload, Button, Modal } from 'antd';
 import { PlusOutlined, UploadOutlined } from '@ant-design/icons';
-//import CountryCityField from '../components/CountryCityField';
 
 function CreateRemembrance ()
 {
