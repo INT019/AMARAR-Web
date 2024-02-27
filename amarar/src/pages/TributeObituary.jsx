@@ -1,5 +1,5 @@
 import React from 'react'
-import ObituaryNav from '../../components/ObituaryNav'
+import ObituaryNav from '../components/ObituaryNav'
 
 function TributeObituary ()
 {

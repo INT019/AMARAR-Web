@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -120,6 +120,7 @@ function EditObituary ()
 
     // for handle main image uploading
     // Replace your existing handleImages function with the provided one
+    // To handle main image uploading
     const handleImages = ( info ) =>
     {
         if ( info.fileList && info.fileList.length > 0 )

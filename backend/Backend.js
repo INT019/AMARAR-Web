@@ -48,7 +48,7 @@ const db = mysql.createConnection( {
 // for display data on user dashboard page
 app.get( '/', ( req, res ) =>
 {
-    const sql = "SELECT * FROM remembrance";
+    const sql = "SELECT * FROM obituary";
     db.query( sql, ( err, result ) =>
     {
         if ( err ) return res.json( { Message: "Error inside server" } );

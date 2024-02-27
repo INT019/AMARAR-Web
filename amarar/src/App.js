@@ -6,32 +6,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import pages
 
 // obituary pages
-import CreateObituary from './pages/obituary/CreateObituary';
-import DescriptionObituary from './pages/obituary/DescriptionObituary';
-import EditObituary from './pages/obituary/EditObituary';
+import CreateObituary from './pages/CreateObituary';
+import DescriptionObituary from './pages/DescriptionObituary';
+import EditObituary from './pages/EditObituary';
 import ObituaryNav from './components/ObituaryNav';
-import PhotoObituary from './pages/obituary/PhotoObituary';
-import TributeObituary from './pages/obituary/TributeObituary';
-import DonationObituary from './pages/obituary/DonationObituary';
-import UserDashObituaryHome from './pages/obituary/UserDashObituaryHome';
-
-// remembrance pages
-import UserRemembranceHome from './pages/remembrance/UserRemembranceHome';
-
-// payment pages
+import PhotoObituary from './pages/PhotoObituary';
+import TributeObituary from './pages/TributeObituary';
+import DonationObituary from './pages/DonationObituary';
+import UserDashObituaryHome from './pages/UserDashObituaryHome';
 
 function App ()
 {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Payment Function */ }
-        <Route path='/' element={ <ObituaryPriceLists /> } />
-        <Route path='/remembrance-price-list' element={ <RemembrancePriceLists /> } />
-
-        {/* Remembrance Function*/ }
-        <Route path='/remembrance-dashboard' element={ <UserRemembranceHome /> } />
-
         {/* Obituary Function */ }
         <Route path='/obituary-dashboard' element={ <UserDashObituaryHome /> } />
         <Route path='/create' element={ <CreateObituary /> } />
