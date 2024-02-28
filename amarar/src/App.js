@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // remembrance pages
 import UserRemembranceHome from './pages/UserRemembranceHome';
 import CreateRemembrance from './pages/CreateRemembrance';
+import RemembranceNav from './components/RemembranceNav';
 
 function App ()
 {
@@ -16,6 +17,7 @@ function App ()
         {/* Remembrance Function*/ }
         <Route path='/remembrance-dashboard' element={ <UserRemembranceHome /> } />
         <Route path='/create-remembrance' element={ <CreateRemembrance /> } />
+        <Route path='/read-remembrance/:id' element={ <RemembranceNav /> } />
       </Routes>
     </BrowserRouter>
   );

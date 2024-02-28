@@ -112,12 +112,12 @@ function UserRemembranceHome ()
 
                         <tbody>
                             { Array.isArray( data ) && data.length > 0 ? (
-                                data.map( post => (
-                                    <tr key={ post.r_ID }>
+                                data.map( r_post => (
+                                    <tr key={ r_post.r_ID }>
                                         <td>
-                                            { post.mainImage && (
+                                            { r_post.mainImage && (
                                                 <img
-                                                    src={ `http://localhost:8081/backend/uploads/images/remembrance/mainImage/${ post.mainImage }` }
+                                                    src={ `http://localhost:8081/backend/uploads/images/remembrance/mainImage/${ r_post.mainImage }` }
                                                     alt="Thumbnail"
                                                     style={ {
                                                         maxWidth: '100px',
@@ -129,28 +129,27 @@ function UserRemembranceHome ()
 
                                         <td>
                                             <Link
-                                                to={ `/` }
+                                                to={ `/read-remembrance/${ r_post.r_ID }` }
                                                 style={ {
                                                     textDecoration: 'none',
                                                     color: 'black'
                                                 } }
-                                            >{ post.title }</Link></td>
+                                            >{ r_post.title }</Link></td>
 
-                                        <td>{ post.package }</td>
+                                        <td>{ r_post.package }</td>
 
                                         <td>
-                                            {/* <div style={ statusStyle( post.status ) }>
-                                                     { post.status }
+                                            {/* <div style={ statusStyle( r_post.status ) }>
+                                                     { r_post.status }
                                                  </div> */}
-                                            { post.status }
+                                            { r_post.status }
                                         </td>
 
-                                        <td>{ timeAgo( post.createdTime, post.editedTime ) }</td>
+                                        <td>{ timeAgo( r_post.createdTime, r_post.editedTime ) }</td>
 
                                         <td>
                                             {/* Edit Button */ }
                                             <Link
-                                                to={ `/` }
                                                 className='btn btn-sm'
                                             >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#326346" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -162,7 +161,7 @@ function UserRemembranceHome ()
 
                                             {/* Delete Button */ }
                                             <button
-                                                onClick={ () => handleDelete( post.r_ID ) }
+                                                onClick={ () => handleDelete( r_post.r_ID ) }
                                                 className='btn btn-sm'
                                             >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#326346" class="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -179,7 +178,7 @@ function UserRemembranceHome ()
                     </table>
                 </div>
 
-                {/* for navigate to create post page */ }
+                {/* for navigate to create r_post page */ }
                 <div className='d-flex justify-content-end'>
                     <Link
                         to="/create-remembrance"

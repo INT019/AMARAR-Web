@@ -61,14 +61,9 @@ app.post( '/remembrance',
     , ( req, res ) =>
     {
         console.log( req.files );
-        // const mainImage = req.file.filename;
-        // const certificate = req.file.filename;
 
         const otherImagesArray = req.files[ 'otherImages' ];
         const otherImages = otherImagesArray ? ( Array.isArray( otherImagesArray ) ? otherImagesArray.map( file => file.filename ) : [ otherImagesArray.filename ] ) : [];
-
-        // const mainImage = req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '';
-        // const certificate = req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '';
 
         const sql = "INSERT INTO remembrance (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `mainImage`, `otherImages`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
@@ -105,12 +100,21 @@ app.post( '/remembrance',
         } );
     } );
 
-// for display data on obituary view post page
+// for display data on remembrance view post page
 
 // --- Description
+app.get( '/read-remembrance/:id', ( req, res ) =>
+{
+    const sql = "SELECT * FROM remembrance WHERE r_ID = ?";
 
+    const id = req.params.id;
 
-// --- Donation (Kavishka)
+    db.query( sql, [ id ], ( err, result ) =>
+    {
+        if ( err ) return res.json( { Message: "Error inside server" } );
+        return res.json( result );
+    } );
+} );
 
 
 // for edit form
