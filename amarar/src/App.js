@@ -3,10 +3,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import pages
-import CreateRemembrance from './pages/CreateRemembrance';
-=======
-
 // obituary pages
 import CreateObituary from './pages/obituary/CreateObituary';
 import DescriptionObituary from './pages/obituary/DescriptionObituary';
