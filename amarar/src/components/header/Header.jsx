@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import logo from '../../images/logo.png';
-import web from '../../images/web.png';
-import account from '../../images/account.png';
-import search from '../../images/search.png';
+import amararlogo from '../../images/logo.png';
+import web from '../../images/web.png'
+import account from '../../images/account.png'
+import search from '../../images/search.png'
+
 import './Header.css';
 
 function Header ()
@@ -12,18 +13,18 @@ function Header ()
         <div className="full-header">
             <div className='upper-header'>
                 <div className='logo-img'><Link to={ '#' }>
-                    <img src={ logo }></img>
+                    <img src={ amararlogo }></img>
                 </Link>
 
 
                 </div>
                 <div className='nav-link-set'>
-                    <nav>
-                        <ul>
-                            <li><a href='#'>Obituaries</a></li>
-                            <li><a href='#'>Remembrance</a></li>
-                            <li><a href='#'>Price</a></li>
-                            <li><a href='#'>Contact Us</a></li>
+                    <nav className='header-link-nav'>
+                        <ul className='header-link-ul'>
+                            <li className='header-link-li'><a className='header-link-a' href='#'>Obituaries</a></li>
+                            <li className='header-link-li'><a className='header-link-a' href='#'>Remembrance</a></li>
+                            <li className='header-link-li'><a className='header-link-a' href='#'>Price</a></li>
+                            <li className='header-link-li'><a className='header-link-a' href='#'>Contact Us</a></li>
                         </ul>
                     </nav>
 

@@ -220,14 +220,16 @@ function UserDashObituaryHome ()
         //     </div>
         // </div>
 
-        <div style={ { background: '#F2F2F8' } }>
+        <div className='dashboard' style={ { background: '#F2F2F8' } }>
 
-            {/* <Header /> */ }
+            {/* <div className='header'>
+                <Header />
+            </div> */}
 
             <div className="grid-container">
-                {/* <div className="grid-item grid-item-1">
+                <div className="grid-item grid-item-1">
                     <Header />
-                </div> */}
+                </div>
 
                 <div className="grid-item grid-item-2">
                     <h2>side nav</h2>
@@ -308,10 +310,6 @@ function UserDashObituaryHome ()
                                                 />
                                             ) }
                                         </td>
-
-                                        {/* <td>
-                                                     <img src={ post.mainImage } alt="Thumbnail" />
-                                                 </td> */}
 
                                         <td>
                                             <Link

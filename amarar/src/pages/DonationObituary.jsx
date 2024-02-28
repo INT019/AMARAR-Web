@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ObituaryNav from '../../components/ObituaryNav'
+import ObituaryNav from '../components/ObituaryNav'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
