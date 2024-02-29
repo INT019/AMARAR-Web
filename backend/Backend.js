@@ -103,7 +103,10 @@ app.post( '/remembrance',
 // for display data on remembrance view post page
 
 // --- Description
-app.get( '/read-remembrance/:id', ( req, res ) =>
+app.get( [
+    '/read-remembrance/:id',
+    '/readTribute-remembrance/:id',
+], ( req, res ) =>
 {
     const sql = "SELECT * FROM remembrance WHERE r_ID = ?";
 

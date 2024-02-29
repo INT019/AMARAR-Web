@@ -69,26 +69,26 @@ function RemembranceNav ()
 
                             <nav className='postNav'>
                                 <ul>
+                                    <li>
+                                        <Link to={ `/read-remembrance/${ remembrance.length > 0 ? remembrance[ 0 ].r_ID : '' }` }>Description</Link>
+                                    </li>
+                                    <li>
+                                        <Link to={ `/readTribute-remembrance/${ remembrance.length > 0 ? remembrance[ 0 ].r_ID : '' }` }>Tribute</Link>
+                                    </li>
+                                    <li>
+                                        <Link to={ `/readDonation/${ remembrance.length > 0 ? remembrance[ 0 ].ID : '' }` }>Donation</Link>
+                                    </li>
                                     {/* <li>
-                                        <Link to={ `/read/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Description</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={ `/readTribute/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Tribute</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={ `/readDonation/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Donation</Link>
-                                    </li>
-                                    <li>
                                         <Link
                                             onClick={ () => setShareButton( true ) }
                                         >Share</Link>
 
-                                        <ShareObituary
+                                        <Shareremembrance
                                             trigger={ shareButton }
                                             setTrigger={ setShareButton }
                                         >
                                             <h4>Share This Post ...</h4>
-                                        </ShareObituary>
+                                        </Shareremembrance>
                                     </li> */}
                                     {/* <li>
                                         <Link to={ `/readShare/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Share</Link>

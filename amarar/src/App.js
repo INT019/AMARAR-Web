@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UserRemembranceHome from './pages/UserRemembranceHome';
 import CreateRemembrance from './pages/CreateRemembrance';
 import RemembranceNav from './components/RemembranceNav';
+import DescriptionRemembrance from './pages/DescriptionRemembrance';
+import TributeRemembrance from './pages/TributeRemembrance';
 
 function App ()
 {
@@ -17,7 +19,13 @@ function App ()
         {/* Remembrance Function*/ }
         <Route path='/remembrance-dashboard' element={ <UserRemembranceHome /> } />
         <Route path='/create-remembrance' element={ <CreateRemembrance /> } />
-        <Route path='/read-remembrance/:id' element={ <RemembranceNav /> } />
+        <Route path='/read-remembrance/:id' element={
+          <>
+            <RemembranceNav />
+            <DescriptionRemembrance />
+          </>
+        } />
+        <Route path='/readTribute-remembrance/:id' element={ <TributeRemembrance /> } />
       </Routes>
     </BrowserRouter>
   );
