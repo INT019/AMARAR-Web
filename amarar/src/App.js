@@ -8,11 +8,11 @@ import ObituaryPriceLists from './pages/ObituaryPriceLists';
 import RemembrancePriceLists from './pages/RemembrancePriceLists';
 
 // remembrance pages
-import UserRemembranceHome from './pages/UserRemembranceHome';
-import CreateRemembrance from './pages/CreateRemembrance';
+import UserRemembranceHome from '../src/pages/UserDashObituaryHome';
+import CreateRemembrance from '../src/pages/CreateRemembrance';
 import RemembranceNav from './components/RemembranceNav';
-import DescriptionRemembrance from './pages/DescriptionRemembrance';
-import TributeRemembrance from './pages/TributeRemembrance';
+import DescriptionRemembrance from '../src/pages/DescriptionRemembrance';
+import TributeRemembrance from '../src/pages/TributeRemembrance';
 
 function App ()
 {
