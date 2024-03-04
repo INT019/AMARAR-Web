@@ -2,8 +2,8 @@
     width: 100%;
     position: absolute;
     display: block;
-    margin-top: 10%;
-    margin-left: -4.9%;
+    justify-content: center;
+    align-items: center;
 }
 
 .upper-footer{

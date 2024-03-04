@@ -5,13 +5,15 @@
 .full-header{
   position: relative;
   width: 100%;
-  height: 211px;
+  justify-content: center;
+  align-items: center;
   display: block;
-  margin-top: 5%;
+  margin-top: 150px;
+  margin-left: 74px;
 }
 
 .upper-header{
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 141px;
   background-color: #fff;
@@ -21,7 +23,7 @@
 }
 
 .lower-header{
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 70px;
   background-color: #326346;
@@ -34,7 +36,6 @@
   position: absolute;
   width: 278px;
   height: 141px;
-
 }
 
 .nav-link-set{

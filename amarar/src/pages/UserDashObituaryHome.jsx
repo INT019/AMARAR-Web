@@ -79,9 +79,7 @@ function UserDashObituaryHome ()
 
             <div className="grid-container">
                 <div className="grid-item grid-item-1">
-                    <div className='obituary-dash-header'>
-                        <Header />
-                    </div>
+                    <Header />
                 </div>
 
                 <div className="grid-item grid-item-2">
@@ -94,38 +92,14 @@ function UserDashObituaryHome ()
 
                 <div className="grid-item grid-item-4">
                     <div className="filter-container">
-                        {/* <Dropdown>
-                            <Dropdown.Toggle variant="light" id="packageDropdown">
-                                Package
-                            </Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#pack1">Basic</Dropdown.Item>
-                                <Dropdown.Item href="#pack2">Standard</Dropdown.Item>
-                                <Dropdown.Item href="#pack3">Premium</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown> */}
-
-                        <select id="packageDropdown">
+                        <select>
                             <option>Package</option>
                             <option>Basic</option>
                             <option>Standard</option>
                             <option>Premium</option>
                         </select>
 
-                        {/* <Dropdown>
-                            <Dropdown.Toggle variant="light" id="statusDropdown">
-                                Status
-                            </Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#status1">Completed</Dropdown.Item>
-                                <Dropdown.Item href="#status2">Processing</Dropdown.Item>
-                                <Dropdown.Item href="#status3">Pending</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown> */}
-
-                        <select id="statusDropdown">
+                        <select>
                             <option>Status</option>
                             <option>Completed</option>
                             <option>Processing</option>
@@ -136,7 +110,7 @@ function UserDashObituaryHome ()
 
                 <div className='grid-item grid-item-5'>
                     <table className="table">
-                        <thead>
+                        <thead style={ { backgroundColor: '#326346' } }>
                             <tr>
                                 <th>Thumbnail</th>
                                 <th>Title</th>
@@ -229,9 +203,9 @@ function UserDashObituaryHome ()
                     </button>
                 </div>
 
-                {/* <div className="grid-item grid-item-7">
+                <div className="grid-item grid-item-7">
                     <Footer />
-                </div> */}
+                </div>
             </div>
         </div>
     )
