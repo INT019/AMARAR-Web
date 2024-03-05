@@ -3,6 +3,7 @@ import { formatDistanceToNow } from 'date-fns';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+import ShareRemembrance from '../pages/ShareRemembrance';
 
 function RemembranceNav ()
 {
@@ -76,20 +77,17 @@ function RemembranceNav ()
                                         <Link to={ `/readTribute-remembrance/${ remembrance.length > 0 ? remembrance[ 0 ].r_ID : '' }` }>Tribute</Link>
                                     </li>
                                     <li>
-                                        <Link to={ `/readDonation/${ remembrance.length > 0 ? remembrance[ 0 ].ID : '' }` }>Donation</Link>
-                                    </li>
-                                    {/* <li>
                                         <Link
                                             onClick={ () => setShareButton( true ) }
                                         >Share</Link>
 
-                                        <Shareremembrance
+                                        <ShareRemembrance
                                             trigger={ shareButton }
                                             setTrigger={ setShareButton }
                                         >
                                             <h4>Share This Post ...</h4>
-                                        </Shareremembrance>
-                                    </li> */}
+                                        </ShareRemembrance>
+                                    </li>
                                     {/* <li>
                                         <Link to={ `/readShare/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Share</Link>
                                     </li> */}
