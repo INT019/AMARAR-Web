@@ -17,7 +17,6 @@ function CreateRemembrance ()
         city: '',
         religion: '',
         mainImage: '',
-        otherImages: [],
         title: '',
         donation: '',
         description: '',
@@ -100,54 +99,29 @@ function CreateRemembrance ()
     );
 
     // for handle main image uploading
-    // const handleImages = ( e ) =>
-    // {
-    //     setValues( {
-    //         ...values,
-    //         mainImage: e.target.files[ 0 ],
-    //     } );
-    // };
-
     const handleImages = ( info ) =>
     {
-        if ( info.fileList && info.fileList.length > 0 )
+        if ( info.file )
         {
-            const file = info.fileList[ 0 ].originFileObj;
+            const file = info.file;
+
             setValues( {
                 ...values,
                 mainImage: file,
-            } );
+            } )
         }
     };
 
-    // for handle other images
-    // const handleOtherImages = ( e ) =>
+    // const handleImages = ( info ) =>
     // {
-    //     setValues( {
-    //         ...values,
-    //         otherImages: Array.from( e.target.files ),
-    //     } );
-    // }
-
-    const handleOtherImages = ( info ) =>
-    {
-        if ( info.fileList && info.fileList.length > 0 )
-        {
-            const files = info.fileList.map( file => file.originFileObj );
-            setValues( {
-                ...values,
-                otherImages: files,
-            } );
-        }
-    };
-
-    // handle certificate upload
-    // const handleCertification = ( e ) =>
-    // {
-    //     setValues( {
-    //         ...values,
-    //         certificate: e.target.files[ 0 ],
-    //     } );
+    //     if ( info.fileList && info.fileList.length > 0 )
+    //     {
+    //         const file = info.fileList[ 0 ].originFileObj;
+    //         setValues( {
+    //             ...values,
+    //             mainImage: file,
+    //         } );
+    //     }
     // };
 
     // for description
@@ -182,16 +156,7 @@ function CreateRemembrance ()
         const formData = new FormData();
         Object.entries( values ).forEach( ( [ key, value ] ) =>
         {
-            if ( key === 'otherImages' )
-            {
-                for ( let i = 0; i <= value.length; i++ )
-                {
-                    formData.append( 'otherImages', value[ i ] );
-                }
-            } else
-            {
-                formData.append( key, value );
-            }
+            formData.append( key, value );
         } );
 
         axios.post( 'http://localhost:8081/remembrance', formData, {
@@ -339,46 +304,6 @@ function CreateRemembrance ()
                                     } }
                                 >
                                     { values.mainImage ? null : uploadButton }
-                                </Upload>
-
-                                <Modal
-                                    open={ previewOpen }
-                                    footer={ null }
-                                    onCancel={ handleCancel }
-                                >
-                                    <img
-                                        alt='Preview'
-                                        style={ { width: '100%' } }
-                                        src={ previewImage }
-                                    />
-                                </Modal>
-                            </div>
-
-                            {/* for other images */ }
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='otherImage'>Other Images:</label>
-                                {/* <input
-                                    type='file'
-                                    className='form-control'
-                                    onChange={ handleOtherImages }
-                                    multiple
-                                /> */}
-
-                                <Upload
-                                    action={ "http://localhost:8081/backend/uploads/images/remembrance/otherImages" }
-                                    onChange={ handleOtherImages }
-                                    onPreview={ handlePreview }
-                                    listType="picture-card"
-                                    showUploadList={ { showRemoveIcon: true } }
-                                    accept='.png, .jpeg, .jpg'
-                                    beforeUpload={ ( file ) =>
-                                    {
-                                        console.log( { file } )
-                                        return false
-                                    } }
-                                    multiple
-                                >
-                                    { values.otherImages >= 5 ? null : uploadButton }
                                 </Upload>
 
                                 <Modal

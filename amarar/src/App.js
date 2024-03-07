@@ -10,6 +10,7 @@ import CreateRemembrance from './pages/CreateRemembrance';
 import RemembranceNav from './components/RemembranceNav';
 import DescriptionRemembrance from './pages/DescriptionRemembrance';
 import TributeRemembrance from './pages/TributeRemembrance';
+import EditRemembrance from './pages/EditRemembrance';
 
 function App ()
 {
@@ -26,6 +27,7 @@ function App ()
           </>
         } />
         <Route path='/readTribute-remembrance/:id' element={ <TributeRemembrance /> } />
+        <Route path='/edit-remembrance/:id' element={ <EditRemembrance /> } />
       </Routes>
     </BrowserRouter>
   );

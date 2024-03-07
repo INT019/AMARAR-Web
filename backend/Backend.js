@@ -19,9 +19,6 @@ const storage = multer.diskStorage( {
         if ( file.fieldname === 'mainImage' )
         {
             cb( null, 'uploads/images/remembrance/mainImage' );
-        } else if ( file.fieldname === 'otherImages' )
-        {
-            cb( null, 'uploads/images/remembrance/otherImages' );
         }
     },
     filename: function ( req, file, cb )
@@ -55,17 +52,12 @@ app.get( '/', ( req, res ) =>
 
 // for remembrance form
 app.post( '/remembrance',
-    upload.fields( [
-        { name: 'mainImage', maxCount: 1 },
-        { name: 'otherImages', maxCount: 5 } ] )
-    , ( req, res ) =>
+    upload.single( 'mainImage' ),
+    ( req, res ) =>
     {
-        console.log( req.files );
+        console.log( req.file );
 
-        const otherImagesArray = req.files[ 'otherImages' ];
-        const otherImages = otherImagesArray ? ( Array.isArray( otherImagesArray ) ? otherImagesArray.map( file => file.filename ) : [ otherImagesArray.filename ] ) : [];
-
-        const sql = "INSERT INTO remembrance (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `mainImage`, `otherImages`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+        const sql = "INSERT INTO remembrance (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `mainImage`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
         const values = [
             req.body.fname,
@@ -75,10 +67,9 @@ app.post( '/remembrance',
             req.body.country,
             req.body.city,
             req.body.religion,
-            req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '',
+            req.file ? req.file.filename : '',
+            //req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '',
             // req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].buffer : '',
-            JSON.stringify( otherImages ),
-            //JSON.stringify( req.files[ 'otherImages' ] ? req.files[ 'otherImages' ].map( file => file.filename ) : [] ),
             req.body.title,
             req.body.donation,
             req.body.description,
@@ -121,7 +112,39 @@ app.get( [
 
 
 // for edit form
+app.put( '/edit-remembrance/:id',
+    upload.single( 'mainImage' ),
+    ( req, res ) =>
+    {
+        console.log( req.file );
 
+        const sql = 'UPDATE obituary SET `fName` =?, `lName` =?, `dob` =?, `dod` =?, `country` =?, `city` =?, `religion` =?, `mainImage` =?, `certificate` =?, `title` =?, `donation` =?, `description` =?, `editedTime` =NOW() WHERE r_ID = ?';
+
+        const id = req.params.id;
+        db.query( sql, [
+            req.body.fname,
+            req.body.lname,
+            req.body.dob,
+            req.body.dod,
+            req.body.country,
+            req.body.city,
+            req.body.religion,
+            req.file ? req.file.filename : '',
+            //req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '',
+            // req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].buffer : '',
+            req.body.title,
+            req.body.donation,
+            req.body.description,
+            req.body.name,
+            req.body.email,
+            req.body.contactNo,
+            req.body.nic,
+            id ], ( err, result ) =>
+        {
+            if ( err ) return res.json( { Message: "Error inside server" } );
+            return res.json( result );
+        } );
+    } );
 
 // for delete post
 app.delete( '/delete/:id', ( req, res ) =>

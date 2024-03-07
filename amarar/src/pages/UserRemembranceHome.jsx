@@ -150,6 +150,7 @@ function UserRemembranceHome ()
                                         <td>
                                             {/* Edit Button */ }
                                             <Link
+                                                to={ `/edit-remembrance/${ r_post.r_ID }` }
                                                 className='btn btn-sm'
                                             >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#326346" class="bi bi-pencil-square" viewBox="0 0 16 16">

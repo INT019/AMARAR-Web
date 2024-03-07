@@ -88,9 +88,6 @@ function RemembranceNav ()
                                             <h4>Share This Post ...</h4>
                                         </ShareRemembrance>
                                     </li>
-                                    {/* <li>
-                                        <Link to={ `/readShare/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Share</Link>
-                                    </li> */}
                                 </ul>
                             </nav>
                         </div>
