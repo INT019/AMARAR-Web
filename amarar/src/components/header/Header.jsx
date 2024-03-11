@@ -4,7 +4,6 @@ import amararlogo from '../../images/logo.png';
 import web from '../../images/web.png'
 import account from '../../images/account.png'
 import search from '../../images/search.png'
-
 import './Header.css';
 
 function Header ()

@@ -110,7 +110,7 @@ function UserDashObituaryHome ()
 
                 <div className='grid-item grid-item-5'>
                     <table className="table">
-                        <thead style={ { backgroundColor: '#326346' } }>
+                        <thead>
                             <tr>
                                 <th>Thumbnail</th>
                                 <th>Title</th>

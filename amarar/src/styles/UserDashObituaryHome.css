@@ -42,9 +42,9 @@
  .grid-item:nth-child(3) {
    grid-column: 2;
    grid-row: 2;
-   margin-top: 10px;
+   margin-top: 15px;
    margin-bottom: 0;
-   padding: 15px;
+   padding: 10px;
  }
 
  .grid-item:nth-child(3) h2{
@@ -61,7 +61,7 @@
    display: flex;
    justify-content: space-between;
    align-items: end;
-   margin: 10px;
+   margin: 5px 15px 0;
    padding: 10px;
  }
 
@@ -75,11 +75,12 @@
 
  .filter-container select{
   border: 1px solid #326346;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   padding: 10px 15px;
   border-radius: 10px;
   color: #828282;
   text-align: center;
-  font-weight: 200;
+  font-weight: 300;
   transition: border-color 0.2s ease-in-out;
   cursor: pointer;
   width: 150px;
@@ -104,22 +105,41 @@
   border: .5px solid #326346;
   border-collapse: collapse;
   text-align: center;
+  vertical-align: middle !important;
  }
 
  table{
   width: 100%;
   table-layout: fixed;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
  }
 
- .grid-item:nth-child(5) thead, th{
-  background: #326346;
- }
+thead tr{
+  background: #326346 !important;
+  color: #fff;
+  border-radius: 20px 20px 0px 0px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+tbody{
+  font-weight: 400;
+}
 
  .grid-item:nth-child(6) {
    grid-column: 2;
    grid-row: 5;
-   text-align: end;
-   padding: 10px 20px;
+   align-items: end;
+   text-align: center;
+   margin: 10px 25px 5px 0;
+ }
+
+ .grid-item:nth-child(6) button{
+  border: none !important;
+  background-color: #326346;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
  }
 
  .grid-item:nth-child(7){
