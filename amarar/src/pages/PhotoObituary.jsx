@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ObituaryNav from '../components/ObituaryNav'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
+import Footer from '../components/footer/Footer';
 
 function PhotoObituary ()
 {
@@ -54,6 +55,10 @@ function PhotoObituary ()
                         ) }
                     </div>
                 </div>
+            </div>
+
+            <div className='footer'>
+                <Footer />
             </div>
         </div>
     );

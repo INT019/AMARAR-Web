@@ -31,7 +31,8 @@ function Header ()
                 <div className='btn-and-icons'>
                     <img className='header-web' src={ web }></img>
 
-                    <button className='create-post'>Create Post</button>
+                    <button type='submit'
+                        className='create-post'>Create Post</button>
 
                     <img className='header-account' src={ account }></img>
                 </div>
@@ -41,6 +42,7 @@ function Header ()
                 <div className='header-search'>
                     <div className='search-text'>
                         Search Here
+                        {/* <input type='search' placeholder='Search Here'/> */ }
                     </div>
                     <div className='search-icon'>
                         <img src={ search }></img>

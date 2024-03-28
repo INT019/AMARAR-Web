@@ -9,6 +9,7 @@ import { Buffer } from 'buffer';
 import Header from '../components/header/Header';
 import '../styles/UserDashObituaryHome.css';
 import Footer from '../components/footer/Footer';
+import SideNav from '../components/sideNav/SideNav';
 
 function UserDashObituaryHome ()
 {
@@ -83,7 +84,7 @@ function UserDashObituaryHome ()
                 </div>
 
                 <div className="grid-item grid-item-2">
-                    <h1>side nav</h1>
+                    <SideNav />
                 </div>
 
                 <div className="grid-item grid-item-3">
@@ -92,14 +93,14 @@ function UserDashObituaryHome ()
 
                 <div className="grid-item grid-item-4">
                     <div className="filter-container">
-                        <select>
+                        <select className='filter'>
                             <option>Package</option>
                             <option>Basic</option>
                             <option>Standard</option>
                             <option>Premium</option>
                         </select>
 
-                        <select>
+                        <select className='filter'>
                             <option>Status</option>
                             <option>Completed</option>
                             <option>Processing</option>

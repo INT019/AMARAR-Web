@@ -1,18 +1,20 @@
-*{
-  font-family: Manuale;
+@import url('https://fonts.googleapis.com/css2?family=Manuale:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Manuale',sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.full-header{
-  position: absolute;
+.full-header {
+  position: relative;
   width: 100%;
-  height: 130px;
   display: block;
-  margin-top: 9%;
-  margin-bottom: 50px;
-  margin-left: 75px;
+  margin: 150px 0px 0px 75px;
 }
 
-.upper-header{
+.upper-header {
   position: absolute;
   width: 100%;
   height: 80px;
@@ -22,57 +24,59 @@
   margin-left: -5%;
 }
 
-.lower-header{
+.lower-header {
   position: absolute;
   width: 100%;
   height: 50px;
   background-color: #326346;
   margin-left: -4.9%;
-  border-radius: 0  0 20px 20px;
+  border-radius: 0 0 20px 20px;
   margin-top: -4.8%;
- 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.logo-img img{
+.logo-img img {
   position: absolute;
-  width: 120px;
-  height: 100px;
+  height: 120px;
   width: fit-content;
-  margin-bottom: 50px;
+  margin-top: -20px;
+  margin-left: 7px;
   padding: 5px;
-align-items: center;
-justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
-.nav-link-set{
+.nav-link-set {
   position: absolute;
   margin-left: 28%;
   margin-top: 2%;
-
 }
-.header-link-nav{
+
+.header-link-nav {
   width: 80vw;
 }
 
-.header-link-ul{
+.header-link-ul {
   display: flex;
   justify-content: flex-start;
-  margin-left: 5%;
+  margin-left: 2%;
+  gap: 25px;
 }
 
-.header-link-li{
+.header-link-li {
   list-style: none;
   margin-right: 6%;
 }
 
-.nav-link-set .header-link-a{
+.nav-link-set .header-link-a {
   font-size: 20px;
+  font-weight: 600;
   color: black;
   font-weight: bold;
   text-decoration: none;
 }
 
-.btn-and-icons{
+.btn-and-icons {
   position: absolute;
   display: flex;
   align-items: center;
@@ -81,23 +85,25 @@ justify-content: center;
   gap: 15%;
 }
 
-.header-web{
-  width: 34px;
-  height: 34px;
+.header-web {
+  width: 40px;
+  height: 40px;
 }
 
-.header-account{
-  width: 45px;
-  height: 45px;
+.header-account {
+  width: 40px;
+  height: 40px;
 }
 
-.create-post{
+.create-post {
   width: 180px;
   height: 32px;
   background-color: #326346;
-  border-style:solid;
+  border-style: solid;
   border-color: #326346;
   color: #fff;
+  text-align: center;
+  vertical-align: middle;
   border-radius: 25px;
   font-weight: bold;
   font-size: 16px;
@@ -106,7 +112,7 @@ justify-content: center;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.lower-header .header-search{
+.lower-header .header-search {
   width: 300px;
   height: 30px;
   background-color: #fff;
@@ -117,11 +123,13 @@ justify-content: center;
   display: flex;
   align-items: center;
 }
-.search-text{
+
+.search-text {
   margin-left: 10%;
   color: darkgrey;
 }
-.search-icon img{
+
+.search-icon img {
   width: 30px;
   height: 30px;
   margin-left: 500%;

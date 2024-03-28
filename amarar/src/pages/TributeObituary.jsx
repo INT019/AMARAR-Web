@@ -1,5 +1,6 @@
 import React from 'react'
 import ObituaryNav from '../components/ObituaryNav'
+import Footer from '../components/footer/Footer';
 
 function TributeObituary ()
 {
@@ -17,6 +18,10 @@ function TributeObituary ()
                         Tribute
                     </div>
                 </div>
+            </div>
+
+            <div className='footer'>
+                <Footer />
             </div>
         </div>
     )

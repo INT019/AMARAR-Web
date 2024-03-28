@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import Footer from '../components/footer/Footer';
 
 function DescriptionObituary ()
 {
@@ -38,6 +39,10 @@ function DescriptionObituary ()
               {/* <button className='btn ms-2' style={ { background: '#326346', color: '#ffff' } }>Edit</button> */ }
             </> ) }
         </div>
+      </div>
+
+      <div className='footer'>
+        <Footer />
       </div>
     </div>
   )

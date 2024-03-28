@@ -1,0 +1,54 @@
+ .dash-container{
+    margin: 0;
+ }
+
+.user-side-navbar{
+    background-color: #fff;
+    height: auto !important;
+    width: 15vw;
+    padding: 50px 30px 0 15px;
+    /* border-radius: 0 0 15px 15px; */
+    margin: auto 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .com-logo{
+    width: 4vw;
+    height: 3.5vh;
+    margin-bottom: 50px;
+    margin-left: 0.5px;
+    margin-top: -30px;
+ }
+ 
+ .sidebar-icon{
+    width: 25px;
+    height: 25px;
+    margin-left: -10px;
+    margin-right: 25px;
+ }
+ 
+ .user-sidebar-ul-top , .user-sidebar-ul-middle {
+    justify-content: center;
+    display: block;
+ }
+ 
+ .user-sidebar-li {
+    padding-bottom: 25px;
+    list-style: none;
+    display: flex;
+ }
+ 
+ .logout-link{
+   align-items: baseline;
+   margin-top: 100px;
+   margin-bottom: 0;
+ }
+ 
+ .user-sidebar-ul-middle{
+    padding-top: 20px;
+ }
+.nav-hr{
+   margin-left: 10px;
+   justify-content: center;
+   align-items: center;
+}

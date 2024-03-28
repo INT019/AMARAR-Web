@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ObituaryNav from '../components/ObituaryNav'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Footer from '../components/footer/Footer';
 
 // css file
 //import '../styles/Obituary.css';
@@ -58,6 +59,10 @@ function DonationObituary ()
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div className='footer'>
+                <Footer />
             </div>
         </div>
     )

@@ -7,7 +7,7 @@ function Footer ()
         <div className='full-footer'>
             <div className='upper-footer'>
                 <div className='footer-links'>
-                    <nav>
+                    <nav className='footer-link-list'>
                         <ul>
                             <li><a href='#'>About Us</a></li>
                             <li><a href='#'>Terms of Use</a></li>
@@ -21,7 +21,7 @@ function Footer ()
             </div>
             <div className='lower-footer'>
                 <div className='lower-footer-text'>
-                    <div>amarar.net</div><div className='copyright'></div>2023.All Rights Reserved.
+                    <div>amarar.net</div><div className='copyright'>2023.All Rights Reserved.</div>
                 </div>
 
             </div>

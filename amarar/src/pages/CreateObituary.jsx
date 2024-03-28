@@ -6,7 +6,9 @@ import 'react-quill/dist/quill.snow.css';
 import { Upload, Button, Modal } from 'antd';
 import { PlusOutlined, UploadOutlined } from '@ant-design/icons';
 import Header from '../components/header/Header';
+import Footer from '../components/footer/Footer';
 //import CountryCityField from '../components/CountryCityField';
+import '../styles/CreateObituary.css';
 
 function ObituaryForm ()
 {
@@ -233,7 +235,6 @@ function ObituaryForm ()
             </div>
 
             <div className='d-flex flex-column justify-content-center align-items-center' style={ { background: '#F2F2F8' } }>
-
 
                 <h1>CREATE YOUR OBITUARY ....</h1>
 
@@ -588,6 +589,10 @@ function ObituaryForm ()
                         >Create</button>
                     </form>
                 </div>
+            </div>
+
+            <div className='footer'>
+                <Footer />
             </div>
         </div>
     )
