@@ -57,7 +57,7 @@ app.post( '/remembrance',
     {
         console.log( req.file );
 
-        const sql = "INSERT INTO remembrance (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `mainImage`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+        const sql = "INSERT INTO remembrance (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `mainImage`, `title`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
         const values = [
             req.body.fname,
@@ -71,7 +71,6 @@ app.post( '/remembrance',
             //req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '',
             // req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].buffer : '',
             req.body.title,
-            req.body.donation,
             req.body.description,
             req.body.name,
             req.body.email,
@@ -112,39 +111,36 @@ app.get( [
 
 
 // for edit form
-app.put( '/edit-remembrance/:id',
-    upload.single( 'mainImage' ),
-    ( req, res ) =>
+app.put( '/edit-remembrance/:id', ( req, res ) =>
+{
+    console.log( req.file );
+
+    const sql = 'UPDATE remembrance SET `fName` =?, `lName` =?, `dob` =?, `dod` =?, `country` =?, `city` =?, `religion` =?, `title` =?, `description` =?, `editedTime` =NOW() WHERE r_ID = ?';
+
+    const id = req.params.id;
+    db.query( sql, [
+        req.body.fname,
+        req.body.lname,
+        req.body.dob,
+        req.body.dod,
+        req.body.country,
+        req.body.city,
+        req.body.religion,
+        // req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '',
+        // JSON.stringify( otherImages ),
+        // req.files[ 'certificate' ] ? req.files[ 'certificate' ][ 0 ].filename : '',
+        req.body.title,
+        req.body.description,
+        // req.body.name,
+        // req.body.email,
+        // req.body.contactNo,
+        // req.body.nic,
+        id ], ( err, result ) =>
     {
-        console.log( req.file );
-
-        const sql = 'UPDATE obituary SET `fName` =?, `lName` =?, `dob` =?, `dod` =?, `country` =?, `city` =?, `religion` =?, `mainImage` =?, `certificate` =?, `title` =?, `donation` =?, `description` =?, `editedTime` =NOW() WHERE r_ID = ?';
-
-        const id = req.params.id;
-        db.query( sql, [
-            req.body.fname,
-            req.body.lname,
-            req.body.dob,
-            req.body.dod,
-            req.body.country,
-            req.body.city,
-            req.body.religion,
-            req.file ? req.file.filename : '',
-            //req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].filename : '',
-            // req.files[ 'mainImage' ] ? req.files[ 'mainImage' ][ 0 ].buffer : '',
-            req.body.title,
-            req.body.donation,
-            req.body.description,
-            req.body.name,
-            req.body.email,
-            req.body.contactNo,
-            req.body.nic,
-            id ], ( err, result ) =>
-        {
-            if ( err ) return res.json( { Message: "Error inside server" } );
-            return res.json( result );
-        } );
-    } );
+        if ( err ) return res.json( { Message: "Error inside server" } );
+        return res.json( result );
+    } )
+} );
 
 // for delete post
 app.delete( '/delete/:id', ( req, res ) =>

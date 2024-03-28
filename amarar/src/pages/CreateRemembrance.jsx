@@ -18,7 +18,6 @@ function CreateRemembrance ()
         religion: '',
         mainImage: '',
         title: '',
-        donation: '',
         description: '',
         name: '',
         email: '',
@@ -335,22 +334,6 @@ function CreateRemembrance ()
                                     onChange={ e => setValues( { ...values, title: e.target.value } ) }
                                     required
                                 />
-                            </div>
-                        </div>
-
-                        <div className='form-group row p-2'>
-                            <label htmlFor='donation' className='col-sm-2'>Donation:</label>
-
-                            <div className='col-sm-10'>
-                                <select
-                                    id='donation'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, donation: e.target.value } ) }
-                                >
-                                    <option>Choose Your </option>
-                                    <option>Yes</option>
-                                    <option>No</option>
-                                </select>
                             </div>
                         </div>
 
