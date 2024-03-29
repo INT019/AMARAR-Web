@@ -1,16 +1,16 @@
- .create-obituary {
+ .edit-obituary {
    margin: 0;
    padding: 0;
 }
 
-.create-obituary-inner {
+.edit-obituary-inner {
   display: flex;
   flex-direction: column;
   margin: auto;
   position: relative;
 }
 
-.create-obituary-title {
+.edit-obituary-title {
   color: #326346;
   font-size: 32px;
   font-weight: 700;
@@ -20,15 +20,15 @@
   margin: 10px 100px 30px 220px;
 }
 
-.create-obituary-form-container {
+.edit-obituary-form-container {
   display: flex;
   flex-direction: column;
-  height: 2190px;
+  height: 1300px;
   width: 1100px;
-  margin: 0px auto;
+  margin: 0px auto 60px auto;
 }
 
-.create-obituary-form-section {
+.edit-obituary-form-section {
   margin-bottom: 35px;
   padding: 30px 110px;
   background: #d9d9d9;  
@@ -36,7 +36,7 @@
   border-radius: 20px;
 }
 
-.create-obituary-form-heading {
+.edit-obituary-form-heading {
   color: #326346;
   font-size: 24px;
   font-weight: 500;
@@ -47,7 +47,7 @@
 }
 
 
-.create-obituary-form-row {
+.edit-obituary-form-row {
   display: flex;
   flex-direction: row;
   margin: 30px auto;
@@ -55,24 +55,28 @@
   align-items: center;
 }
 
-.create-obituary-form-row-inner{
+.edit-obituary-form-row-inner,
+.edit-obituary-form-row-inner-religion{
   flex: 0 0 50%;
   max-width: 50%;
 }
 
-.create-obituary-form-row label,
-.create-obituary-form-row-more label{
+.edit-obituary-form-row-inner-religion{
+  margin-left: -440px;
+}
+
+.edit-obituary-form-row label,
+.edit-obituary-form-row-more label{
   color: #000000;
   display: block;
   font-size: 18px;
   font-weight: 400;
   margin-left: 60px;
   margin-bottom: 5px;
-  position: static;
 }
 
-.create-obituary-form-row input,
-.certificate-upload button{
+.edit-obituary-form-row input,
+.ant-upload button{
   height: 45px;
   width: 350px;
   margin: auto;
@@ -92,28 +96,23 @@
   box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
 }
 
-.certificate-upload button{
+.ant-upload button{
   margin: 0 50px !important;
 }
 
-.ant-upload-list-text {
-  margin-top: 10px;
-    margin-left: 50px;
-}
-
 /* more information */
-.create-obituary-form-row-more{
+.edit-obituary-form-row-more{
   display: flex;
   flex-direction: row !important;
   margin-bottom: 25px;
 }
 
-.create-obituary-form-row-more label{
+.edit-obituary-form-row-more label{
   margin-top: 10px;
   margin-bottom: 0;
 }
 
-.create-obituary-form-row-more input{
+.edit-obituary-form-row-more input{
   height: 45px;
   width: 600px;
   margin-left: 30px;
@@ -137,58 +136,32 @@
   box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
 }
 
-.form-check{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 60px auto;
+.edit-obituary-btns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
 }
 
-.form-check-input{
-  border: 2px solid #326346;
-  background-color: #fff;
-  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
-  margin: 15px;
-  height: 20px;
-  width: 20px;
-  cursor: pointer;
-}
-
-.form-check-input:checked{
-  background-color: #326346;
-  border: #326346;
-}
-
-.form-check-label{
-  color: #000000;
-  font-size: 17px;
-  font-weight: 400;
-}
-
-.form-check-label a{
-  color: #326346;
-}
-
-.create-obituary-btn{
+.edit-obituary-back-btn,
+.edit-obituary-btn{
   width: 200px;
   height: 50px;
-  background-color: #326346;
-  color: #fff;
-  border: none !important;
   border-radius: 15px;
   font-size: 20px;
   text-align: center;
-  margin-left: 450px;
-  margin-bottom: 50px;
+  margin: 0 25px;
+  border: 2px solid #326346;
   box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
 }
 
-.create-obituary-img{
-  margin-left: 770px;
-  margin-top: -235px;
+.edit-obituary-btn{
+    background-color: #326346;
+    color: #fff;
 }
 
-.create-obituary-img img{
-  height: 180px;
+.edit-obituary-back-btn{
+    background-color: #fff;
+    color: #000000;
 }

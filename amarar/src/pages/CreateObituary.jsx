@@ -9,6 +9,7 @@ import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 //import CountryCityField from '../components/CountryCityField';
 import '../styles/CreateObituary.css';
+import createImg from '../images/createObImg.png';
 
 function ObituaryForm ()
 {
@@ -100,7 +101,8 @@ function ObituaryForm ()
             <PlusOutlined />
             <div
                 className='ant-upload-text'
-                style={ { margin: 8 } }>Upload</div>
+                style={ { margin: 8 } }
+            >Upload</div>
         </button>
     );
 
@@ -225,228 +227,141 @@ function ObituaryForm ()
     };
 
     return (
-        <div className='create-obituary'
-            style={ {
-                display: 'block'
-            } }
-        >
+        <div className='create-obituary'>
             <div className='header'>
                 <Header />
             </div>
 
-            <div className='d-flex flex-column justify-content-center align-items-center' style={ { background: '#F2F2F8' } }>
+            <div className='create-obituary-inner'>
 
-                <h1>CREATE YOUR OBITUARY ....</h1>
+                <p className='create-obituary-title'>CREATE YOUR OBITUARY ....</p>
 
-                <div className='w-50 rounded p-4' style={ { background: '#D9D9D9' } }>
+                <div className='create-obituary-form-container'>
                     <form
                         onSubmit={ handleSubmit }
                         encType='multipart/form-data'
                     >
                         {/* for personal information */ }
+                        <div className='create-obituary-form-section'>
+                            <p className='create-obituary-form-heading'>Person's Information</p>
 
-                        <h2>Person's Information</h2>
+                            <div className='create-obituary-form-row'>
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='fname'>First Name  :</label>
+                                    <input
+                                        type='text'
+                                        placeholder='John'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, fname: e.target.value } ) }
+                                        required
+                                    />
+                                </div>
 
-                        <div className='row'>
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='fname'>First Name:</label>
-                                <input
-                                    type='text'
-                                    placeholder='John'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, fname: e.target.value } ) }
-                                    required
-                                />
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='lname'>Last Name  :</label>
+                                    <input
+                                        type='text'
+                                        placeholder='Barker'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, lname: e.target.value } ) }
+                                        required
+                                    />
+                                </div>
                             </div>
 
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='lname'>Last Name:</label>
-                                <input
-                                    type='text'
-                                    placeholder='Barker'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, lname: e.target.value } ) }
-                                    required
-                                />
+                            <div className='create-obituary-form-row'>
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='dob'>Date of Birth  :</label>
+                                    <input
+                                        type='date'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, dob: e.target.value } ) }
+                                        required
+                                    />
+                                </div>
+
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='dod'>Date of Death  :</label>
+                                    <input
+                                        type='date'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, dod: e.target.value } ) }
+                                        required
+                                    />
+                                </div>
                             </div>
-                        </div>
 
-                        <div className='row'>
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='dob'>Date of Birth:</label>
-                                <input
-                                    type='date'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, dob: e.target.value } ) }
-                                    required
-                                />
-                            </div>
+                            <div className='create-obituary-form-row'>
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='country'>Country  :</label>
+                                    <input
+                                        type='text'
+                                        placeholder='Sri Lanka'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, country: e.target.value } ) }
+                                        required
+                                    />
 
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='dod'>Date of Death:</label>
-                                <input
-                                    type='date'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, dod: e.target.value } ) }
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <div className='row'>
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='country'>Country:</label>
-                                <input
-                                    type='text'
-                                    placeholder='Sri Lanka'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, country: e.target.value } ) }
-                                    required
-                                />
-
-                                {/* <CountryCityField
+                                    {/* <CountryCityField
                                     onCountryChange={ handleCountry }
                                     onCityChange={ handleCity }
                                 /> */}
-                            </div>
+                                </div>
 
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='city'>City:</label>
-                                <input
-                                    type='text'
-                                    placeholder='Colombo'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, city: e.target.value } ) }
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <div className='row'>
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='religion'>Religion:</label>
-                                <select
-                                    id='religion'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, religion: e.target.value } ) }
-                                >
-                                    <option>Choose Your Religion</option>
-                                    <option>Buddhist</option>
-                                    <option>Catholic</option>
-                                    <option>Hindu</option>
-                                    <option>Islam</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div className='row'>
-                            {/* for post image */ }
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='mainImage'>
-                                    Main Image For Post:
-                                </label>
-                                {/* <input
-                                    type='file'
-                                    className='form-control'
-                                    onChange={ handleImages }
-                                /> */}
-
-                                <Upload
-                                    action={ "http://localhost:8081/backend/uploads/images/Obituary/mainImage" }
-                                    onChange={ handleImages }
-                                    onPreview={ handlePreview }
-                                    listType="picture-card"
-                                    showUploadList={ { showRemoveIcon: true } }
-                                    accept='.png, .jpeg, .jpg'
-                                    beforeUpload={ ( file ) =>
-                                    {
-                                        console.log( { file } )
-                                        return false
-                                    } }
-                                >
-                                    { values.mainImage ? null : uploadButton }
-                                </Upload>
-
-                                <Modal
-                                    open={ previewOpen }
-                                    footer={ null }
-                                    onCancel={ handleCancel }
-                                >
-                                    <img
-                                        alt='Preview'
-                                        style={ { width: '100%' } }
-                                        src={ previewImage }
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='city'>City  :</label>
+                                    <input
+                                        type='text'
+                                        placeholder='Colombo'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, city: e.target.value } ) }
+                                        required
                                     />
-                                </Modal>
+                                </div>
                             </div>
 
-                            {/* for other images */ }
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='otherImage'>Other Images:</label>
-                                {/* <input
-                                    type='file'
-                                    className='form-control'
-                                    onChange={ handleOtherImages }
-                                    multiple
-                                /> */}
+                            <div className='create-obituary-form-row'>
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='religion'>Religion  :</label>
+                                    <select
+                                        id='religion'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, religion: e.target.value } ) }
+                                    >
+                                        <option>Choose Your Religion</option>
+                                        <option>Buddhist</option>
+                                        <option>Catholic</option>
+                                        <option>Hindu</option>
+                                        <option>Islam</option>
+                                    </select>
+                                </div>
 
-                                <Upload
-                                    action={ "http://localhost:8081/backend/uploads/images/Obituary/otherImages" }
-                                    onChange={ handleOtherImages }
-                                    onPreview={ handlePreview }
-                                    listType="picture-card"
-                                    showUploadList={ { showRemoveIcon: true } }
-                                    accept='.png, .jpeg, .jpg'
-                                    beforeUpload={ ( file ) =>
-                                    {
-                                        console.log( { file } )
-                                        return false
-                                    } }
-                                    multiple
-                                >
-                                    { values.otherImages >= 5 ? null : uploadButton }
-                                </Upload>
-
-                                <Modal
-                                    open={ previewOpen }
-                                    footer={ null }
-                                    onCancel={ handleCancel }
-                                >
-                                    <img
-                                        alt='Preview'
-                                        style={ { width: '100%' } }
-                                        src={ previewImage }
-                                    />
-                                </Modal>
-                            </div>
-
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='certificate'>Certificate of Death:</label>
-                                {/* <input
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='certificate'>Certificate of Death  :</label>
+                                    {/* <input
                                     type='file'
                                     className='form-control'
                                     onChange={ handleCertification }
                                 /> */}
 
-                                <Upload
-                                    action={ "http://localhost:8081/backend/uploads/docs/Obituary" }
-                                    onChange={ handleCertification }
-                                    listType="text"
-                                    showUploadList={ { showRemoveIcon: true } }
-                                    accept='.pdf, .docx'
-                                    beforeUpload={ ( file ) =>
-                                    {
-                                        console.log( { file } )
-                                        return false
-                                    } }
+                                    <Upload
+                                        className='certificate-upload'
+                                        action={ "http://localhost:8081/backend/uploads/docs/Obituary" }
+                                        onChange={ handleCertification }
+                                        listType="text"
+                                        showUploadList={ { showRemoveIcon: true } }
+                                        accept='.pdf, .docx'
+                                        beforeUpload={ ( file ) =>
+                                        {
+                                            console.log( { file } )
+                                            return false
+                                        } }
 
-                                >
-                                    Drag image here OR
-                                    <br />
-                                    <Button className='form-control' icon={ <UploadOutlined /> }>Upload</Button>
-                                </Upload>
-                            </div>
-                            {/* <div className='form-group col-md-6'>
+                                    >
+                                        <Button className='form-control upload-button' icon={ <UploadOutlined /> }>Upload</Button>
+                                    </Upload>
+                                </div>
+                                {/* <div className='create-obituary-form-row-inner'>
                                 <label htmlFor='certificate'>Certificate of Death:</label>
                                 <input
                                     type='file'
@@ -454,120 +369,205 @@ function ObituaryForm ()
                                     onChange={ e => setValues( { ...values, certificate: e.target.value } ) }
                                 />
                             </div> */}
-                        </div>
+                            </div>
 
-                        {/* for more information */ }
-
-                        <h2>More Information</h2>
-
-                        <div className='form-group row p-2'>
-                            <label htmlFor='title' className='col-sm-2'>Title:</label>
-
-                            <div className='col-sm-10'>
-                                <input
-                                    type='text'
+                            <div className='create-obituary-form-row'>
+                                {/* for post image */ }
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='mainImage'>
+                                        Main Image For Post  :
+                                    </label>
+                                    {/* <input
+                                    type='file'
                                     className='form-control'
-                                    placeholder='Mr. Jhon Baker'
-                                    onChange={ e => setValues( { ...values, title: e.target.value } ) }
-                                    required
-                                />
+                                    onChange={ handleImages }
+                                /> */}
+
+                                    <Upload
+                                        action={ "http://localhost:8081/backend/uploads/images/Obituary/mainImage" }
+                                        onChange={ handleImages }
+                                        onPreview={ handlePreview }
+                                        listType="picture-card"
+                                        showUploadList={ { showRemoveIcon: true } }
+                                        accept='.png, .jpeg, .jpg'
+                                        beforeUpload={ ( file ) =>
+                                        {
+                                            console.log( { file } )
+                                            return false
+                                        } }
+                                    >
+                                        { values.mainImage ? null : uploadButton }
+                                    </Upload>
+
+                                    <Modal
+                                        // className='ant-upload-modal'
+                                        open={ previewOpen }
+                                        footer={ null }
+                                        onCancel={ handleCancel }
+                                    >
+                                        <img
+                                            alt='Preview'
+                                            style={ { width: '100%' } }
+                                            src={ previewImage }
+                                        />
+                                    </Modal>
+                                </div>
+
+                                {/* for other images */ }
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='otherImage'>Other Images  :</label>
+                                    {/* <input
+                                    type='file'
+                                    className='form-control'
+                                    onChange={ handleOtherImages }
+                                    multiple
+                                /> */}
+
+                                    <Upload
+                                        // className='ant-upload'
+                                        action={ "http://localhost:8081/backend/uploads/images/Obituary/otherImages" }
+                                        onChange={ handleOtherImages }
+                                        onPreview={ handlePreview }
+                                        listType="picture-card"
+                                        showUploadList={ { showRemoveIcon: true } }
+                                        accept='.png, .jpeg, .jpg'
+                                        beforeUpload={ ( file ) =>
+                                        {
+                                            console.log( { file } )
+                                            return false
+                                        } }
+                                        multiple
+                                    >
+                                        { values.otherImages >= 5 ? null : uploadButton }
+                                    </Upload>
+
+                                    <Modal
+                                        // className='ant-upload-modal'
+                                        open={ previewOpen }
+                                        footer={ null }
+                                        onCancel={ handleCancel }
+                                    >
+                                        <img
+                                            alt='Preview'
+                                            style={ { width: '100%' } }
+                                            src={ previewImage }
+                                        />
+                                    </Modal>
+                                </div>
                             </div>
                         </div>
 
-                        <div className='form-group row p-2'>
-                            <label htmlFor='donation' className='col-sm-2'>Donation:</label>
+                        <div className='create-obituary-form-section'>
+                            {/* for more information */ }
 
-                            <div className='col-sm-10'>
-                                <select
-                                    id='donation'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, donation: e.target.value } ) }
+                            <p className='create-obituary-form-heading'>More Information</p>
+
+                            <div className='create-obituary-form-row-more'>
+                                <label htmlFor='title' className='col-sm-2'>Title  :</label>
+
+                                <div className='create-obituary-form-moreInfo-input'>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        placeholder='Mr. Jhon Baker'
+                                        onChange={ e => setValues( { ...values, title: e.target.value } ) }
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className='create-obituary-form-row-more'>
+                                <label htmlFor='donation' className='col-sm-2'>Donation  :</label>
+
+                                <div className='create-obituary-form-moreInfo-input'>
+                                    <select
+                                        id='donation'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, donation: e.target.value } ) }
+                                    >
+                                        <option>Choose Your </option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className='create-obituary-form-row-more'>
+                                <label htmlFor='description' className='col-sm-2'>Description  :</label>
+
+                                <div
+                                    className='create-obituary-form-moreInfo-input'
                                 >
-                                    <option>Choose Your </option>
-                                    <option>Yes</option>
-                                    <option>No</option>
-                                </select>
-                            </div>
-                        </div>
+                                    <ReactQuill
+                                        className='ql-editor'
+                                        theme='snow'
+                                        value={ values.description }
+                                        onChange={ handleDescriptionChange }
+                                        modules={ modules }
+                                        //formats={ formats }
+                                        required
+                                    />
 
-                        <div className='form-group row p-2'>
-                            <label htmlFor='description' className='col-sm-2'>Description:</label>
-
-                            <div
-                                className='col-sm-10'
-                            >
-                                <ReactQuill
-                                    theme='snow'
-                                    style={ {
-                                        height: '300px',
-                                        background: '#fff',
-                                        borderRadius: '10px'
-                                    } }
-                                    value={ values.description }
-                                    onChange={ handleDescriptionChange }
-                                    modules={ modules }
-                                    //formats={ formats }
-                                    required
-                                />
-
-                                {/* <textarea
+                                    {/* <textarea
                                     className='form-control'
                                     rows={ 2 }
                                     onChange={ e => setValues( { ...values, description: e.target.value } ) }
                                     required
                                 ></textarea> */}
+                                </div>
                             </div>
                         </div>
 
                         {/* for user information */ }
+                        <div className='create-obituary-form-section'>
+                            <p className='create-obituary-form-heading'>Your Contact Details</p>
 
-                        <h2>Your Contact Details</h2>
+                            <div className='create-obituary-form-row'>
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='name'>Name  :</label>
+                                    <input
+                                        type='text'
+                                        placeholder='Saman Siriwardana'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, name: e.target.value } ) }
+                                        required
+                                    />
+                                </div>
 
-                        <div className='row'>
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='name'>Name:</label>
-                                <input
-                                    type='text'
-                                    placeholder='Saman Siriwardana'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, name: e.target.value } ) }
-                                    required
-                                />
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='email'>Email  :</label>
+                                    <input
+                                        type='email'
+                                        placeholder='saman@gmail.com'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, email: e.target.value } ) }
+                                        required
+                                    />
+                                </div>
                             </div>
 
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='email'>Email:</label>
-                                <input
-                                    type='email'
-                                    placeholder='saman@gmail.com'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, email: e.target.value } ) }
-                                    required
-                                />
-                            </div>
-                        </div>
+                            <div className='create-obituary-form-row'>
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='contactNo'>Contact Number  :</label>
+                                    <input
+                                        type='phone'
+                                        placeholder='0777777777'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, contactNo: e.target.value } ) }
+                                        required
+                                    />
+                                </div>
 
-                        <div className='row'>
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='contactNo'>Contact Number:</label>
-                                <input
-                                    type='phone'
-                                    placeholder='0777777777'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, contactNo: e.target.value } ) }
-                                    required
-                                />
-                            </div>
-
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='nic'>NIC:</label>
-                                <input
-                                    type='text'
-                                    placeholder='0123456789'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, nic: e.target.value } ) }
-                                    required
-                                />
+                                <div className='create-obituary-form-row-inner'>
+                                    <label htmlFor='nic'>NIC  :</label>
+                                    <input
+                                        type='text'
+                                        placeholder='0123456789'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, nic: e.target.value } ) }
+                                        required
+                                    />
+                                </div>
                             </div>
                         </div>
 
@@ -575,19 +575,18 @@ function ObituaryForm ()
                             <input type='checkbox' className='form-check-input' required />
                             <label className='form-check-label'>I agree <a
                                 href='/'
-                                style={ { color: '#326346' } }
                             >Terms and Conditions</a>
                             </label>
                         </div>
 
                         <button
-                            className='btn justify-content-center p-2'
-                            style={ {
-                                background: '#326346',
-                                color: '#ffff'
-                            } }
+                            className='create-obituary-btn'
                         >Create</button>
                     </form>
+
+                    <div className='create-obituary-img'>
+                        <img src={ createImg } alt='createImg' />
+                    </div>
                 </div>
             </div>
 

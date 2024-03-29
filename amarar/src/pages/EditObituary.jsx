@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import ReactQuill from 'react-quill';
 import { useNavigate, useParams } from 'react-router-dom';
+import Header from '../components/header/Header';
+import '../styles/EditObituary.css';
+import Footer from '../components/footer/Footer';
 
 function EditObituary ()
 {
@@ -26,6 +29,7 @@ function EditObituary ()
                     city: res.data[ 0 ].city,
                     religion: res.data[ 0 ].religion,
                     title: res.data[ 0 ].title,
+                    donation: res.data[ 0 ].donation,
                     description: res.data[ 0 ].description
                     // name: res.data[ 0 ].userName,
                     // email: res.data[ 0 ].userEmail,
@@ -45,6 +49,7 @@ function EditObituary ()
         city: '',
         religion: '',
         title: '',
+        donation: '',
         description: ''
         // name: '',
         // email: '',
@@ -91,150 +96,173 @@ function EditObituary ()
     };
 
     return (
-        <div>
-            <div className='d-flex flex-column justify-content-center align-items-center' style={ { background: '#F2F2F8' } }>
-                <h1>EDIT YOUR OBITUARY ....</h1>
-                <div className='w-50 rounded p-4' style={ { background: '#D9D9D9' } }>
+        <div className='create-obituary'>
+            <div className='header'>
+                <Header />
+            </div>
+
+            <div className='edit-obituary-inner'>
+                <p className='edit-obituary-title'>EDIT YOUR OBITUARY ....</p>
+
+                <div className='edit-obituary-form-container'>
                     <form onSubmit={ handleEdit }>
 
                         {/* for personal information */ }
-                        <h2>Person's Information</h2>
+                        <div className='edit-obituary-form-section'>
+                            <p className='edit-obituary-form-heading'>Person's Information</p>
 
-                        <div className='row'>
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='fname'>First Name:</label>
-                                <input
-                                    type='text'
-                                    placeholder='John'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, fname: e.target.value } ) }
-                                    value={ values.fname }
-                                    required
-                                />
+                            <div className='edit-obituary-form-row'>
+                                <div className='edit-obituary-form-row-inner'>
+                                    <label htmlFor='fname'>First Name  :</label>
+                                    <input
+                                        type='text'
+                                        placeholder='John'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, fname: e.target.value } ) }
+                                        value={ values.fname }
+                                        required
+                                    />
+                                </div>
+
+                                <div className='edit-obituary-form-row-inner'>
+                                    <label htmlFor='lname'>Last Name  :</label>
+                                    <input
+                                        type='text'
+                                        placeholder='Barker'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, lname: e.target.value } ) }
+                                        value={ values.lname }
+                                        required
+                                    />
+                                </div>
                             </div>
 
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='lname'>Last Name:</label>
-                                <input
-                                    type='text'
-                                    placeholder='Barker'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, lname: e.target.value } ) }
-                                    value={ values.lname }
-                                    required
-                                />
+                            <div className='edit-obituary-form-row'>
+                                <div className='edit-obituary-form-row-inner'>
+                                    <label htmlFor='dob'>Date of Birth  :</label>
+                                    <input
+                                        type='date'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, dob: e.target.value } ) }
+                                        value={ values.dob }
+                                        required
+                                    />
+                                </div>
+
+                                <div className='edit-obituary-form-row-inner'>
+                                    <label htmlFor='dod'>Date of Death  :</label>
+                                    <input
+                                        type='date'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, dod: e.target.value } ) }
+                                        value={ values.dod }
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className='edit-obituary-form-row'>
+                                <div className='edit-obituary-form-row-inner'>
+                                    <label htmlFor='country'>Country  :</label>
+                                    <input
+                                        type='text'
+                                        placeholder='Sri Lanka'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, country: e.target.value } ) }
+                                        value={ values.country }
+                                        required
+                                    />
+                                </div>
+
+                                <div className='edit-obituary-form-row-inner'>
+                                    <label htmlFor='city'>City  :</label>
+                                    <input
+                                        type='text'
+                                        placeholder='Colombo'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, city: e.target.value } ) }
+                                        value={ values.city }
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className='edit-obituary-form-row'>
+                                <div className='edit-obituary-form-row-inner-religion'>
+                                    <label htmlFor='religion'>Religion  :</label>
+                                    <select
+                                        id='religion'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, religion: e.target.value } ) }
+                                        value={ values.religion }
+                                    >
+                                        <option>Choose Your Religion</option>
+                                        <option>Buddhist</option>
+                                        <option>Catholic</option>
+                                        <option>Hindu</option>
+                                        <option>Islam</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                        <div className='row'>
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='dob'>Date of Birth:</label>
-                                <input
-                                    type='date'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, dob: e.target.value } ) }
-                                    value={ values.dob }
-                                    required
-                                />
-                            </div>
-
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='dod'>Date of Death:</label>
-                                <input
-                                    type='date'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, dod: e.target.value } ) }
-                                    value={ values.dod }
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <div className='row'>
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='country'>Country:</label>
-                                <input
-                                    type='text'
-                                    placeholder='Sri Lanka'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, country: e.target.value } ) }
-                                    value={ values.country }
-                                    required
-                                />
-                            </div>
-
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='city'>City:</label>
-                                <input
-                                    type='text'
-                                    placeholder='Colombo'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, city: e.target.value } ) }
-                                    value={ values.city }
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <div className='row'>
-                            <div className='form-group col-md-6'>
-                                <label htmlFor='religion'>Religion:</label>
-                                <select
-                                    id='religion'
-                                    className='form-control'
-                                    onChange={ e => setValues( { ...values, religion: e.target.value } ) }
-                                    value={ values.religion }
-                                >
-                                    <option>Choose Your Religion</option>
-                                    <option>Buddhist</option>
-                                    <option>Catholic</option>
-                                    <option>Hindu</option>
-                                    <option>Islam</option>
-                                </select>
-                            </div>
-                        </div>
 
                         {/* for more information */ }
-                        <h2>More Information</h2>
+                        <div className='edit-obituary-form-section'>
+                            <p className='edit-obituary-form-heading'>More Information</p>
 
-                        <div className='form-group row p-2'>
-                            <label htmlFor='title' className='col-sm-2'>Title:</label>
-                            <div className='col-sm-10'>
-                                <input
-                                    type='text'
-                                    className='form-control'
-                                    placeholder='Mr. Jhon Baker'
-                                    onChange={ e => setValues( { ...values, title: e.target.value } ) }
-                                    value={ values.title }
-                                    required
-                                />
+                            <div className='edit-obituary-form-row-more'>
+                                <label htmlFor='title' className='col-sm-2'>Title:</label>
+                                <div className='create-obituary-form-moreInfo-input'>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        placeholder='Mr. Jhon Baker'
+                                        onChange={ e => setValues( { ...values, title: e.target.value } ) }
+                                        value={ values.title }
+                                        required
+                                    />
+                                </div>
                             </div>
-                        </div>
 
-                        <div className='form-group row p-2'>
-                            <label htmlFor='description' className='col-sm-2'>Description:</label>
+                            <div className='create-obituary-form-row-more'>
+                                <label htmlFor='donation' className='col-sm-2'>Donation  :</label>
 
-                            <div className='col-sm-10'>
-                                <ReactQuill
-                                    theme='snow'
-                                    style={ {
-                                        height: '300px',
-                                        background: '#fff',
-                                        borderRadius: '10px'
-                                    } }
-                                    value={ values.description }
-                                    onChange={ handleDescriptionChange }
-                                    modules={ modules }
-                                    //formats={ formats }
-                                    required
-                                />
-                                {/* <textarea
+                                <div className='create-obituary-form-moreInfo-input'>
+                                    <select
+                                        id='donation'
+                                        className='form-control'
+                                        onChange={ e => setValues( { ...values, donation: e.target.value } ) }
+                                        value={ values.donation }
+                                    >
+                                        <option>Choose Your </option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className='edit-obituary-form-row-more'>
+                                <label htmlFor='description' className='col-sm-2'>Description:</label>
+
+                                <div className='create-obituary-form-moreInfo-input'>
+                                    <ReactQuill
+                                        className='ql-editor'
+                                        theme='snow'
+                                        value={ values.description }
+                                        onChange={ handleDescriptionChange }
+                                        modules={ modules }
+                                        //formats={ formats }
+                                        required
+                                    />
+                                    {/* <textarea
                                     className='form-control'
                                     rows={ 2 }
                                     onChange={ e => setValues( { ...values, description: e.target.value } ) }
                                     value={ values.description }
                                     required
                                 ></textarea> */}
+                                </div>
                             </div>
                         </div>
 
@@ -242,7 +270,7 @@ function EditObituary ()
 
                         {/* <h2>Your Contact Details</h2>
                         <div className='row'>
-                            <div className='form-group col-md-6'>
+                            <div className='edit-obituary-form-row-inner'>
                                 <label htmlFor='name'>Name:</label>
                                 <input
                                     type='text'
@@ -253,7 +281,7 @@ function EditObituary ()
                                     required
                                 />
                             </div>
-                            <div className='form-group col-md-6'>
+                            <div className='edit-obituary-form-row-inner'>
                                 <label htmlFor='email'>Email:</label>
                                 <input
                                     type='email'
@@ -266,7 +294,7 @@ function EditObituary ()
                             </div>
                         </div>
                         <div className='row'>
-                            <div className='form-group col-md-6'>
+                            <div className='edit-obituary-form-row-inner'>
                                 <label htmlFor='contactNo'>Contact Number:</label>
                                 <input
                                     type='phone'
@@ -277,7 +305,7 @@ function EditObituary ()
                                     required
                                 />
                             </div>
-                            <div className='form-group col-md-6'>
+                            <div className='edit-obituary-form-row-inner'>
                                 <label htmlFor='nic'>NIC:</label>
                                 <input
                                     type='text'
@@ -294,9 +322,16 @@ function EditObituary ()
                             <label className='form-check-label'>I agree Terms and Conditions</label>
                         </div> */}
 
-                        <button className='btn justify-content-center p-2' style={ { background: '#326346', color: '#ffff' } }>Save</button>
+                        <div className='edit-obituary-btns'>
+                            <button className='edit-obituary-back-btn'>Back</button>
+                            <button className='edit-obituary-btn'>Save</button>
+                        </div>
                     </form>
                 </div>
+            </div>
+
+            <div className='footer'>
+                <Footer />
             </div>
         </div>
     )
