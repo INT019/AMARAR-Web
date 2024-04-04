@@ -101,6 +101,10 @@
     margin-left: 50px;
 }
 
+.ant-upload .ant-upload-select{
+  right: 30px !important;
+}
+
 /* more information */
 .create-obituary-form-row-more{
   display: flex;
