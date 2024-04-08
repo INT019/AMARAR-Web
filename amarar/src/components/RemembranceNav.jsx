@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-//import '../styles/Obituary.css'
-import ShareObituary from '../pages/ShareRemembrance';
+//import '../styles/remembrance.css'
+import ShareRemembrance from '../pages/ShareRemembrance';
 import Header from './header/Header';
 import '../styles/RemembranceNav.css';
 
 function RemembranceNav ()
 {
     const { id } = useParams();
-    const [ obituary, setObituary ] = useState( [] );
+    const [ remembrance, setRemembrance ] = useState( [] );
     const location = useLocation();
 
     // share popup
@@ -22,61 +22,61 @@ function RemembranceNav ()
             .get( 'http://localhost:8081/read/' + id )
             .then( ( res ) =>
             {
-                setObituary( res.data );
+                setRemembrance( res.data );
             } )
             .catch( ( err ) => console.log( err ) );
     }, [ id ] );
 
     return (
-        <div className='obituary-nav-container'>
+        <div className='remembrance-nav-container'>
             <div className='header'>
                 <Header />
             </div>
 
-            <div className='obituary-nav-container-inner'>
+            <div className='remembrance-nav-container-inner'>
 
-                { obituary.length > 0 && (
+                { remembrance.length > 0 && (
                     <div>
-                        <div className='obituary-nav-post-detail'>
-                            <p className='obituary-nav-post-heading'>Honoring the Life of
-                                <span className='obituary-nav-post-title'>{ obituary[ 0 ].title }</span>
+                        <div className='remembrance-nav-post-detail'>
+                            <p className='remembrance-nav-post-heading'>Honoring the Life of
+                                <span className='remembrance-nav-post-title'>{ remembrance[ 0 ].title }</span>
                             </p>
 
-                            <p className='obituary-nav-post-dob'>{ new Date( obituary[ 0 ].dob ).toLocaleDateString() }</p>
+                            <p className='remembrance-nav-post-dob'>{ new Date( remembrance[ 0 ].dob ).toLocaleDateString() }</p>
 
-                            <img src={ `http://localhost:8081/backend/uploads/images/Obituary/mainImage/${ obituary[ 0 ].mainImage }` }
+                            <img src={ `http://localhost:8081/backend/uploads/images/remembrance/mainImage/${ remembrance[ 0 ].mainImage }` }
                                 alt="Thumbnail"
-                                className='obituary-nav-post-img'
+                                className='remembrance-nav-post-img'
                             />
 
-                            <p className='obituary-nav-post-dod'>{ new Date( obituary[ 0 ].dod ).toLocaleDateString() }</p>
+                            <p className='remembrance-nav-post-dod'>{ new Date( remembrance[ 0 ].dod ).toLocaleDateString() }</p>
                         </div>
 
                         <nav className='postNav'>
                             <ul>
                                 <li className={ location.pathname === `/read/${ id }` ? 'active' : '' }>
-                                    <Link to={ `/read/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Description</Link>
+                                    <Link to={ `/read/${ remembrance.length > 0 ? remembrance[ 0 ].ID : '' }` }>Description</Link>
                                 </li>
                                 <li className={ location.pathname === `/readTribute/${ id }` ? 'active' : '' }>
-                                    <Link to={ `/readTribute/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Tribute</Link>
+                                    <Link to={ `/readTribute/${ remembrance.length > 0 ? remembrance[ 0 ].ID : '' }` }>Tribute</Link>
                                 </li>
                                 <li className={ location.pathname === `/readDonation/${ id }` ? 'active' : '' }>
-                                    <Link to={ `/readDonation/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Donation</Link>
+                                    <Link to={ `/readDonation/${ remembrance.length > 0 ? remembrance[ 0 ].ID : '' }` }>Donation</Link>
                                 </li>
                                 <li className={ location.pathname === `/readPhotos/${ id }` ? 'active' : '' }>
-                                    <Link to={ `/readPhotos/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Photos</Link>
+                                    <Link to={ `/readPhotos/${ remembrance.length > 0 ? remembrance[ 0 ].ID : '' }` }>Photos</Link>
                                 </li>
                                 <li>
                                     <Link
                                         onClick={ () => setShareButton( true ) }
                                     >Share</Link>
 
-                                    <ShareObituary
+                                    <ShareRemembrance
                                         trigger={ shareButton }
                                         setTrigger={ setShareButton }
                                     >
                                         <p className='share-popup-text'>Share This Post ...</p>
-                                    </ShareObituary>
+                                    </ShareRemembrance>
                                 </li>
                             </ul>
                         </nav>
@@ -85,7 +85,7 @@ function RemembranceNav ()
 
             </div>
 
-            <Link to='/obituary-dashboard'>Back</Link>
+            <Link to='/remembrance-dashboard'>Back</Link>
 
         </div>
     );
