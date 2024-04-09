@@ -7,10 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // remembrance pages
 import UserRemembranceHome from './pages/UserRemembranceHome';
 import CreateRemembrance from './pages/CreateRemembrance';
-import RemembranceNav from './components/RemembranceNav';
 import DescriptionRemembrance from './pages/DescriptionRemembrance';
 import TributeRemembrance from './pages/TributeRemembrance';
 import EditRemembrance from './pages/EditRemembrance';
+import RemembranceNav from './components/RemembranceNav';
+import ShareRemembrance from './pages/ShareRemembrance';
 
 function App ()
 {

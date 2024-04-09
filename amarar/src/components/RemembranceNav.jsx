@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
-
-//import '../styles/remembrance.css'
 import ShareRemembrance from '../pages/ShareRemembrance';
 import Header from './header/Header';
 import '../styles/RemembranceNav.css';
@@ -19,7 +17,7 @@ function RemembranceNav ()
     useEffect( () =>
     {
         axios
-            .get( 'http://localhost:8081/read/' + id )
+            .get( 'http://localhost:8081/read-remembrance/' + id )
             .then( ( res ) =>
             {
                 setRemembrance( res.data );
@@ -54,17 +52,11 @@ function RemembranceNav ()
 
                         <nav className='postNav'>
                             <ul>
-                                <li className={ location.pathname === `/read/${ id }` ? 'active' : '' }>
-                                    <Link to={ `/read/${ remembrance.length > 0 ? remembrance[ 0 ].ID : '' }` }>Description</Link>
+                                <li className={ location.pathname === `/read-remembrance/${ id }` ? 'active' : '' }>
+                                    <Link to={ `/read-remembrance/${ remembrance.length > 0 ? remembrance[ 0 ].r_ID : '' }` }>Description</Link>
                                 </li>
-                                <li className={ location.pathname === `/readTribute/${ id }` ? 'active' : '' }>
-                                    <Link to={ `/readTribute/${ remembrance.length > 0 ? remembrance[ 0 ].ID : '' }` }>Tribute</Link>
-                                </li>
-                                <li className={ location.pathname === `/readDonation/${ id }` ? 'active' : '' }>
-                                    <Link to={ `/readDonation/${ remembrance.length > 0 ? remembrance[ 0 ].ID : '' }` }>Donation</Link>
-                                </li>
-                                <li className={ location.pathname === `/readPhotos/${ id }` ? 'active' : '' }>
-                                    <Link to={ `/readPhotos/${ remembrance.length > 0 ? remembrance[ 0 ].ID : '' }` }>Photos</Link>
+                                <li className={ location.pathname === `/readTribute-remembrance/${ id }` ? 'active' : '' }>
+                                    <Link to={ `/readTribute-remembrance/${ remembrance.length > 0 ? remembrance[ 0 ].r_ID : '' }` }>Tribute</Link>
                                 </li>
                                 <li>
                                     <Link

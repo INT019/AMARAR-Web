@@ -1,0 +1,127 @@
+.remembrance-nav-container{
+    margin: 0;
+    padding: 0;
+}
+
+.remembrance-nav-container-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.remembrance-nav-post-detail{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 3fr;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+    margin-bottom: 0;
+    padding: 0px;
+    height: 450px;
+    width: 800px;
+    background-image: url('../images/obituaryframe.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat !important;
+}
+
+.remembrance-nav-post-heading{
+    grid-column: 1 / span 3;
+    grid-row: 1;
+    text-align: center;
+    color: #000000;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 40px auto 0 auto;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(217, 217, 217, 0.8);
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.remembrance-nav-post-title{
+    display: block;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.remembrance-nav-post-dob{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.remembrance-nav-post-dod{
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.remembrance-nav-post-dob,
+.remembrance-nav-post-dod{
+    color: #000000;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+    margin: auto 75px;
+    margin-top: 120px;
+}
+
+.remembrance-nav-post-img{
+    grid-column: 2;
+    grid-row: 2;
+    margin: auto;
+    margin-top: 50px;
+    outline: 3px solid #326346;
+    outline-offset: 3px;
+    border: 2px solid #326346;
+    border-radius: 50% / 60%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.postNav {
+    margin: 0 auto;
+    width: 800px;
+    height: 65px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.postNav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-left: -31px;
+}
+
+.postNav li {
+    padding: 15px;
+    width: 160px;
+    height: 65px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    background-color: #060606;
+}
+
+.postNav li.active {
+    background-color: #F5F6F9;
+}
+
+.postNav li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.postNav li.active a {
+    color: #326346;
+}
+
+.share-popup-text{
+    color: #060606;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 0;
+}
