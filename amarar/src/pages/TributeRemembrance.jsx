@@ -1,5 +1,6 @@
 import React from 'react'
 import RemembranceNav from '../components/RemembranceNav'
+import Footer from '../components/footer/Footer'
 
 function TributeRemembrance ()
 {
@@ -17,6 +18,10 @@ function TributeRemembrance ()
                         Tribute
                     </div>
                 </div>
+            </div>
+
+            <div className='footer'>
+                <Footer />
             </div>
         </div>
     )

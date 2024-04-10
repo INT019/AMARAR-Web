@@ -81,9 +81,16 @@ function EditRemembrance ()
         setIsEdit( true );
     };
 
+    const handleBack = ( event ) =>
+    {
+        event.preventDefault();
+        navigate( '/remembrance-dashboard' ); // Navigate back without checking isEdit
+    };
+
     const handleEdit = ( event ) =>
     {
         event.preventDefault();
+
         axios.put( 'http://localhost:8081/edit-remembrance/' + id, values )
             .then( res =>
             {
@@ -304,7 +311,13 @@ function EditRemembrance ()
                         </div> */}
 
                         <div className='edit-remembrance-btns'>
-                            <button className='edit-remembrance-back-btn'>Back</button>
+                            <button
+                                onClick={ handleBack }
+                                className='edit-remembrance-back-btn'
+                            >
+                                Back
+                            </button>
+
                             <button className='edit-remembrance-btn'>Save</button>
                         </div>
                     </form>
