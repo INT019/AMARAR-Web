@@ -9,7 +9,7 @@ import SideNav from '../components/sideNav/SideNav';
 import Footer from '../components/footer/Footer';
 
 // css
-import '../styles/UserRemembranceHome.css';
+import '../styles/UserRemembranceHome.css'
 
 function UserRemembranceHome ()
 {
