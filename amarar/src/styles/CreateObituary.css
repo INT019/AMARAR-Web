@@ -1,0 +1,198 @@
+ .create-obituary {
+   margin: 0;
+   padding: 0;
+}
+
+.create-obituary-inner {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  position: relative;
+}
+
+.create-obituary-title {
+  color: #326346;
+  font-size: 32px;
+  font-weight: 700;
+  align-items: start;
+  justify-content: center;
+  text-align: start;
+  margin: 10px 100px 30px 220px;
+}
+
+.create-obituary-form-container {
+  display: flex;
+  flex-direction: column;
+  height: 2190px;
+  width: 1100px;
+  margin: 0px auto;
+}
+
+.create-obituary-form-section {
+  margin-bottom: 35px;
+  padding: 30px 110px;
+  background: #d9d9d9;  
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.create-obituary-form-heading {
+  color: #326346;
+  font-size: 24px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 10px;
+  padding-left: 20px;
+  margin-bottom: 35px;
+}
+
+
+.create-obituary-form-row {
+  display: flex;
+  flex-direction: row;
+  margin: 30px auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-obituary-form-row-inner{
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.create-obituary-form-row label,
+.create-obituary-form-row-more label{
+  color: #000000;
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: 60px;
+  margin-bottom: 5px;
+  position: static;
+}
+
+.create-obituary-form-row input,
+.certificate-upload button{
+  height: 45px;
+  width: 350px;
+  margin: auto;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+}
+
+#religion,
+#donation{
+  height: 45px;
+  width: 350px;
+  margin: auto;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="%23000" d="M10 14L3 7h14z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 25px center;
+  background-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+}
+
+.certificate-upload button{
+  margin: 0 50px !important;
+}
+
+.ant-upload-list-text {
+  margin-top: 10px;
+    margin-left: 50px;
+}
+
+.ant-upload .ant-upload-select{
+  right: 30px !important;
+}
+
+/* more information */
+.create-obituary-form-row-more{
+  display: flex;
+  flex-direction: row !important;
+  margin-bottom: 25px;
+}
+
+.create-obituary-form-row-more label{
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.create-obituary-form-row-more input{
+  height: 45px;
+  width: 600px;
+  margin-left: 30px;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+}
+
+#donation{
+  height: 45px;
+  width: 600px;
+  margin-left: 30px;
+}
+
+.ql-editor{
+  height: 300px;
+  width: 600px;
+  background: #fff;
+  border-radius: 10px;
+  margin-left: 30px;
+  padding: 0;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+}
+
+.form-check{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 60px auto;
+}
+
+.form-check-input{
+  border: 2px solid #326346;
+  background-color: #fff;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+  margin: 15px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.form-check-input:checked{
+  background-color: #326346;
+  border: #326346;
+}
+
+.form-check-label{
+  color: #000000;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.form-check-label a{
+  color: #326346;
+}
+
+.create-obituary-btn{
+  width: 200px;
+  height: 50px;
+  background-color: #326346;
+  color: #fff;
+  border: none !important;
+  border-radius: 15px;
+  font-size: 20px;
+  text-align: center;
+  margin-left: 450px;
+  margin-bottom: 50px;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+}
+
+.create-obituary-img{
+  margin-left: 770px;
+  margin-top: -235px;
+}
+
+.create-obituary-img img{
+  height: 180px;
+}
