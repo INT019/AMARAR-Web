@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SideNav.css';
 import { Link } from 'react-router-dom'
 import amararlogo from '../../images/amararlogo.png'
@@ -14,6 +14,13 @@ import logout from '../../images/logout (2).png'
 
 function UserSidebar ()
 {
+    const [ showDropdown, setShowDropdown ] = useState( false );
+
+    const toggleDropdown = () =>
+    {
+        setShowDropdown( !showDropdown );
+    };
+
     return (
         <div className="dash-container">
             <div className='user-side-navbar'>
@@ -22,23 +29,39 @@ function UserSidebar ()
                     <li className='user-sidebar-li'><img className='sidebar-icon' src={ dashboard } />Dashboard</li>
                     <li className='user-sidebar-li'><img className='sidebar-icon' src={ myacc } />My Account</li>
                 </ul>
+
                 <hr className='nav-hr' />
+
                 <ul className='user-sidebar-ul-middle'>
-                    <li className='user-sidebar-li'><img className='sidebar-icon' src={ menu } />My Post</li>
+                    <li className={ `user-sidebar-li dropdown-container ${ showDropdown ? 'open' : '' }` } onClick={ toggleDropdown }>
+                        <img className='sidebar-icon' src={ menu } />
+                        My Post
+                        { showDropdown && (
+                            <div className='side-nav-drop-down'>
+                                <Link to="/obituary-dashboard">Obituary</Link>
+                                <Link to="/remembrance-dashboard">Remembrance</Link>
+                            </div>
+                        ) }
+                    </li>
+
                     <li className='user-sidebar-li'><img className='sidebar-icon' src={ payment } />Payment</li>
                     <li className='user-sidebar-li'><img className='sidebar-icon' src={ service } />Contact Us</li>
                     <li className='user-sidebar-li'><img className='sidebar-icon' src={ like } />Likes</li>
                     <li className='user-sidebar-li'><img className='sidebar-icon' src={ tribute } />Tributes</li>
-                    <li className='user-sidebar-li'><Link to={ '/donationUserDash' }><img className='sidebar-icon' src={ donation } /></Link>Donations</li>
+
+                    <li className='user-sidebar-li'>
+                        <Link to={ '/donationUserDash' }>
+                            <img className='sidebar-icon' src={ donation } />
+                            Donations
+                        </Link>
+                    </li>
                 </ul>
+
                 <ul className='logout-link'>
                     <li className='user-sidebar-li'><img className='sidebar-icon' id='logout' src={ logout } />Logout</li>
                 </ul>
-
             </div>
-
         </div>
-
     )
 }
 
