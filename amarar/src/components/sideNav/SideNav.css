@@ -102,15 +102,15 @@
     border-right: 6px solid transparent;
     border-top: 6px solid #333;
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 30px;
     vertical-align: middle;
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
     transition: transform 0.3s ease;
 }
 
 /* Dropdown arrow pointing down when dropdown is open */
 .dropdown-container.open::after {
-    transform: rotate(-90deg);
+    transform: rotate(90deg);
 }
 
 /* Responsive design */
