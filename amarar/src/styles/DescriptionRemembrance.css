@@ -1,0 +1,83 @@
+.des-remembrance-container{
+    margin: 0;
+    padding: 0;
+}
+
+.des-remembrance-container-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.des-remembrance-nav-post-time{
+    margin-top: 0;
+    margin-left: -600px;
+    padding: 5px;
+    text-align: center;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
+    width: 200px;
+    border-radius: 20px;
+    background-color: #32634626;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.des-remembrance-container-post-detail{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+    justify-content: center;
+    margin: auto 250px;
+    padding: 0px;
+}
+
+.des-remembrance-container-post-detail-description{
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    padding: 10px;
+    text-align: center;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 400;
+    padding-right: 40px;
+    border-right: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.des-remembrance-container-post-detail-inner{
+    grid-column: 2;
+    grid-row: 1;
+    /* height: 150px; */
+    min-height: auto;
+    width: 250px;
+  padding: 15px 20px;
+  background: #d9d9d9;  
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.des-remembrance-container-heading{
+color: #326346;
+  font-size: 24px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.des-remembrance-container-inner-heading{
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.des-remembrance-container-inner-heading-inner{
+    color: #000001;
+    font-size: 16px;
+    font-weight: 300;
+    margin-left: 10px;
+}

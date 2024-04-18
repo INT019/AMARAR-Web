@@ -1,11 +1,6 @@
 import React from 'react'
-<<<<<<<< HEAD:amarar/src/pages/TributeObituary.jsx
-import ObituaryNav from '../components/ObituaryNav'
-import Footer from '../components/footer/Footer';
-========
 import RemembranceNav from '../components/RemembranceNav'
 import Footer from '../components/footer/Footer'
->>>>>>>> Remembrance_(Amasha):amarar/src/pages/TributeRemembrance.jsx
 
 function TributeRemembrance ()
 {

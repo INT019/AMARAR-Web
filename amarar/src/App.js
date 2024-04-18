@@ -15,11 +15,21 @@ import TributeObituary from './pages/TributeObituary';
 import DonationObituary from './pages/DonationObituary';
 import UserDashObituaryHome from './pages/UserDashObituaryHome';
 
+// remembrance pages
+import UserRemembranceHome from './pages/UserRemembranceHome';
+import CreateRemembrance from './pages/CreateRemembrance';
+import DescriptionRemembrance from './pages/DescriptionRemembrance';
+import TributeRemembrance from './pages/TributeRemembrance';
+import EditRemembrance from './pages/EditRemembrance';
+import RemembranceNav from './components/RemembranceNav';
+import ShareRemembrance from './pages/ShareRemembrance';
+
 function App ()
 {
   return (
     <BrowserRouter>
       <Routes>
+
         {/* Obituary Function */ }
         <Route path='/obituary-dashboard' element={ <UserDashObituaryHome /> } />
         <Route path='/create' element={ <CreateObituary /> } />
@@ -35,8 +45,20 @@ function App ()
         <Route path='/readPhotos/:id' element={ <PhotoObituary /> } />
         {/* <Route path='/readShare/:id' element={ <ShareObituary /> } /> */ }
         <Route path='/edit/:id' element={ <EditObituary /> } />
-      </Routes>
-    </BrowserRouter>
+
+        {/* Remembrance Function*/ }
+        <Route path='/remembrance-dashboard' element={ <UserRemembranceHome /> } />
+        <Route path='/create-remembrance' element={ <CreateRemembrance /> } />
+        <Route path='/read-remembrance/:id' element={
+          <>
+            <RemembranceNav />
+            <DescriptionRemembrance />
+          </>
+        } />
+        <Route path='/readTribute-remembrance/:id' element={ <TributeRemembrance /> } />
+        <Route path='/edit-remembrance/:id' element={ <EditRemembrance /> } />
+      </Routes >
+    </BrowserRouter >
   );
 }
 

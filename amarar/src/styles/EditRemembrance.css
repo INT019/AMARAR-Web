@@ -1,0 +1,163 @@
+ .edit-remembrance {
+   margin: 0;
+   padding: 0;
+}
+
+.edit-remembrance-inner {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  position: relative;
+}
+
+.edit-remembrance-title {
+  color: #326346;
+  font-size: 32px;
+  font-weight: 700;
+  align-items: start;
+  justify-content: center;
+  text-align: start;
+  margin: 10px 100px 30px 220px;
+}
+
+.edit-remembrance-form-container {
+  display: flex;
+  flex-direction: column;
+  height: 1250px;
+  width: 1100px;
+  margin: 0px auto 60px auto;
+}
+
+.edit-remembrance-form-section {
+  margin-bottom: 35px;
+  padding: 30px 110px;
+  background: #d9d9d9;  
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.edit-remembrance-form-heading {
+  color: #326346;
+  font-size: 24px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 10px;
+  padding-left: 20px;
+  margin-bottom: 35px;
+}
+
+
+.edit-remembrance-form-row {
+  display: flex;
+  flex-direction: row;
+  margin: 30px auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-remembrance-form-row-inner,
+.edit-remembrance-form-row-inner-religion{
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.edit-remembrance-form-row-inner-religion{
+  margin-left: -440px;
+}
+
+.edit-remembrance-form-row label,
+.edit-remembrance-form-row-more label{
+  color: #000000;
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: 60px;
+  margin-bottom: 5px;
+}
+
+.edit-remembrance-form-row input{
+  height: 45px;
+  width: 350px;
+  margin: auto;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+}
+
+#religion,
+#donation{
+  height: 45px;
+  width: 350px;
+  margin: auto;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="%23000" d="M10 14L3 7h14z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 25px center;
+  background-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+}
+
+/* more information */
+.edit-remembrance-form-row-more{
+  display: flex;
+  flex-direction: row !important;
+  margin-bottom: 25px;
+}
+
+.edit-remembrance-form-row-more label{
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.edit-remembrance-form-row-more input{
+  height: 45px;
+  width: 600px;
+  margin-left: 30px;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+}
+
+#donation{
+  height: 45px;
+  width: 600px;
+  margin-left: 30px;
+}
+
+.ql-editor{
+  height: 300px;
+  width: 600px;
+  background: #fff;
+  border-radius: 10px;
+  margin-left: 30px;
+  padding: 0;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+}
+
+.edit-remembrance-btns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    margin-top: 70px;
+}
+
+.edit-remembrance-back-btn,
+.edit-remembrance-btn{
+  width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 25px;
+  border: 2px solid #326346;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+}
+
+.edit-remembrance-btn{
+    background-color: #326346;
+    color: #fff;
+}
+
+.edit-remembrance-back-btn{
+    background-color: #fff;
+    color: #000000;
+}
