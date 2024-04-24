@@ -11,7 +11,7 @@ function Header ()
     return (
         <div className="full-header">
             <div className='upper-header'>
-                <div className='logo-img'><Link to={ '#' }>
+                <div className='logo-img'><Link to={ '/home' }>
                     <img src={ amararlogo }></img>
                 </Link>
 

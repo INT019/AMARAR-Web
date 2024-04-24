@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { Upload, Button, Modal } from 'antd';
+import { Upload, Button, Modal, message } from 'antd';
 import { PlusOutlined, UploadOutlined } from '@ant-design/icons';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
@@ -34,6 +34,7 @@ function ObituaryForm ()
     } );
 
     const navigate = useNavigate();
+    const [ error, setError ] = useState( '' );
 
     // for country
     // const handleCountry = ( country ) =>
@@ -203,7 +204,7 @@ function ObituaryForm ()
         {
             if ( key === 'otherImages' )
             {
-                for ( let i = 0; i <= value.length; i++ )
+                for ( let i = 0; i < value.length; i++ )
                 {
                     formData.append( 'otherImages', value[ i ] );
                 }
@@ -223,7 +224,12 @@ function ObituaryForm ()
                 console.log( res );
                 navigate( '/obituary-dashboard' );
             } )
-            .catch( err => console.log( err ) );
+            .catch( err =>
+            {
+                console.log( err );
+                setError( 'An error occurred while submitting the form. Please try again.' );
+                message.error( 'An error occurred while submitting the form. Please try again.' );
+            } );
     };
 
     return (

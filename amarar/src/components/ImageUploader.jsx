@@ -78,7 +78,7 @@ function ImageUploader ( { preview, onChange } )
                 ) }
             </Upload>
 
-            <Modal
+            {/* <Modal
                 open={ previewOpen }
                 footer={ null }
                 onCancel={ handleCancel }
@@ -88,7 +88,7 @@ function ImageUploader ( { preview, onChange } )
                     style={ { width: '100%' } }
                     src={ previewImage }
                 />
-            </Modal>
+            </Modal> */}
         </>
     )
 }

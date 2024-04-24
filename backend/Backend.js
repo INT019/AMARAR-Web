@@ -11,6 +11,7 @@ app.use( express.json() );
 
 // for access images to display
 app.use( '/backend/uploads', express.static( 'uploads' ) );
+app.use( express.urlencoded( { extended: true } ) );
 
 // for image and file upload
 const storage = multer.diskStorage( {
@@ -25,6 +26,9 @@ const storage = multer.diskStorage( {
         } else if ( file.fieldname === 'certificate' )
         {
             cb( null, 'uploads/docs/Obituary' );
+        } else if ( file.fieldname === 'r_mainImage' )
+        {
+            cb( null, 'uploads/images/remembrance/r_mainImage' );
         }
     },
     filename: function ( req, file, cb )
@@ -33,9 +37,7 @@ const storage = multer.diskStorage( {
     }
 } );
 
-const upload = multer( {
-    storage: storage
-} );
+const upload = multer( { storage: storage } );
 
 // database connection
 const db = mysql.createConnection( {
@@ -46,7 +48,7 @@ const db = mysql.createConnection( {
 } );
 
 // for display data on obituary user dashboard page
-app.get( '/', ( req, res ) =>
+app.get( '/ob-fun', ( req, res ) =>
 {
     const sql = "SELECT * FROM obituary";
     db.query( sql, ( err, result ) =>
@@ -57,7 +59,7 @@ app.get( '/', ( req, res ) =>
 } );
 
 // for display data on remembrance user dashboard page
-app.get( '/', ( req, res ) =>
+app.get( '/re-fun', ( req, res ) =>
 {
     const sql = "SELECT * FROM remembrance";
     db.query( sql, ( err, result ) =>
@@ -124,12 +126,12 @@ app.post( '/obituary',
 
 // for remembrance form
 app.post( '/remembrance',
-    upload.single( 'mainImage' ),
+    upload.single( 'r_mainImage' ),
     ( req, res ) =>
     {
         console.log( req.file );
 
-        const sql = "INSERT INTO remembrance (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `mainImage`, `title`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+        const sql = "INSERT INTO remembrance (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `r_mainImage`, `title`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
         const values = [
             req.body.fname,
@@ -291,7 +293,7 @@ app.put( '/edit-remembrance/:id', ( req, res ) =>
 } );
 
 // for delete obituary post
-app.delete( '/delete/:id', ( req, res ) =>
+app.delete( '/delete-obituary/:id', ( req, res ) =>
 {
     const sql = "DELETE FROM obituary WHERE ID = ?";
 
@@ -304,7 +306,7 @@ app.delete( '/delete/:id', ( req, res ) =>
 } );
 
 // for delete remembrance post
-app.delete( '/delete/:id', ( req, res ) =>
+app.delete( '/delete-remembrance/:id', ( req, res ) =>
 {
     const sql = "DELETE FROM remembrance WHERE r_ID = ?";
 

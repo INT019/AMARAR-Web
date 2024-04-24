@@ -23,12 +23,15 @@ import TributeRemembrance from './pages/TributeRemembrance';
 import EditRemembrance from './pages/EditRemembrance';
 import RemembranceNav from './components/RemembranceNav';
 import ShareRemembrance from './pages/ShareRemembrance';
+import Home from './pages/Home';
 
 function App ()
 {
   return (
     <BrowserRouter>
       <Routes>
+
+        <Route path='/home' element={ <Home /> } />
 
         {/* Obituary Function */ }
         <Route path='/obituary-dashboard' element={ <UserDashObituaryHome /> } />

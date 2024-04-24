@@ -42,7 +42,7 @@ function RemembranceNav ()
 
                             <p className='remembrance-nav-post-dob'>{ new Date( remembrance[ 0 ].dob ).toLocaleDateString() }</p>
 
-                            <img src={ `http://localhost:8081/backend/uploads/images/remembrance/mainImage/${ remembrance[ 0 ].mainImage }` }
+                            <img src={ `http://localhost:8081/backend/uploads/images/remembrance/r_mainImage/${ remembrance[ 0 ].r_mainImage }` }
                                 alt="Thumbnail"
                                 className='remembrance-nav-post-img'
                             />

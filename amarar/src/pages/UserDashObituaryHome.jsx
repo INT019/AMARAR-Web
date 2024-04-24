@@ -17,7 +17,7 @@ function UserDashObituaryHome ()
 
     useEffect( () =>
     {
-        axios.get( 'http://localhost:8081/' )
+        axios.get( 'http://localhost:8081/ob-fun' )
             .then( res =>
             {
                 setData( res.data );
@@ -63,7 +63,7 @@ function UserDashObituaryHome ()
     // for delete functionality
     const handleDelete = ( id ) =>
     {
-        axios.delete( 'http://localhost:8081/delete/' + id )
+        axios.delete( 'http://localhost:8081/delete-obituary/' + id )
             .then( res =>
             {
                 window.location.reload();
