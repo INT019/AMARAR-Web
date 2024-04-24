@@ -103,9 +103,9 @@ function UserRemembranceHome ()
                                 data.map( r_post => (
                                     <tr key={ r_post.r_ID }>
                                         <td>
-                                            { r_post.mainImage && (
+                                            { r_post.r_mainImage && (
                                                 <img
-                                                    src={ `http://localhost:8081/backend/uploads/images/remembrance/mainImage/${ r_post.mainImage }` }
+                                                    src={ `http://localhost:8081/backend/uploads/images/remembrance/r_mainImage/${ r_post.r_mainImage }` }
                                                     alt="Thumbnail"
                                                     style={ {
                                                         maxWidth: '100px',

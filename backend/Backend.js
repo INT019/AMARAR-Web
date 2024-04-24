@@ -16,9 +16,9 @@ app.use( '/backend/uploads', express.static( 'uploads' ) );
 const storage = multer.diskStorage( {
     destination: function ( req, file, cb )
     {
-        if ( file.fieldname === 'mainImage' )
+        if ( file.fieldname === 'r_mainImage' )
         {
-            cb( null, 'uploads/images/remembrance/mainImage' );
+            cb( null, 'uploads/images/remembrance/r_mainImage' );
         }
     },
     filename: function ( req, file, cb )
@@ -52,12 +52,12 @@ app.get( '/', ( req, res ) =>
 
 // for remembrance form
 app.post( '/remembrance',
-    upload.single( 'mainImage' ),
+    upload.single( 'r_mainImage' ),
     ( req, res ) =>
     {
         console.log( req.file );
 
-        const sql = "INSERT INTO remembrance (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `mainImage`, `title`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+        const sql = "INSERT INTO remembrance (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `r_mainImage`, `title`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `createdTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
         const values = [
             req.body.fname,

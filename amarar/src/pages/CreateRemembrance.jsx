@@ -20,7 +20,7 @@ function CreateRemembrance ()
         country: '',
         city: '',
         religion: '',
-        mainImage: '',
+        r_mainImage: '',
         title: '',
         description: '',
         name: '',
@@ -110,7 +110,7 @@ function CreateRemembrance ()
 
             setValues( {
                 ...values,
-                mainImage: file,
+                r_mainImage: file,
             } )
         }
     };
@@ -297,7 +297,7 @@ function CreateRemembrance ()
                                 /> */}
 
                                     <Upload
-                                        action={ "http://localhost:8081/backend/uploads/images/remembrance/mainImage" }
+                                        action={ "http://localhost:8081/backend/uploads/images/remembrance/r_mainImage" }
                                         onChange={ handleImages }
                                         onPreview={ handlePreview }
                                         listType="picture-card"
