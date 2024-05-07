@@ -18,6 +18,7 @@ import AdminDashboard from './pages/AdminDashboard';
 
 // import pages
 
+
 // obituary pages
 import CreateObituary from './pages/CreateObituary';
 import DescriptionObituary from './pages/DescriptionObituary';
@@ -39,11 +40,15 @@ import ShareRemembrance from './pages/ShareRemembrance';
 import Home from './pages/Home';
 
 
+import Create from './pages/Create'
+
+
 function App ()
 {
   return (
     <BrowserRouter>
       <Routes>
+
 
     <Route path="/donations" element={<AddDonation/>}/>
     <Route path="/viewdonation" element={<DonationUser/>}/>
@@ -85,6 +90,9 @@ function App ()
         } />
         <Route path='/readTribute-remembrance/:id' element={ <TributeRemembrance /> } />
         <Route path='/edit-remembrance/:id' element={ <EditRemembrance /> } />
+
+        <Route path='/contactus' element={<Create />}></Route>
+
       </Routes>
     </BrowserRouter>
 
