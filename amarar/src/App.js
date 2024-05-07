@@ -34,7 +34,7 @@ function App ()
         <Route path='/home' element={ <Home /> } />
 
         {/* Obituary Function */ }
-        <Route path='/obituary-dashboard' element={ <UserDashObituaryHome /> } />
+        <Route path='/' element={ <UserDashObituaryHome /> } />
         <Route path='/create' element={ <CreateObituary /> } />
         <Route path='/read/:id' element={
           <>

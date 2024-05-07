@@ -85,7 +85,7 @@ function ObituaryNav ()
 
             </div>
 
-            <Link to='/obituary-dashboard'>Back</Link>
+            <Link to='/'>Back</Link>
 
         </div>
     );

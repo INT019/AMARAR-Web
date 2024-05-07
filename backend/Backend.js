@@ -41,10 +41,15 @@ const upload = multer( { storage: storage } );
 
 // database connection
 const db = mysql.createConnection( {
+    // host: 'localhost',
+    // user: 'int019aadhira_amarar_admin',
+    // password: 'amarar_admin01',
+    // database: 'int019aadhira_amarar'
+
     host: 'localhost',
-    user: 'int019aadhira_amarar_admin',
-    password: 'amarar_admin01',
-    database: 'int019aadhira_amarar'
+    user: 'root',
+    password: '',
+    database: 'amarar'
 } );
 
 // for display data on obituary user dashboard page

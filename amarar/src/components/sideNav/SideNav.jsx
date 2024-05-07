@@ -38,7 +38,7 @@ function UserSidebar ()
                         My Post
                         { showDropdown && (
                             <div className='side-nav-drop-down'>
-                                <Link to="/obituary-dashboard">Obituary</Link>
+                                <Link to="/">Obituary</Link>
                                 <Link to="/remembrance-dashboard">Remembrance</Link>
                             </div>
                         ) }
