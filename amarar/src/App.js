@@ -59,10 +59,10 @@ function App ()
     <Route path="/adminlogin" element={<AdminLogin/>}/>
     <Route path="/admindashboard" element={<AdminDashboard/>}/>
 
-    <Route path='/home' element={ <Home /> } />
+    <Route path='/' element={ <Home /> } />
 
             {/* Obituary Function */ }
-            <Route path='/' element={ <UserDashObituaryHome /> } />
+            <Route path='/userDashObituary' element={ <UserDashObituaryHome /> } />
         <Route path='/create' element={ <CreateObituary /> } />
         <Route path='/read/:id' element={
           <>

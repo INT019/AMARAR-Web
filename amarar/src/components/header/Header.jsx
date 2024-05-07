@@ -11,7 +11,7 @@ function Header ()
     return (
         <div className="full-header">
             <div className='upper-header'>
-                <div className='logo-img'><Link to={ '/home' }>
+                <div className='logo-img'><Link to={ '/' }>
                     <img src={ amararlogo }></img>
                 </Link>
 
@@ -23,7 +23,7 @@ function Header ()
                             <li className='header-link-li'><a className='header-link-a' href='#'>Obituaries</a></li>
                             <li className='header-link-li'><a className='header-link-a' href='#'>Remembrance</a></li>
                             <li className='header-link-li'><a className='header-link-a' href='#'>Price</a></li>
-                            <li className='header-link-li'><a className='header-link-a' href='#'>Contact Us</a></li>
+                            <li className='header-link-li'><a className='header-link-a' href='/contactus'>Contact Us</a></li>
                         </ul>
                     </nav>
 
@@ -34,7 +34,7 @@ function Header ()
                     <button type='submit'
                         className='create-post'>Create Post</button>
 
-                    <img className='header-account' src={ account }></img>
+                   <Link to={'/userDashObituary'}> <img className='header-account' src={ account }></img></Link>
                 </div>
 
             </div>

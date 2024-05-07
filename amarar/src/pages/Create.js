@@ -5,6 +5,8 @@ import mail from '../images/mail.png'
 import contimg from '../images/contactimg.png'
 import { useRef } from 'react';
 import emailjs from 'emailjs-com'
+import Header from '../components/header/Header'
+import Footer from '../components/footer/Footer'
 
 
 const Create = () => {
@@ -25,6 +27,7 @@ const Create = () => {
 
 
     <section className='contact'>
+        <Header/>
         
         <h2 className='topic'><b>Have some questions ? <hr /></b></h2>
 
@@ -51,6 +54,7 @@ const Create = () => {
            
             </div>
         </div>
+        <Footer/>
     </section>
     </>
   )
