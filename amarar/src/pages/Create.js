@@ -32,7 +32,7 @@ const Create = () => {
             <div className='contact__optons'>
             
                 <article className='contact__option'>
-                    <div className='topic1'><h3>Iormashion</h3></div>
+                    <div className='topic1'><h3>Information</h3></div>
                     <h4><b>0771564789</b></h4>
                     <a href="#"><h4><b>info@amarar.net</b></h4></a>
                 </article>

@@ -1,7 +1,7 @@
 .container .contact__container{
     width: 58%;
     display: grid;
-    grid-template-columns: 38% 58%;
+    grid-template-columns: 20% 38%;
     gap: 12%;
     padding: 5rem 5rem;
 }
@@ -14,10 +14,10 @@
 }
 .topic1 {
     background: #024217;
-    padding: 0.4rem 0.1rem;
-    border-radius: 0.5rem;
+    padding: 0.7rem 0.7rem;
+    border-radius: 0.6px;
     color: #F2F2F8;
-    height: 40%;
+    height: 70%;
     margin-bottom: 0.5rem;
 }
 
@@ -31,12 +31,12 @@
 .contact__optons {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.3rem;
 }
 
 .contact__option {
     background: #F2F2F8;
-    padding: 1.2rem;
+    padding: 1.9rem;
     border-radius: 1.2rem;
     text-align: center;
     border: 1px solid transparent;
@@ -45,7 +45,7 @@
 }
 
 .contact__option a{
-    margin-top: 0.7rem;
+    margin-top: 0.9rem;
     font-size: 0.8rem;
     color: #000;
 }
