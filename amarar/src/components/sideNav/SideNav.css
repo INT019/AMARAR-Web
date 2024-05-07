@@ -5,6 +5,7 @@
     background-color: #f3f4f4;
     transition: width 350ms ease;
     margin: 0;
+    margin-left: -6%;
 }
 
 .user-side-navbar {

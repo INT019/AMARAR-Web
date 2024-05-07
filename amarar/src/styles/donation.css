@@ -28,9 +28,8 @@
 
   .add-donation-form-conatin{
     position: absolute;
-    margin-top: 10%;
     display: block;
-
+    margin-top: 2%;
   }
   
   .add-donation-title h1{

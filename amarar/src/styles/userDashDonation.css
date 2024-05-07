@@ -4,15 +4,19 @@
 body{
     max-width: 100%;
 }
-.donation-dash-container{
-    overflow-y: hidden;
+.donation-dash-topnav-contain{
+    margin-top: -1%;
+    margin-bottom: 1%;
 }
+
 .table-contain-user-dash{
     width: 100%;
     margin-left: -100%;
 }
 .donation-dash-bottom-contain{
     display: flex;
+    margin-top: 5%;
+   
 }
 .donation-user-dash-sidebar{
 
@@ -31,7 +35,7 @@ body{
     font-size: 18px;
     width: 50vw;
     height: 20vh;
-   margin-top: 10%;
+
  
   
    

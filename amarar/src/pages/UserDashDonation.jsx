@@ -3,8 +3,8 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import '../styles/userDashDonation.css'
 import UserSidebar from "../components/UserSidebar";
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import Header from '../components/header/Header';
+import Footer from '../components/footer/Footer';
 import downArrow from "../images/icons8-down-50.png"
 import { formatDistanceToNow } from 'date-fns';
 
