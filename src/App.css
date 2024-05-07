@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@200&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    height: 100hv;
+    
+
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+    line-height: 1.7;
+
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    background: #F2F2F8;
+
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+section {
+    margin-top: 8rem;
+}
+
+
+
+.btn {
+    width: max-content;
+    display: inline-block;
+    padding: 0.75rem 1.2rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 1px solid var(#e9e4e4);
+    transition: all 400ms ease;
+}
+
+.btn:hover {
+    background: #326346;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+/*======================= media devices ===================*/
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 86%;
+    }
+
+    section {
+        margin-top: 6rem;
+    }
+    
+}
+
+/*======================= media devices(small)===================*/
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    section > h2 {
+        margin-bottom: 2rem;
+    }
+    
+}

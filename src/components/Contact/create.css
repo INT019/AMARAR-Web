@@ -1,0 +1,106 @@
+.container .contact__container{
+    width: 58%;
+    display: grid;
+    grid-template-columns: 38% 58%;
+    gap: 12%;
+    padding: 5rem 5rem;
+}
+.topic {
+    text-align: center;
+    color: #024217;
+}
+.topic b{
+    width: 100%;
+}
+.topic1 {
+    background: #024217;
+    padding: 0.4rem 0.1rem;
+    border-radius: 0.5rem;
+    color: #F2F2F8;
+    height: 40%;
+    margin-bottom: 0.5rem;
+}
+
+.topic h3{
+    display: flex;
+    height: .2rem;
+    width: .2rem;
+    bottom: auto;
+}
+
+.contact__optons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact__option {
+    background: #F2F2F8;
+    padding: 1.2rem;
+    border-radius: 1.2rem;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: #58585b;
+    box-shadow: 0 .5rem 1rem rgb(53, 53, 53);
+}
+
+.contact__option a{
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
+    color: #000;
+}
+
+hr {
+    background: #024217;
+    height: .2rem;
+
+}
+img {
+    width: 16rem;
+   
+}
+
+
+/*========== Form ======== */
+
+.f-box {
+    background: #F2F2F8;
+    padding: 1.2rem;
+    border-radius: 1.2rem;
+    text-align: center;
+    box-shadow: 0 .2rem 1rem rgb(53, 53, 53);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    border-radius: 25rem;
+    border-color: #58585b;
+    
+}
+
+input, textarea{
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: 2px solid var(#024217);
+    resize: none;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .container.contact__container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/*======================= media devices(small)===================*/
+
+@media screen and (max-width: 600px) {
+    .container.contact__container {
+        width: 90%;
+    }
+}
