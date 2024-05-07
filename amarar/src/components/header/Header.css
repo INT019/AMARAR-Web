@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Manuale:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Manuale',sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.full-header {
+  position: relative;
+  width: 100%;
+  display: block;
+  margin: 150px 0px 0px 75px;
+}
+
+.upper-header {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  display: flex;
+  margin-top: -10%;
+  margin-left: -5%;
+}
+
+.lower-header {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background-color: #326346;
+  margin-left: -4.9%;
+  border-radius: 0 0 20px 20px;
+  margin-top: -4.8%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.logo-img img {
+  position: absolute;
+  height: 120px;
+  width: fit-content;
+  margin-top: -20px;
+  margin-left: 7px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link-set {
+  position: absolute;
+  margin-left: 28%;
+  margin-top: 2%;
+}
+
+.header-link-nav {
+  width: 80vw;
+}
+
+.header-link-ul {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 2%;
+  gap: 25px;
+}
+
+.header-link-li {
+  list-style: none;
+  margin-right: 6%;
+}
+
+.nav-link-set .header-link-a {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-and-icons {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  margin-left: 78%;
+  margin-top: 1.5%;
+  gap: 15%;
+}
+
+.header-web {
+  width: 40px;
+  height: 40px;
+}
+
+.header-account {
+  width: 40px;
+  height: 40px;
+}
+
+.create-post {
+  width: 180px;
+  height: 32px;
+  background-color: #326346;
+  border-style: solid;
+  border-color: #326346;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  justify-content: center;
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lower-header .header-search {
+  width: 300px;
+  height: 30px;
+  background-color: #fff;
+  position: absolute;
+  margin-left: 78%;
+  border-radius: 20px;
+  margin-top: 0.6%;
+  display: flex;
+  align-items: center;
+}
+
+.search-text {
+  margin-left: 10%;
+  color: darkgrey;
+}
+
+.search-icon img {
+  width: 30px;
+  height: 30px;
+  margin-left: 500%;
+}
