@@ -60,8 +60,8 @@ function ObituaryNav ()
                                 <li className={ location.pathname === `/readTribute/${ id }` ? 'active' : '' }>
                                     <Link to={ `/readTribute/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Tribute</Link>
                                 </li>
-                                <li className={ location.pathname === `/readDonation/${ id }` ? 'active' : '' }>
-                                    <Link to={ `/readDonation/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Donation</Link>
+                                <li className={ location.pathname === `/viewdonation/${ id }` ? 'active' : '' }>
+                                    <Link to={ `/viewdonation/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Donation</Link>
                                 </li>
                                 <li className={ location.pathname === `/readPhotos/${ id }` ? 'active' : '' }>
                                     <Link to={ `/readPhotos/${ obituary.length > 0 ? obituary[ 0 ].ID : '' }` }>Photos</Link>
