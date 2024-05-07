@@ -2,8 +2,8 @@ import axios from 'axios';
 import '../style/donation.css'
 import { useState } from 'react';
 import swal from 'sweetalert2';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+//import Header from '../components/Header';
+//import Footer from '../components/Footer';
 
  
 
@@ -49,7 +49,7 @@ export default function AddDonation() {
       
         <div className='add-donation-page'>
             <div className='add-donation-header-conatin'>
-                <Header/>
+              {/*<Header/>*/ }  
             </div>
             <div className='add-donation-form-conatin'>
                 <div className='add-donation-title'>
@@ -128,7 +128,7 @@ export default function AddDonation() {
 
             </div>
             <div className='add-donation-footer-contain'>
-                <Footer/>
+               {/* <Footer/>*/} 
             </div>
 
         </div>
