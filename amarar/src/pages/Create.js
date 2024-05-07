@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import './create.css'
-import call from '../../assst/call.png'
-import mail from '../../assst/mail.png'
-import contimg from '../../assst/contactimg.png'
+import '../styles/create.css'
+import call from '../images/call.png'
+import mail from '../images/mail.png'
+import contimg from '../images/contactimg.png'
 import { useRef } from 'react';
 import emailjs from 'emailjs-com'
 
