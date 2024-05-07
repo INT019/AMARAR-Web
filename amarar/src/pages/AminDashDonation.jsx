@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import '../style/adminDashDonation.css';
+import '../styles/adminDashDonation.css';
 import { Link } from "react-router-dom";
 import AdminSidebar from "../components/AdminSidebar";
 import AdminTopNav from "../components/AdminTopNav";

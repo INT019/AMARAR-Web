@@ -1,6 +1,6 @@
 import React from 'react'
 import account from '../images/account.png'
-import '../style/adminTopNav.css'
+import '../styles/adminTopNav.css'
 import notification from '../images/bell.png'
 
 function AdminTopNav() {

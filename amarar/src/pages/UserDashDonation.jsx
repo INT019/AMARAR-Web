@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react"
 import axios from "axios"
-import '../style/userDashDonation.css'
+import '../styles/userDashDonation.css'
 import UserSidebar from "../components/UserSidebar";
 import Header from "../components/Header"
 import Footer from "../components/Footer"

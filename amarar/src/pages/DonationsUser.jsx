@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../style/donation.css';
+import '../styles/donation.css';
 import rightArrow from '../images/right-arrow.png';
 import leftArrow from '../images/left-arrow.png';
 import { formatDistanceToNow } from 'date-fns';

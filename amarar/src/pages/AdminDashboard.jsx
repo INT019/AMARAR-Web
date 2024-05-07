@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AdminTopNav from '../components/AdminTopNav';
 import AdminSidebar from '../components/AdminSidebar';
-import '../style/adminDashboard.css';
+import '../styles/adminDashboard.css';
 import DashboardImage from '../images/dashboardimage.png';
 import axios from "axios";
 

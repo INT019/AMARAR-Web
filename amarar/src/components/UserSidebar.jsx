@@ -1,5 +1,5 @@
 import React from 'react'
-import '../style/userSidebar.css'
+import '../styles/userSidebar.css'
 import { Link } from 'react-router-dom'
 import amararlogo from '../images/amararlogo.png'
 import dashboard from '../images/dashboard (1).png'

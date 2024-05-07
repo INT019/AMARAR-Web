@@ -1,5 +1,5 @@
 import React from 'react'
-import '../style/adminSidebar.css'
+import '../styles/adminSidebar.css'
 import amararlogo from '../images/amararlogo.png'
 import dashboard from '../images/dashboard (1).png'
 import myacc from '../images/myAcc.png'
