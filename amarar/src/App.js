@@ -23,7 +23,6 @@ function App ()
       <Routes>
     <Route path="/donations" element={<AddDonation/>}/>
     <Route path="/viewdonation" element={<DonationUser/>}/>
-    <Route path="/read/:id" element={<ObituaryPostPage/>}/>
     <Route path="/donationUserDash" element={<DonationUserDash/>}/>
 
     <Route path="/donationAdminDash" element={<AdminDashDonation/>}/>
