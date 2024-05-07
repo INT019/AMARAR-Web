@@ -1,0 +1,30 @@
+.photo-obituary-container{
+    margin: 0;
+    padding: 0;
+}
+
+.photo-obituary-container-inner{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    margin: 10px 400px;
+    max-width: 1200px;
+}
+
+.photo-obituary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.photo-obituary img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    outline: 3px solid #326346;
+    outline-offset: 3px;
+    border: 2px solid #326346;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
