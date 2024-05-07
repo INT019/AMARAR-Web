@@ -19,55 +19,65 @@ const db = mysql.createConnection( {
     database: 'amarar'
 } );
 
-// for display data on user dashboard page
-app.get( '/', ( req, res ) =>
+
+//for display data on donations page
+app.get("/viewdonation", (req, res) => {
+    const q = "SELECT * FROM amarar.donations";
+    db.query(q, (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Internal Server Error' });
+        }
+        return res.status(200).json(data);
+    });
+});
+
+
+// for post donations input data by donation form
+app.post("/donations",(req,res)=>{
+    console.log("Received donation request:", req.body);
+    const q = "INSERT INTO donations (username, email, type, comment) VALUES (?, ?, ?, ? )";
+    const values = [
+        req.body.username,
+        req.body.email,
+        req.body.type,
+        req.body.comment,
+        req.body.date
+
+    ]
+
+    db.query(q,values,(err,data)=>{
+        if (err) {
+            console.error("Database error:", err);
+            return res.status(500).json(err);
+        }
+        console.log("Insert successful");
+        return res.status(200).json({ message: 'Insert successful' });
+    });
+})
+
+app.get("/donation/:id" ,( req, res ) =>
 {
-    const sql = "SELECT * FROM obituary";
-    db.query( sql, ( err, result ) =>
+
+    const sql = "SELECT * FROM donations WHERE ID = ?";
+
+    const id = req.params.id;
+    db.query( sql, [ id ], ( err, result ) =>
     {
         if ( err ) return res.json( { Message: "Error inside server" } );
         return res.json( result );
-    } );
-} );
+    } );
+} )
 
-// for post user input data by obituary form
-app.post( '/obituary', upload.fields( [ { name: 'images', maxCount: 1 }, { name: 'certificates', maxCount: 1 } ] ), ( req, res ) =>
-{
-    const sql = "INSERT INTO obituary (`fName`, `lName`, `dob`, `dod`, `country`, `city`, `religion`, `images`, `certificate`, `title`, `donation`, `description`, `userName`, `userEmail`, `contactNo`, `nic`, `time`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
-
-    const values = [
-        req.body.fname,
-        req.body.lname,
-        req.body.dob,
-        req.body.dod,
-        req.body.country,
-        req.body.city,
-        req.body.religion,
-        req.files[ 'images' ] ? req.files[ 'images' ][ 0 ].buffer : '',
-        req.files[ 'certificates' ] ? req.files[ 'certificates' ][ 0 ].buffer : '',
-        req.body.title,
-        req.body.donation,
-        req.body.description,
-        req.body.name,
-        req.body.email,
-        req.body.contactNo,
-        req.body.nic
-    ];
-
-    db.query( sql, values, ( err, result ) =>
-    {
-        if ( err )
-        {
-            console.error( 'Error executing query:', err );
-            return res.json( err );
-        }
-
-        return res.json( result );
-    } );
-} );
-
-// for display data on obituary detail page
-app.get( '/read/:id', ( req, res ) =>
+//obituary
+app.get(
+    [
+        '/read/:id',
+        '/readDescription/:id',
+        '/readPhotos/:id',
+        '/readShare/:id',
+        '/readTribute/:id',
+    ], ( req, res ) =>
 {
     const sql = "SELECT * FROM obituary WHERE ID = ?";
 
@@ -76,50 +86,54 @@ app.get( '/read/:id', ( req, res ) =>
     {
         if ( err ) return res.json( { Message: "Error inside server" } );
         return res.json( result );
-    } );
+    } );
+} );
+
+app.get("/viewobituary", (req, res) => {
+    const q = "SELECT * FROM amarar.obituary";
+    db.query(q, (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Internal Server Error' });
+        }
+        return res.status(200).json(data);
+    });
+});
+
+app.get("/viewremembrance", (req, res) => {
+    const q = "SELECT * FROM amarar.remembrance";
+    db.query(q, (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Internal Server Error' });
+        }
+        return res.status(200).json(data);
+    });
+});
+
+//Admin login
+app.post('/login' , (req , res) => {
+    const sql = "SELECT * FROM admin WHERE Username = ? AND Password = ? ";
+
+    db.query(sql , [req.body.email,req.body.password] , (err,data) => {
+        if(err) return res.json("Login failed");
+        if(data.length > 0){
+            return res.json("Login Successfull");
+        }else{
+            return res.json("No record");
+        }
+
+    })
+        
+
+    
+})
+
+
+app.listen( 8081, () =>
+{
+    console.log( "listening on 8081" );
 } );
-
-// for edit form data
-app.put( '/edit/:id', ( req, res ) =>
-{
-    const sql = 'UPDATE obituary SET `fName` =?, `lName` =?, `dob` =?, `dod` =?, `country` =?, `city` =?, `religion` =?, `title` =?, `donation` =?, `description` =?, `userName` =?, `userEmail` =?, `contactNo` =?, `nic` =?, `time` =NOW() WHERE ID = ?';
-
-    const id = req.params.id;
-    db.query( sql, [
-        req.body.fname,
-        req.body.lname,
-        req.body.dob,
-        req.body.dod,
-        req.body.country,
-        req.body.city,
-        req.body.religion,
-        req.body.title,
-        req.body.donation,
-        req.body.description,
-        req.body.name,
-        req.body.email,
-        req.body.contactNo,
-        req.body.nic,
-        id ], ( err, result ) =>
-    {
-        if ( err ) return res.json( { Message: "Error inside server" } );
-        return res.json( result );
-    } )
-} )
-
-// for delete function
-app.delete( '/delete/:id', ( req, res ) =>
-{
-    const sql = "DELETE FROM obituary WHERE ID = ?";
-
-    const id = req.params.id;
-    db.query( sql, [ id ], ( err, result ) =>
-    {
-        if ( err ) return res.json( { Message: "Error inside server" } );
-        return res.json( result );
-    } )
-} )
-
 app.listen( 8081, () =>
 {
     console.log( "listening on 8081" );
