@@ -4,14 +4,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import pages
-import UserDashObituary from './pages/UserDashObituaryHome';
+import Create from './pages/Create'
 
 function App ()
 {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={ <UserDashObituary /> } />
+        <Route path='/contactus' element={<Create />}></Route>
       </Routes>
     </BrowserRouter>
   );
