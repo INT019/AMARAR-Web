@@ -3,6 +3,19 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+
+//Donation User
+import AddDonation from "./pages/AddDonation";
+import DonationUser from "./pages/DonationsUser";
+import DonationUserDash from './pages/UserDashDonation';
+
+//Donation Admin
+import AdminDashDonation from './pages/AminDashDonation';
+import FetchDonation from './pages/FetchDonation';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
+
 // import pages
 
 // obituary pages
@@ -25,16 +38,26 @@ import RemembranceNav from './components/RemembranceNav';
 import ShareRemembrance from './pages/ShareRemembrance';
 import Home from './pages/Home';
 
+
 function App ()
 {
   return (
     <BrowserRouter>
       <Routes>
 
-        <Route path='/home' element={ <Home /> } />
+    <Route path="/donations" element={<AddDonation/>}/>
+    <Route path="/viewdonation" element={<DonationUser/>}/>
+    <Route path="/donationUserDash" element={<DonationUserDash/>}/>
 
-        {/* Obituary Function */ }
-        <Route path='/' element={ <UserDashObituaryHome /> } />
+    <Route path="/donationAdminDash" element={<AdminDashDonation/>}/>
+    <Route path="/donation/:id" element={<FetchDonation/>}/>
+    <Route path="/adminlogin" element={<AdminLogin/>}/>
+    <Route path="/admindashboard" element={<AdminDashboard/>}/>
+
+    <Route path='/home' element={ <Home /> } />
+
+            {/* Obituary Function */ }
+            <Route path='/' element={ <UserDashObituaryHome /> } />
         <Route path='/create' element={ <CreateObituary /> } />
         <Route path='/read/:id' element={
           <>
@@ -42,6 +65,8 @@ function App ()
             <DescriptionObituary />
           </>
         } />
+
+        
         {/* <Route path='/readDescription/:id' element={ <DescriptionObituary /> } /> */ }
         <Route path='/readTribute/:id' element={ <TributeObituary /> } />
         <Route path='/readDonation/:id' element={ <DonationObituary /> } />
@@ -60,8 +85,10 @@ function App ()
         } />
         <Route path='/readTribute-remembrance/:id' element={ <TributeRemembrance /> } />
         <Route path='/edit-remembrance/:id' element={ <EditRemembrance /> } />
-      </Routes >
-    </BrowserRouter >
+      </Routes>
+    </BrowserRouter>
+
+      
   );
 }
 

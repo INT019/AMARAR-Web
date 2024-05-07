@@ -1,0 +1,48 @@
+.adminside-navbar{
+   background-color: #fff;
+   height: 95vh;
+   width: 4vw;
+   border-radius: 0 0 15px 15px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   margin-top: -2.8%;
+}
+
+.dash-container{
+   width: 80vw;
+   display: block;
+}
+
+.com-logo{
+   width: 3.5vw;
+   height: 3.5vh;
+   margin-left: 1.5px;
+   margin-top: 8%;
+}
+
+.sidebar-icon{
+   width: 25px;
+   height: 25px;
+
+}
+
+.admin-top-icons-ul , .logout-link {
+   justify-content: center;
+   display: block;
+}
+
+.admin-top-icon-li {
+   padding-bottom: 20px;
+   list-style: none;
+}
+
+.logout-link{
+   padding-top: 100px;
+}
+
+.middle-icons{
+   padding-top: 20px;
+}
+
+.nav-hr{
+   margin-left: 5px;
+}

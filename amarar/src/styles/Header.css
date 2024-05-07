@@ -1,0 +1,124 @@
+*{
+  font-family: Manuale;
+}
+
+.full-header{
+  position: absolute;
+  width: 100%;
+  height: 130px;
+  display: block;
+  margin-top: 5%;
+
+}
+
+.upper-header{
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  display: flex;
+  margin-top: -10%;
+  margin-left: -5%;
+}
+
+.lower-header{
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background-color: #326346;
+  margin-left: -4.9%;
+  border-radius: 0  0 20px 20px;
+  margin-top: -4.4%;
+ 
+}
+
+.logo-img img{
+  position: absolute;
+  width: 160px;
+  height: 60px;
+  margin-top: 1%;
+
+}
+
+.nav-link-set{
+  position: absolute;
+  margin-left: 28%;
+  margin-top: 2%;
+
+}
+.header-link-nav{
+  width: 80vw;
+}
+
+.header-link-ul{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 5%;
+}
+
+.header-link-li{
+  list-style: none;
+  margin-right: 6%;
+}
+
+.nav-link-set .header-link-a{
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-and-icons{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  margin-left: 78%;
+  margin-top: 1.5%;
+  gap: 15%;
+}
+
+.header-web{
+  width: 34px;
+  height: 34px;
+}
+
+.header-account{
+  width: 45px;
+  height: 45px;
+}
+
+.create-post{
+  width: 180px;
+  height: 32px;
+  background-color: #326346;
+  border-style:solid;
+  border-color: #326346;
+  color: #fff;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  justify-content: center;
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lower-header .header-search{
+  width: 300px;
+  height: 30px;
+  background-color: #fff;
+  position: absolute;
+  margin-left: 78%;
+  border-radius: 20px;
+  margin-top: 0.6%;
+  display: flex;
+  align-items: center;
+}
+.search-text{
+  margin-left: 10%;
+  color: darkgrey;
+}
+.search-icon img{
+  width: 30px;
+  height: 30px;
+  margin-left: 500%;
+}

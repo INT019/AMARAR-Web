@@ -1,0 +1,120 @@
+*{
+    font-family: Manuale;
+}
+
+
+body{
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.admin-login-page{
+    
+}
+
+.admin-login-page-container{
+    width: 100%;
+    display: flex;
+}
+.admin-login-image-side{
+    width: 50%;
+    height: 80vh;
+    background-color: #fff;
+    border: 2px solid #326346;
+    text-align: center;
+    color: #326346;
+    padding-top: 4%;
+}
+.admin-login-imageside-h3{
+    font-weight: bolder;
+}
+
+.admin-login-form-side{
+    width: 50%;
+    height: 80vh;
+    background-color:rgba(50, 99, 70, 0.8);
+
+}
+.admin-login-form{
+    display: block;
+    background-color: #fff;
+    width: 80%;
+    height: 60vh;
+    margin-left: 10%;
+    margin-top: 10%;
+    border-radius: 20px;
+    padding-top: 4%;
+   
+    
+}
+.admin-login-hr{
+    width: 80%;
+    margin-left: 10%;
+    border-top: 5px solid #326346 !important;
+}
+
+.admin-login-form-top{
+    text-align: center;
+    display: block;
+    color: #326346;
+
+}
+
+.admin-login-form-data{
+    display: block;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 10%;
+    margin-top: 4%;
+}
+.admin-username{
+    display: block;
+}
+.admin-password{
+    display: block;
+    margin-top: 5%;
+}
+
+.admin-input{
+    width: 100%;
+    height: 30px;
+    background-color: darkgrey;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+.admin-login-check-box{
+    display: flex;
+    margin-left: 20%;
+    margin-top: 2%;
+}
+.admin-check-box{
+    cursor: pointer;
+}
+.chechbox-p{
+    margin-left: 5%;
+    margin-top: 3%;
+}
+.admin-login-button-and-link{
+    display: block;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 5%;
+    
+}
+
+.admin-forgot-password-link{
+   text-decoration: none;
+   color: black;
+   margin-left: 65%;
+
+}
+.admin-forgot-password{
+    margin-top: 10%;
+}
+
+.admin-login-btn{
+    width: 100%;
+    height: 30px;
+    background-color: #326346;
+}
