@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //Donation User
 import AddDonation from "./pages/AddDonation";
 import DonationUser from "./pages/DonationsUser";
-import ObituaryPostPage from './pages/ObituaryPostPage';
 import DonationUserDash from './pages/UserDashDonation';
 
 //Donation Admin
