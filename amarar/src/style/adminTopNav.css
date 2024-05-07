@@ -1,0 +1,32 @@
+.topNav-container{
+    background-color: #fff;
+    width: 85vw;
+    height: 50px;
+    border-radius: 0px 0 10px 10px;
+    align-items: center;
+    padding-top: 0.5%;
+    margin-left: 15%;
+}
+
+.admin-topNav-ul{
+    justify-content: flex-end;
+    display: flex;
+    gap: 5%;
+    margin-right: 5%;
+}
+
+.acc-icon  {
+    width: 35px;
+    height: 35px;
+}
+
+.notify-icon{
+   width: 25px;
+   height: 25px;
+   
+}
+
+.admin-topNav-li{
+    list-style: none;
+    
+}

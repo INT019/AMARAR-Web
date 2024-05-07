@@ -1,0 +1,211 @@
+*{
+    font-family: Manuale;
+}
+
+body{
+    max-width: 100%;
+    
+}
+
+.admin-dash-donation-container{
+    display: block;
+    width: 100%;
+    height: 100%;
+   
+
+}
+
+.donation-contain-top-bar{
+    display: flex;
+}
+.admindash-downarrow{
+    width: 15px;
+    height: 15px;
+    margin-left: 25%;
+}
+
+.donation-contain{
+  position: absolute;
+  margin-top: 5%;
+
+  width: 80%;
+  margin-left: 10%;
+
+}
+
+.donation-admin-dash-bottom-contain{
+    display: flex;
+}
+
+.admin-dash-side-nav{
+   margin-top: -10%;
+    
+}
+.admin-dash-donation-topnav{
+    margin-top: -3%;
+    margin-left: -10%;
+}
+
+table{
+    border-radius: 5%;
+    width: 50%;
+     font-size: 18px;
+    margin-top: 10%;
+    margin-left: 12%;
+  
+    
+
+}
+.table thead tr th{
+    background-color: #326346;
+    color: #fff;
+    font-weight: normal;
+}
+
+.table tbody td{
+    border-color: #326346;
+    border-width:1px;
+    
+}
+.donation-type-filter{
+    margin-bottom: 5%;
+    width: 20%;
+    height: 2%;
+    margin-bottom: 5%;
+}
+
+.dropdown-btn{
+    background-color: #fff;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    padding: 5%;
+    padding-left: 15px;
+    cursor: pointer;
+    margin-left: 165%;
+   box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.dropdown-content{
+    background-color: #fff;
+    font-size: 18px;
+    padding-top: 2%;
+    width: 42%;
+    margin-left: 165%;
+    
+    
+}
+.dropdown-item{
+    width: 100%;
+    
+}
+.status-dropdown-btn{
+    background-color: #fff;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    padding: 5%;
+    cursor: pointer;
+    box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    margin-left: 300%;
+
+}
+
+.status-dropdown-content{
+    background-color: #fff;
+    font-size: 18px;
+    padding-top: 2%;
+    width: 100%;
+    margin-left: 300%;
+    
+    
+
+}
+.status-dropdown-item{
+    width: 100%;
+   border: 0.5px solid black;
+   padding: 2px;
+   margin-bottom: 1px;
+   justify-content: center;
+}
+
+.donation-table{
+
+    margin-right: 20%;
+    
+  
+}
+
+.admin-donation-table-th,
+.admin-donation-table-td {
+    width: 80px; /* Adjust the width according to your requirement */
+    /* You can also use percentages, pixels, or any other unit to set the width */
+}
+
+
+.dropdown-item {
+  border: 1px solid #326346;
+  padding-left: 25%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-bottom: 1px;
+  cursor: pointer;
+ 
+  }
+  .btn{
+    margin-top: 5%;
+    margin-left: 85%;
+  }
+
+  .btn a{
+    color: #fff;
+    background-color: #326346;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    
+  }
+  .admin-dash-donation-search{
+    position: absolute;
+    width: 25%;
+    height: 40px;
+    background-color: #fff;
+    margin-left: 65%;
+    box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    color: darkgrey;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+.admin-dash-donation-search p{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.admin-dash-search-img{
+    width: 35px;
+    height: 35px;
+    margin-left: 15%;
+
+}
+.donation-id{
+    text-decoration: none;
+    color: black;
+}
+
+.btn-admin-dash-new-donation{
+    margin-top: 10%;
+    margin-left: 100%;
+    background-color: #326346;
+    border-radius: 5px;
+    width: 120px;
+    height: 30px;
+   
+}
+
+.btn-admin-dash-new-donation a{
+    text-decoration: none;
+    color: #fff;
+    margin-left: 10px;
+    
+}

@@ -1,0 +1,52 @@
+.user-side-navbar{
+    background-color: #fff;
+    height: 72vh;
+    width: 15vw;
+    padding-top: 2%;
+    border-radius: 0 0 15px 15px;
+    margin-left: -6%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .dash-container{
+    width:100%;
+    height: 100%;
+    margin-top: 10%;
+ }
+ 
+ .com-logo{
+    width: 4vw;
+    height: 3.5vh;
+    margin-bottom: 50px;
+    margin-left: 0.5px;
+    margin-top: -30px;
+ }
+ 
+ .sidebar-icon{
+    width: 25px;
+    height: 25px;
+    margin-left: -12px;
+    margin-right: 10px;
+ }
+ 
+ .user-sidebar-ul-top , .user-sidebar-ul-middle {
+    justify-content: center;
+    display: block;
+ }
+ 
+ .user-sidebar-li {
+    padding-bottom: 20px;
+    list-style: none;
+    display: flex;
+ }
+ 
+ .logout-link{
+   margin-top: -35%;
+ }
+ 
+ .user-sidebar-ul-middle{
+    padding-top: 20px;
+ }
+.nav-hr{
+   margin-left: 5px;
+}

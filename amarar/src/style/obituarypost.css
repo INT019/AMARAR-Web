@@ -1,0 +1,109 @@
+*{
+    font-family: Manuale;
+}
+
+.obituary-post-view-page{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.obituary-post-view-page-header{
+    padding-bottom: 10%;
+
+}
+
+.obituary-frame{
+    position: absolute;
+    width: 850px;
+    height: 570px;
+    background-image: url(../images/obituaryframe.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    margin-left: 20%;
+    padding-top: 5%;
+}
+
+.small-box{
+    width: 25%;
+    height: 12%;
+    background-color: #D9D9D9;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    margin-left: 32%;
+    padding-left: 4%;
+    padding-top: 1%;
+}
+
+.small-box h5{
+    font-size: 16px;
+}
+
+.dates h4{
+    font-size: 18px;
+}
+.obituary-post-view-navigation-bar{
+    position: absolute;
+    margin-top: 38.2%;
+    margin-left: 20%;
+}
+
+.postNav{
+
+    width: 750px;
+    height: 50px;
+    margin-top: 0px;
+    align-items: center;
+}
+
+.postNav ul li button{
+    font-size: 20px;
+}
+
+.dates{
+    display: flex;
+    margin-top: 10%;
+}
+
+.postNav{
+    background-color: black;
+    height: 52px;
+    margin-top: -10px;
+}
+
+.postNav ul{
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+.postNav ul li{
+   margin-right: 8%;
+   
+}
+
+.postNav button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 24px;
+    height: 45px;
+   
+}
+
+.postNav button.active {
+    width: auto;
+    height: 52px;
+    background-color: white;
+    color: black;
+    margin-top: 0px;
+    border-radius: 0px;
+}
+
+.obituary-post-view-page-footer{
+    margin-top: 80%;
+    
+    
+}

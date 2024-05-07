@@ -1,0 +1,109 @@
+*{
+    font-family: Manuale;
+}
+body{
+    max-width: 100%;
+}
+.donation-dash-container{
+    overflow-y: hidden;
+}
+.table-contain-user-dash{
+    width: 100%;
+    margin-left: -100%;
+}
+.donation-dash-bottom-contain{
+    display: flex;
+}
+.donation-user-dash-sidebar{
+
+    margin-top: -4.1%;
+    position: absolute;
+}
+.donation-user-dash-data-contain{
+    display: block;
+    position: absolute;
+    margin-left: 70%;
+    align-items: center;
+
+}
+
+.table-user-dash{
+    font-size: 18px;
+    width: 50vw;
+    height: 20vh;
+   margin-top: 10%;
+ 
+  
+   
+}
+
+.table-user-dash thead tr th{
+    background-color: #326346;
+    color: #fff;
+    font-weight: normal;
+}
+
+.table-user-dash tbody td{
+    border-color: #326346;
+    border-width:1px;
+    background-color: #fff;
+
+}
+
+
+.btn-user-dash-new-donation{
+    margin-top: 10%;
+    background-color: #326346;
+    border-radius: 5px;
+    width: 120px;
+    height: 30px;
+   
+}
+
+.btn-user-dash-new-donation a{
+    text-decoration: none;
+    color: #fff;
+    margin-left: 10px;
+    
+}
+
+.table-user-dash th{
+    height: 5vh;
+    padding-left: 10px;
+}
+
+.table-user-dash tr{
+    border-radius: 10px;
+}
+
+.filter-user-dash{
+    width: 20%;
+    margin-left: 25%;
+}
+
+.donation-user-dash-data-contain{
+    margin-top: 10%;
+}
+.user-dash-footer{
+    width: 100%;
+    margin-top: 42%;
+    margin-left: -0.65%;
+
+
+}
+.dropdown-btn-user{
+    background-color: #fff;
+    font-size: 18px;
+    padding: 5%;
+    padding-left: 10%;
+    width: 100%;
+    border-radius: 5px;
+  
+
+}
+
+.downarrow{
+    width: 15px;
+    height: 15px;
+    margin-left: 50%;
+}
