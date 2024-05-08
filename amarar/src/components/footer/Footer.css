@@ -1,68 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Manuale:ital,wght@0,300..800;1,300..800&display=swap');
+/* footer.css */
 
-.full-footer {
-    width: 100%;
-    position: absolute;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: -1px;
-    margin-left: -5%;
-    margin-top: -1.5%;
-}
-
-.upper-footer {
-    width: 100%;
-    height: 60px;
-    margin-bottom: -76px;
-    background-color: black;
-    position: relative;
-    color: #fff;
-}
-
-.lower-footer {
-    width: 100%;
-    height: 35px;
-    position: relative;
-    background-color: #696969;
-    margin-top: 5%;
-    color: #fff;
-}
-
-.footer-links {
-    position: relative;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0px;
-}
-
-.footer-link-list ul {
-    display: flex;
+.footer-container {
+    font-family: 'Heebo', sans-serif; /* Use the Heebo font as specified in your @import */
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    padding: 10px 0; /* Adjust padding to your preference */
+    text-align: center; /* Center the text */
+  }
+  
+  .footer-links {
     list-style: none;
     padding: 0;
-    gap: 70px;
-}
-
-.footer-link-list ul li a {
-    text-decoration: none !important;
-    color: #fff;
-    font-size: 18px;
-}
-
-.lower-footer-text {
-    position: relative !important;;
-    display: flex;
-text-align: center;
-align-items: center;
-justify-content: center;
-    font-size: 14px;
-    padding: 7px 0px;
-}
-
-.copyright::before {
-    content: "\00A9";
-    margin-left: 1.5px;
-    margin-right: 1.5px;
-}
+    margin: 0; /* Remove default margin */
+  }
+  
+  .footer-links li {
+    display: inline; /* Display links in a row */
+    margin: 0 15px; /* Space out the links */
+  }
+  
+  .footer-links a {
+    color: #fff; /* White text for links */
+    text-decoration: none; /* No underline */
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  .footer-copy {
+    font-size: 14px; /* Choose an appropriate font size */
+    margin-top: 5px; /* Space between links and copyright text */
+  }
