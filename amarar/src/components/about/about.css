@@ -1,0 +1,62 @@
+
+:root {
+    --bg-color: #326346;
+}
+
+.navbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px 5%;
+    font-family: 'Heebo';
+}
+.logo {
+    width: 130px;
+    cursor: pointer;
+}
+
+ul {
+    flex: 1;
+    list-style: none;
+    text-align: center;
+   
+}
+
+ul li {
+    display: inline-block;
+    margin: 40px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.web {
+    
+    width: 50px;
+    cursor: pointer;
+    margin: 30px;
+}
+
+.toggle-icon {
+    width: 50px;
+    cursor: pointer;
+    margin-left: 40px;
+}
+
+.btn{
+    
+    background: transparent;
+    border: 1px solid var(--bg-color);
+    padding: 10px 10px;
+    font-size: 1.1rem;
+    color: #000000;
+    background: #e9e4e4;
+    border-radius: 50px;
+}
+.btn:hover {
+    color: #ffffff;
+    background: #326346;
+
+}

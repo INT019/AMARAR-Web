@@ -7,8 +7,95 @@ import path from "path";
 
 const app = express();
 
+
 app.use(cors());
 app.use(express.json());
+
+// Nodemailer transporter setup
+const transporter = nodemailer.createTransport({
+  host: 'smtp.example.com',
+  port: 587,
+  secure: false, // true for 465, false for other ports
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+const promisePool = pool.promise();
+
+// Route for forgot password
+app.post('/forgot-password', async (req, res) => {
+  const { email } = req.body;
+
+  if (!email || !email.trim()) {
+    return res.status(400).json({ message: 'Please enter a valid email address.' });
+  }
+
+  try {
+    const OTP = Math.floor(Math.random() * 1000000).toString().padStart(6, '0'); // Generate OTP
+    const mail_configs = {
+      from: process.env.EMAIL_ADDRESS,
+      to: email,
+      subject: 'KODING 101 Password Recovery',
+      html: `<!DOCTYPE html>
+        <html>
+        <body>
+          <p>Your OTP is: ${OTP}</p>
+        </body>
+        </html>`,
+    };
+
+    await transporter.sendMail(mail_configs);
+    console.log('Email sent successfully to:', email);
+    return res.status(200).json({ message: 'Email sent with OTP' });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: 'An error occurred while sending the OTP.' });
+  }
+});
+
+// Route for user signup
+app.post('/signup', async (req, res) => {
+  const sql = 'INSERT INTO users (firstname, lastname, email, contact, username, password) VALUES (?, ?, ?, ?, ?, ?)';
+  const values = [
+    req.body.firstname,
+    req.body.lastname,
+    req.body.email,
+    req.body.contact,
+    req.body.username,
+    req.body.password,
+  ];
+
+  try {
+    const [rows, fields] = await promisePool.query(sql, values);
+    return res.json(rows);
+  } catch (err) {
+    console.error(err);
+    return res.json('Error');
+  }
+});
+
+// Route for user login
+app.post('/login', async (req, res) => {
+  const sql = 'SELECT * FROM users WHERE username = ? AND password = ?';
+  const values = [
+    req.body.username,
+    req.body.password,
+  ];
+
+  try {
+    const [rows, fields] = await promisePool.query(sql, values);
+    if (rows.length > 0) {
+      return res.json({ success: true });
+    } else {
+      return res.json({ success: false });
+    }
+  } catch (err) {
+    console.error(err);
+    return res.json({ success: false });
+  }
+});
 
 // for access images to display
 app.use("/backend/uploads", express.static("uploads"));

@@ -1,35 +1,28 @@
-import React from 'react'
-import './Footer.css';
+import React from "react"
+import './footer.css'
 
-function Footer ()
-{
-    return (
-        <div className='full-footer'>
-            <div className='upper-footer'>
-                <div className='footer-links'>
-                    <nav className='footer-link-list'>
-                        <ul>
-                            <li><a href='#'>About Us</a></li>
-                            <li><a href='#'>Terms of Use</a></li>
-                            <li><a href='#'>Company Policy</a></li>
-                            <li><a href='#'>Help</a></li>
-                            <li><a href='/adminlogin'>Admin</a></li>
-
-                        </ul>
-                    </nav>
-
-                </div>
-
-            </div>
-            <div className='lower-footer'>
-                <div className='lower-footer-text'>
-                    <div>amarar.net</div><div className='copyright'>2023.All Rights Reserved.</div>
-                </div>
-
-            </div>
-
+export default function Footer () {
+  return (
+     <div className="main_f">
+      <div className="container">
+        
+      </div>
+      <div className="row">
+          <div className="col">
+            <ul>
+              <li><h3>About Us</h3></li>
+              <li><h3>Tream of Use</h3></li>
+              <li><h3>Company Policy</h3></li>
+              <li><h3>Help</h3></li>
+            </ul>
+          </div>
         </div>
-    )
-}
+     
+        <p className="col-sm">
+          amarar.net &copy;{new Date().getFullYear()}|All Rights Reserved.
+        </p>
+      </div>
 
-export default Footer
+     
+  )
+}
