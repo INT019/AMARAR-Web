@@ -28,7 +28,7 @@ body{
 .donation-user-dash-data-contain{
     display: block;
     position: absolute;
-    margin-left: 70%;
+    margin-left: 120%;
     align-items: center;
 
 }
@@ -58,11 +58,12 @@ body{
 
 
 .btn-user-dash-new-donation{
-    margin-top: 5%;
     background-color: #326346;
     border-radius: 5px;
     width: 120px;
     height: 30px;
+    margin-left: -100%;
+    margin-top: 5%;
    
 }
 

@@ -197,8 +197,8 @@ function UserDashObituaryHome ()
                 </div>
 
                 {/* for navigate to create post page */ }
-                <div className='grid-item grid-item-6'>
-                    <button className='create-btn'>
+                <div className='grid-item grid-item-6' >
+                    <button className='create-btn' >
                         <Link
                             to="/create"
                             style={ {

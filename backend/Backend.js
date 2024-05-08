@@ -112,7 +112,7 @@ app.get( '/ob-fun', ( req, res ) =>
 
 {
 
-    const sql = "SELECT * FROM donations WHERE ID = ?";
+    const sql = "SELECT * FROM obituary WHERE ID = ?";
 
     const id = req.params.id;
     db.query( sql, [ id ], ( err, result ) =>

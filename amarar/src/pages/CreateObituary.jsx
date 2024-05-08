@@ -222,7 +222,7 @@ function ObituaryForm ()
             .then( res =>
             {
                 console.log( res );
-                navigate( '/' );
+                navigate( '/userDashObituary' );
             } )
             .catch( err =>
             {

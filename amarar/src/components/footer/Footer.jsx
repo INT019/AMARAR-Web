@@ -13,6 +13,8 @@ function Footer ()
                             <li><a href='#'>Terms of Use</a></li>
                             <li><a href='#'>Company Policy</a></li>
                             <li><a href='#'>Help</a></li>
+                            <li><a href='/adminlogin'>Admin</a></li>
+
                         </ul>
                     </nav>
 
