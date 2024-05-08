@@ -5,8 +5,8 @@ import { formatDistanceToNow } from 'date-fns';
 import { Dropdown } from 'react-bootstrap';
 import { Buffer } from 'buffer';
 import Header from '../components/header/Header';
-import SideNav from '../components/sideNav/SideNav';
 import Footer from '../components/footer/Footer';
+import UserSidebar from '../components/UserSidebar';
 
 // css
 import '../styles/UserRemembranceHome.css'
@@ -60,7 +60,7 @@ function UserRemembranceHome ()
                 </div>
 
                 <div className="grid-item grid-item-2">
-                    <SideNav />
+                    <UserSidebar />
                 </div>
 
                 <div className="grid-item grid-item-3">

@@ -4,12 +4,12 @@ import axios from 'axios';
 import { formatDistanceToNow } from 'date-fns';
 import { Dropdown } from 'react-bootstrap';
 import { Buffer } from 'buffer';
+import UserSidebar from '../components/UserSidebar';
 
 // pages
 import Header from '../components/header/Header';
 import '../styles/UserDashObituaryHome.css';
 import Footer from '../components/footer/Footer';
-import SideNav from '../components/sideNav/SideNav';
 
 function UserDashObituaryHome ()
 {
@@ -84,7 +84,7 @@ function UserDashObituaryHome ()
                 </div>
 
                 <div className="grid-item grid-item-2">
-                    <SideNav />
+                   <UserSidebar/>
                 </div>
 
                 <div className="grid-item grid-item-3">

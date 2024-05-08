@@ -20,10 +20,15 @@
     max-width: 100%;
     position: absolute;
     display: block;
+
   
-   
-    
-  
+  }
+  .add-donation-header-conatin{
+    width: 90%;
+  }
+
+  .add-donation-input{
+    background-color: #fff;
   }
 
   .add-donation-form-conatin{

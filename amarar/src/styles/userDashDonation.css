@@ -5,6 +5,7 @@ body{
     max-width: 100%;
 }
 .donation-dash-topnav-contain{
+    width: 100%;
     margin-top: -1%;
     margin-bottom: 1%;
 }
@@ -12,6 +13,7 @@ body{
 .table-contain-user-dash{
     width: 100%;
     margin-left: -100%;
+  
 }
 .donation-dash-bottom-contain{
     display: flex;
@@ -35,8 +37,8 @@ body{
     font-size: 18px;
     width: 50vw;
     height: 20vh;
-
- 
+    margin-top: 10%;
+   
   
    
 }
@@ -83,6 +85,8 @@ body{
 .filter-user-dash{
     width: 20%;
     margin-left: 25%;
+    margin-top: -20%;
+    margin-bottom:5%;
 }
 
 .donation-user-dash-data-contain{
@@ -102,6 +106,7 @@ body{
     padding-left: 10%;
     width: 100%;
     border-radius: 5px;
+ 
   
 
 }
@@ -110,4 +115,5 @@ body{
     width: 15px;
     height: 15px;
     margin-left: 50%;
+    
 }

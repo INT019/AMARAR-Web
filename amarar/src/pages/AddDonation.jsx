@@ -77,13 +77,13 @@ export default function AddDonation() {
                         </div>
                         <div className='donation-form-data-first3-input'>
                             <div>
-                            <input id='username' type='text' onChange={handleChange} name='username' required></input>
+                            <input className='add-donation-input' id='username' type='text' onChange={handleChange} name='username' required></input>
                             </div>
                             <div>
-                            <input id='email' type='text' onChange={handleChange} name='email'></input>
+                            <input className='add-donation-input' id='email' type='text' onChange={handleChange} name='email'></input>
                             </div>
                             <div>
-                            <input id='contact' type='text' onChange={handleChange} name='contact'></input>
+                            <input className='add-donation-input' id='contact' type='text' onChange={handleChange} name='contact'></input>
                             </div>                 
                         </div>
 
@@ -114,7 +114,7 @@ export default function AddDonation() {
                     <div className='donation-form-message'>
                         <label>Message:</label>
                         <p>Ex : I am sorry for your lost</p>
-                        <input type='text' id='comment' onChange={handleChange} name='comment'></input>
+                        <input className='add-donation-input' type='text' id='comment' onChange={handleChange} name='comment'></input>
                         
 
                     </div>

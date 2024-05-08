@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manuale:ital,wght@0,300..800;1,300..800&display=swap');
 
 body {
+  max-width: 100%;
   margin: 0;
   font-family: 'Manuale',sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -9,7 +10,7 @@ body {
 
 .full-header {
   position: relative;
-  width: 100%;
+  width: 111%;
   display: block;
   margin: 82px 0px 0px 0px;
 }
