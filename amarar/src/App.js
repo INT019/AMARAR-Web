@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, {useState , useEffect} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -40,11 +40,33 @@ import ShareRemembrance from './pages/ShareRemembrance';
 import Home from './pages/Home';
 
 
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
+import ForgotPassword from './components/ForgotPassword';
+import ForgotPasswordconf from './components/Forgetpasswordconf';
+
+
+
+
 import Create from './pages/Create'
 
 
 function App ()
 {
+    // Define state variables for data and setData
+    const [data, setData] = useState([]);
+    const [email, setEmail] = useState();
+    const [otp, setOTP] = useState();
+  
+    useEffect(() => {
+      fetch('http://localhost:8081/users')
+        .then((res) => res.json())
+        .then((responseData) => setData(responseData))
+        .catch((err) => console.log(err));
+    }, []);
+  
+
+
   return (
     <BrowserRouter>
       <Routes>
@@ -92,6 +114,11 @@ function App ()
         <Route path='/edit-remembrance/:id' element={ <EditRemembrance /> } />
 
         <Route path='/contactus' element={<Create />}></Route>
+
+        <Route path='/' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='/forgot-password-confirmation' element={<ForgotPasswordconf />} />
 
       </Routes>
     </BrowserRouter>

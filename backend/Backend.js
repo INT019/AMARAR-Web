@@ -1,6 +1,10 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
+import nodemailer from 'nodemailer';
+
+// Your code here
+
 
 import multer from "multer";
 import path from "path";

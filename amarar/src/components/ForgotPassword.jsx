@@ -49,7 +49,7 @@ const ForgotPassword = () => {
         </form>
         <p><a href="/" className='b-log'> Back to Login </a></p>
 
-        <img src={require('../component/Assets/forget.png')} alt="forget" className='img' />
+        <img src={require('../components/Assets/forget.png')} alt="forget" className='img' />
       </div>
     </div>
   );
