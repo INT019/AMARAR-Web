@@ -115,7 +115,7 @@ function App ()
 
         <Route path='/contactus' element={<Create />}></Route>
 
-        <Route path='/' element={<Login />} />
+        <Route path='/Login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/forgot-password-confirmation' element={<ForgotPasswordconf />} />

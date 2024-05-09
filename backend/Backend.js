@@ -3,7 +3,7 @@ import mysql from "mysql";
 import cors from "cors";
 import nodemailer from 'nodemailer';
 
-// Your code here
+
 
 
 import multer from "multer";
@@ -26,7 +26,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const promisePool = pool.promise();
+
 
 // Route for forgot password
 app.post('/forgot-password', async (req, res) => {
@@ -72,7 +72,7 @@ app.post('/signup', async (req, res) => {
   ];
 
   try {
-    const [rows, fields] = await promisePool.query(sql, values);
+    const [rows, fields] = await db.query(sql, values);
     return res.json(rows);
   } catch (err) {
     console.error(err);
@@ -89,7 +89,7 @@ app.post('/login', async (req, res) => {
   ];
 
   try {
-    const [rows, fields] = await promisePool.query(sql, values);
+    const [rows, fields] = await db.query(sql, values);
     if (rows.length > 0) {
       return res.json({ success: true });
     } else {

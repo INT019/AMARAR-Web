@@ -31,7 +31,7 @@ export default function Signup() {
         axios.post('http://localhost:8081/signup', values)
         .then(res => {
            console.log(res);
-           navigate('/');
+           navigate('/Login');
         })
         .catch(err => {
            console.log(err);
@@ -76,7 +76,7 @@ export default function Signup() {
       <form action="" onSubmit={handleSubmit} className="form">
       <h2 className='signup'>SIGN UP</h2>
         <div className='register'>
-          <p>Already have an account? <Link to="/" className='log'>Login</Link></p>
+          <p>Already have an account? <Link to="/Login" className='log'>Login</Link></p>
         </div>
 
         <div className='personal'> 
